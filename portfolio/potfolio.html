@@ -1,0 +1,392 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<title>My Potfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport"content="width=device-width,initial-scale=1">
+<style>
+body{
+background:url("wallpaper.jpg") fixed center;
+background-size:cover;
+background-repeat:no-repeat;
+}
+.container{
+width:70%;
+height:480px;
+border-radius:10px 10px;
+border:4px solid orange;
+margin:0px auto;
+margin-top:13%;
+}
+.picturecontainer{
+margin:0px auto;
+width:25%;
+height:35%;
+border-radius:50%;
+position:relative;
+bottom:70px;
+background:#ddd;
+border:4px solid #ff3670;
+background-size:cover;
+overflow:hidden;
+}
+.profilepicture{
+width:100%;
+height:100%;
+background:url("salah.jpg") center;
+background-size:cover;
+border-radius:50%;
+cursor:pointer;
+transition:2s;
+}
+.profilepicture:hover{
+transform:scale(1.5);
+}
+.name{
+width:100%;
+height:7%;
+text-align:center;
+font-family:script mt;
+position:relative;
+bottom:70px;
+}
+.navbar{
+width:100%;
+height:8%;
+position:relative;
+bottom:70px;
+}
+.links{
+width:55%;
+height:100%;
+margin:0px auto;
+}
+.links button{
+float:left;
+width:30%;
+height:100%;
+margin:0px 5px auto;
+color:white;
+background:orange;
+border:none;
+cursor:pointer;
+border-radius:5px 5px;
+border:2px solid white;
+font-family:trebuchet ms;
+transition:0.8s;
+}
+.links button:focus{
+background:white;
+color:orange;
+border:2px solid orange;
+}
+.content{
+width:100%;
+background:orange;
+height:56.7%;
+border-radius:0px 0px 5px 5px;	
+position:relative;
+bottom:60px;
+}
+.prev{
+width:15%;
+height:100%;
+float:left;
+
+}
+.text{
+width:70%;
+height:100%;
+float:left;
+}
+.next{
+width:15%;
+height:100%;
+float:left;
+}
+.prev button{
+width:80%;
+height:28%;
+background:white;
+color:orange;
+font-size:50px;
+font-family:trebuchet ms;
+border:none;
+border-radius:50%;
+float:left;
+position:relative;
+top:38%;
+outline:none;
+cursor:pointer;
+transition:0.8s;
+}
+.next button{
+width:80%;
+height:28%;
+background:white;
+color:orange;
+font-size:50px;
+font-family:trebuchet ms;
+border:none;
+border-radius:50%;
+float:right;
+position:relative;
+top:38%;
+cursor:pointer;
+outline:none;
+transition:0.8s;
+}
+.prev button:hover{
+border:1px solid white;
+color:white;
+background:orange;
+}
+.next button:hover{
+border:1px solid white;
+color:white;
+background:orange;
+}
+.text h2{
+color:white;
+text-align:center;
+position:relative;
+top:23%;
+font-family:trebuchet ms;
+}
+@media screen and (max-width:900px){
+.container{
+width:90%;
+margin-top:28%;
+}
+.picturecontainer{
+width:45%;
+height:28%;
+}
+.links{
+width:80%;
+}
+.links button{
+margin:0px 3px auto;
+}
+.content{
+width:100%;
+background:orange;
+height:63.7%;
+}
+.next button{
+width:100%;
+height:15%;
+font-size:20px;
+}
+.prev button{
+width:100%;
+height:15%;
+font-size:20px;
+}
+.text h2{
+position:relative;
+top:5%;
+font-size:20px;
+}
+}
+</style>
+<head>
+<body>
+
+<div class="container">
+<div class="picturecontainer">
+<div class="profilepicture">
+
+</div>
+</div>
+<div class="name">
+<h2>Mohammed Salah</h2>
+</div>
+
+<div class="navbar" >
+<div class="links">
+<button id="btn1" onclick="about()">About</button>
+<button id="btn2" onclick="team()">Team</button>
+<button id="btn3" onclick="work()">Work</button>
+</div>
+</div>
+
+<div class="content">
+<div class="prev">
+<button onclick="prev()" id="prev"><</button>
+</div>
+<div class="text">
+<h2 id="txt">
+</h2>
+</div>
+<div class="next">
+<button  onclick="next()" id="next">></button>
+</div>
+
+</div>
+</div>
+<script>
+var x=0;
+var txt=document.getElementById("txt");
+var btn3=document.getElementById("btn3");
+var btn2=document.getElementById("btn2");
+var btn1=document.getElementById("btn1");
+function next(){
+if(x<=4){
+x++;
+switch(x){
+case 1:
+txt.innerHTML="The name is Mohammed Salah.I have 32 goals this season but my anoying friend Harry Kane passed me with only 2 goals and he recieved the golden boot."
+
+btn1.style.background="white";
+btn1.style.color="orange";
+btn1.style.border="solid orange";
+btn2.style.background="orange";
+btn2.style.color="white";
+btn2.style.border="solid white";
+btn3.style.background="orange";
+btn3.style.color="white";
+btn3.style.border="solid white";
+break;
+case 2:
+txt.innerHTML="I play as a striker for liverpool"
+btn1.style.background="orange";
+btn1.style.color="white";
+btn1.style.border="solid white";
+btn2.style.background="white";
+btn2.style.color="orange";
+btn2.style.border="solid orange";
+btn3.style.background="orange";
+btn3.style.color="white";
+btn3.style.border="solid white";
+break;
+case 3:
+txt.innerHTML="Love Playing for Liverpool,Liverpool Forever"
+btn1.style.background="orange";
+btn1.style.color="white";
+btn1.style.border="solid white";
+btn2.style.background="orange";
+btn2.style.color="white";
+btn2.style.border="solid white";
+btn3.style.background="white";
+btn3.style.color="orange";
+btn3.style.border="solid orange";
+break;
+default:
+txt.innerHTML="Explore Salah's Potfolio";
+btn1.style.background="orange";
+btn1.style.color="white";
+btn1.style.border="solid white";
+btn2.style.background="orange";
+btn2.style.color="white";
+btn2.style.border="solid white";
+btn3.style.background="orange";
+btn3.style.color="white";
+btn3.style.border="solid white";
+}
+}else{
+document.getElementById("next").disabled=true;
+x=4;
+}
+
+}
+
+
+function prev(){
+if(x<=4 && x>0){
+x--;
+switch(x){
+case 1:
+txt.innerHTML="The name is Mohammed Salah.I have 32 goals this season but my anoying friend Harry Kane passed me with only 2 goals and he recieved the golden boot."
+btn1.style.background="white";
+btn1.style.color="orange";
+btn1.style.border="solid orange";
+btn2.style.background="orange";
+btn2.style.color="white";
+btn2.style.border="solid white";
+btn3.style.background="orange";
+btn3.style.color="white";
+btn3.style.border="solid white";
+break;
+case 2:
+txt.innerHTML="I play as a striker for liverpool"
+btn1.style.background="orange";
+btn1.style.color="white";
+btn1.style.border="solid white";
+btn2.style.background="white";
+btn2.style.color="orange";
+btn2.style.border="solid orange";
+btn3.style.background="orange";
+btn3.style.color="white";
+btn3.style.border="solid white";
+break;
+case 3:
+txt.innerHTML="Love Playing for Liverpool,Liverpool Forever"
+btn1.style.background="orange";
+btn1.style.color="white";
+btn1.style.border="solid white";
+btn2.style.background="orange";
+btn2.style.color="white";
+btn2.style.border="solid white";
+btn3.style.background="white";
+btn3.style.color="orange";
+btn3.style.border="solid orange";
+break;
+default:
+txt.innerHTML="Explore Salah's Potfolio";
+btn1.style.background="orange";
+btn1.style.color="white";
+btn1.style.border="solid white";
+btn2.style.background="orange";
+btn2.style.color="white";
+btn2.style.border="solid white";
+btn3.style.background="orange";
+btn3.style.color="white";
+btn3.style.border="solid white";
+}
+}
+}
+
+function about(){
+x=1;
+txt.innerHTML="The name is Mohammed Salah.I have 32 goals this season but my anoying friend Harry Kane passed me with only 2 goals and he recieved the golden boot.";
+btn1.style.background="white";
+btn1.style.color="orange";
+btn1.style.border="solid orange";
+btn2.style.background="orange";
+btn2.style.color="white";
+btn2.style.border="solid white";
+btn3.style.background="orange";
+btn3.style.color="white";
+btn3.style.border="solid white";
+}
+
+function team(){
+x=2;
+txt.innerHTML="I play as a striker for liverpool";
+btn1.style.background="orange";
+btn1.style.color="white";
+btn1.style.border="solid white";
+btn2.style.background="white";
+btn2.style.color="orange";
+btn2.style.border="solid orange";
+btn3.style.background="orange";
+btn3.style.color="white";
+btn3.style.border="solid white";
+}
+function work(){
+x=3;
+txt.innerHTML="Love Playing for Liverpool,Liverpool Forever";
+btn1.style.background="orange";
+btn1.style.color="white";
+btn1.style.border="solid white";
+btn2.style.background="orange";
+btn2.style.color="white";
+btn2.style.border="solid white";
+btn3.style.background="white";
+btn3.style.color="orange";
+btn3.style.border="solid orange";
+}
+</script>
+</body>
+</html>

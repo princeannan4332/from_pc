@@ -1,0 +1,185 @@
+<!doctype html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Slider</title>
+<style>
+.container{
+width:60%;
+height:420px;
+position:relative;
+top:10px;
+border-radius:12px 12px;
+margin:0px auto;
+box-shadow:1px 1px 4px 4px rgba(0,0,0,0.3);
+background:url("a.jpg");
+background-size:cover;
+}
+.cursor1{
+opacity:0.9;
+width:10%;
+height:57px;
+border-radius:360px;
+background:blue;
+float:left;
+margin-top:-40%;
+text-align:center;
+font-size:26px;
+overflow:hidden;
+}
+.cursor2{
+opacity:0.9;
+width:10%;
+height:57px;
+border-radius:360px;
+float:right;
+margin-top:-40%;
+text-align:center;
+font-size:26px;
+overflow:hidden;
+background:#ff3266;
+}
+.cursor1 button{
+width:100%;
+cursor:pointer;
+height:100%;
+font-size:35px;
+border:none;
+color:white;
+background:black;
+}
+.cursor2 button{
+outline:none;
+width:100%;
+cursor:pointer;
+height:100%;
+font-size:35px;
+border:none;
+color:white;
+background:#ff3266;
+}
+.title{
+width:100%;
+height:100px;
+}
+.title h2{
+text-align:center;
+font-family:Script MT;
+font-size:32px;
+}
+#dot{
+font-size:50px;
+}
+#n:hover{
+cursor:pointer;
+animation:5s n infinite;
+}
+@keyframes n{
+10%{
+color:orangered;
+}
+20%{
+color:yellow;
+}
+40%{
+color:greenyellow;
+}
+60%{
+color:blue;
+}
+}
+.footer{
+width:40%;
+height:55px;
+margin:0px auto;
+position:relative;
+top:30px;
+}
+.side-pane{
+width:1.5%;
+background:black;
+height:100%;
+float:left;
+box-shadow:2px 0px 2px 0px rgba(0,0,0,0.5);
+}
+.footer h2{
+color:#ff3766;
+font-family:script MT;
+text-shadow:0.5px 0.5px rgba(0,0,0,0.5);
+}
+
+.footer-txt{
+width:97%;
+height:100%;
+float:left;
+}
+</style>
+</head>
+<body>
+<div class="title">
+<h2>My <span style="color:#ff3266;" id="n">Gallary</span><sup><span id="dot">.</span></sup></h2>
+</div>
+<div class="container" >
+<img src="a.jpg"id="container"style="width:100%; height:100%;border-radius:12px 12px;">
+<div class="cursor1">
+<button onclick="prev();"><</button>
+</div>
+<div class="cursor2">
+<button onclick="next();">></button>
+</div>
+</img>
+</div>
+<div class="footer">
+<div class="side-pane">
+
+</div>
+<div class="footer-txt">
+<h2 id="footer">Never Give Up No Matter What</h2>
+</div>
+</div>
+<script>
+var slider_img=document.querySelector('#container');
+var images=['a.jpg','b.jpg','c.jpg','d.jpg'];
+var i=0;
+function next(){
+if(i>=0 && i<images.length){
+return display();
+}
+}
+
+
+function prev(){
+if(i>0 && i<images.length){
+return reversedisplay();
+}
+}
+
+function display(){
+i++;
+slider_img.setAttribute('src',images[i]);
+return speech();
+}
+
+function reversedisplay(){
+i--;
+slider_img.setAttribute('src',images[i]);
+}
+
+function speech(){
+if(i==0){
+document.getElementById("footer").innerHTML="Never Give Up No Matter What";
+}
+if(i==1){
+document.getElementById("footer").innerHTML="Focus On The Future";
+}
+if(i==2){
+document.getElementById("footer").innerHTML="Remember One Thing God";
+}
+if(i==3){
+document.getElementById("footer").innerHTML="Time and Tide Wait's For No Man";
+}
+}
+
+</script>
+</body>
+</html>
