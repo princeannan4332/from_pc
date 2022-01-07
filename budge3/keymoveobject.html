@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Drawing Pad</title>
+<style>
+
+#canvas{
+border:1px solid black;
+width:100px;
+height:100px;
+background:red;
+}
+</style>
+</head>
+<body onkeypress="start(event)">
+<div id="canvas" ></div>
+
+<script>
+var canvas=document.getElementById("canvas");
+var x=0;
+function start(event){
+if(event.keyCode==100){
+x+=2;
+canvas.style.position="relative";
+canvas.style.left=x+"px";
+}
+if(event.keyCode==97){
+x-=2;
+canvas.style.position="relative";
+canvas.style.left=x+"px";
+}
+if(event.keyCode==119){
+x-=2;
+canvas.style.position="relative";
+canvas.style.top=x+"px";
+}
+if(event.keyCode==115){
+x+=2;
+canvas.style.position="relative";
+canvas.style.top=x+"px";
+}
+
+}
+</script>
+</body>

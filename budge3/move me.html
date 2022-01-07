@@ -1,0 +1,55 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<title>Move Me</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+.ball{
+width:15%;
+height:20%;
+background:purple;
+border-radius:12px 12px;
+animation:ball 3s linear;
+margin:5px 5px auto;
+}
+.stage{
+width:50%;
+background:grey;
+height:300px;
+margin:0px auto;
+overflow:hidden;
+background:-webkit-linear-gradient(29deg,#ff3720,#ff3680,#ff3250,#ff3670);
+}
+#txt{
+font-family:Tahoma;
+background:-webkit-linear-gradient(left,orangered,blue,#ff3670,greenyellow);
+text-align:center;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+</style>
+</head>
+<body>
+<h2 id="txt">Move Me</h2>
+<div class="stage">
+
+<div class="ball" >
+
+</div>
+
+</div>
+
+<input type="text" onkeypress="kick(event)" placeholder="keycode" id="inp">
+
+<script>
+var body=document.getElementById("body");
+function kick(event){
+var k=event.which || event.keyCode;
+document.getElementById("txt").innerHTML=k;
+}
+
+
+</scrpit>
+</body>
+</html>

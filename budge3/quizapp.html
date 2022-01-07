@@ -1,0 +1,338 @@
+<!doctype html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz App</title>
+<style>
+body{
+background:#0e6fe2;
+}
+.header{
+width:100%;
+height:80px;
+}
+.header h2{
+color:white;
+font-family:script MT;
+text-align:center;
+font-size:32px;
+}
+.counter{
+width:20%;
+height:150px;
+margin:0px auto;
+display:block;
+}
+.counter h2{
+color:white;
+font-size:150px;
+text-align:center;
+font-family:Tahoma;
+position:relative;
+bottom:20px;
+}
+.quiz-container{
+width:50%;
+display:none;
+height:440px;
+background:#0e4ff5;
+border-radius:12px 12px;
+margin:0px auto;
+margin-top:-12.5%;
+box-shadow:5px 2px 5px 2px rgba(0,0,0,0.5);
+}
+.clock-area{
+display:block;
+width:100%;
+height:13%;
+overflow:hidden;
+position:relative;
+top:3px;
+}
+.clock{
+max-width:20%;
+min-width:13%;
+height:100%;
+float:right;
+position:relative;
+right:10px;	
+background:#ff3766;
+border-radius:12px 12px;
+box-shadow:1px 0.5px 1px 0.5px rgba(0,0,0,0.5);
+text-align:center;
+}
+.main-content{
+width:100%;
+height:55%;
+border-bottom:5px white;
+}
+.button-area{
+width:100%;
+height:30%;
+background:#0e8ff8;
+border-radius:0px 0px 12px 12px;
+border-top:5px solid white;
+}
+.but-sec1{
+width:50%;
+height:100%;
+float:left;
+border-radius:0px 0px 0px 12px;
+}
+.but-sec2{
+width:50%;
+height:100%;
+float:left;
+border-radius:0px 0px 12px 0px;
+}
+.but-sec1 button{
+border:1px solid white;
+width:50%;
+height:30%;
+background:#0a1696;
+border-radius:3px 3px;
+color:gold;
+margin:15px;
+position:relative;
+right:50px;
+float:right;
+font-size:15px;
+cursor:pointer;
+box-shadow:3px 0.5px 3px 0.5px rgba(0,0,0,0.5);
+font-family:Trebuchet MS;
+outline:none;
+}
+.but-sec2 button{
+font-size:15px;
+outline:none;
+border:1px solid white;
+width:50%;
+height:30%;
+background:#0a1696;
+border-radius:3px 3px;
+margin:15px;
+position:relative;
+left:50px;
+color:gold;
+cursor:pointer;
+font-family:Trebuchet MS;
+box-shadow:3px 0.5px 3px 0.5px rgba(0,0,0,0.5);
+}
+.but-sec1 button:hover{
+border:1px solid gold;
+}
+.but-sec2 button:hover{
+border:1px solid gold;
+}
+.main-content{
+font-family:Trebuchet MS;
+color:white;
+position:relative;
+top:30px;
+}
+.clock h2{
+text-align:center;
+font-size:48px;
+position:relative;
+bottom:45px;
+font-family:tahoma;
+
+}
+</style>
+</head>
+<body id="body">
+<div class="header">
+<h2 id="header">Hey There</h2>
+</div>
+<div class="counter">
+<h2 id="counter">0</h2>
+</div>
+
+
+<div class="quiz-container" id="quiz">
+<div class="clock-area">
+<div class="clock">
+<h2 id="clock"></h2>
+</div>
+</div>
+<div class="main-content">
+<h2 id="quest">Which Food is Eaten In The Morning?</h2>
+
+</div>
+<div class="button-area">
+<div class="but-sec1">
+<button id="btn1" onclick="ansa()">A.Break Fast</button>
+<button id="btn2" onclick="ansb()">B.Supper</button>
+</div>
+<div class="but-sec2">
+<button id="btn3" onclick="ansc()">C.Launch</button>
+<button id="btn4" onclick="ansd()">D.Snack</button>
+</div>
+</div>
+</div>
+
+<script>
+
+var name=prompt("What is your name");
+var cname=name.charAt(0).toUpperCase()+name.slice(1);
+
+function AskName(){
+if(name !==null){
+document.getElementById("header").innerHTML="Hello "+cname+",Welcome To Quizzy";
+}
+}
+AskName();
+
+
+var numcounter=0;
+function countProccess(){
+document.getElementById("counter").innerHTML=numcounter;
+numcounter++;
+if( numcounter==5){
+document.getElementById("body").style.background="#ff3766";
+document.getElementById("header").innerHTML=cname+", Do You Think you can Complete This Quiz?";
+}
+
+if(numcounter==10){
+document.getElementById("counter").style.display="none";
+document.getElementById("body").style.background="#0e6fe2";
+document.getElementById("header").innerHTML=cname+" Start Work";
+document.getElementById("quiz").style.display="block";
+clearInterval(counter);
+}
+
+}
+
+function counter(){
+setInterval(countProccess,1000);
+}
+counter();
+
+
+
+
+var a=document.getElementById("btn1");
+var b=document.getElementById("btn2");
+var c=document.getElementById("btn3");
+var d=document.getElementById("btn4");
+var clock=document.getElementById("clock");
+var quest=document.getElementById("quest");
+
+var x=0;
+
+
+function clockz(){
+clock.innerHTML=x;
+x++;
+if(x>20 && x<23){
+quest.innerHTML="Where is a boat normally driven?"
+a.innerHTML="A.In the air";
+a.style.border="1px solid gold";
+b.innerHTML="C.In the Lake";
+b.style.border="1px solid gold";
+c.innerHTML="B.On land"
+c.style.border="1px solid gold";
+d.innerHTML="D.In the pool";
+d.style.border="1px solid gold";
+}
+if(x>30 && x<33){
+quest.innerHTML="How many days are there in january?"
+a.innerHTML="A.30";
+a.style.border="1px solid gold";
+b.innerHTML="C.29";
+b.style.border="1px solid gold";
+c.innerHTML="B.32"
+c.style.border="1px solid gold";
+d.innerHTML="D.31";
+d.style.border="1px solid gold";
+}
+
+if(x>40 && x<43){
+quest.innerHTML="In the nursery rhyme"+"Three Blind Mice"+",what got cut off?";
+a.innerHTML="A.Their breath";
+a.style.border="1px solid gold";
+b.innerHTML="C.Thier hair";
+b.style.border="1px solid gold";
+c.innerHTML="B.Thier tails";
+c.style.border="1px solid gold";
+d.innerHTML="D.Thier toes";
+d.style.border="1px solid gold";
+}
+if(x>50){
+document.getElementById('quiz').style.display="none";
+document.getElementById("header").innerHTML="Good Bye "+cname;
+}
+}
+
+
+function clockcl(){
+setInterval(clockz,1000);
+}
+clockcl();
+
+function ansa(){
+if(x<20){
+a.style.border="1px solid greenyellow";
+}
+if(x>20 && x<30){
+a.style.border="1px solid red";
+}
+if(x>30 && x<40){
+a.style.border="1px solid red";
+}
+if(x>40 && x<50){
+a.style.border="1px solid red";
+}
+} 
+
+
+function ansb(){
+if(x<20){
+b.style.border="1px solid red";
+}
+if(x>20 && x<30){
+b.style.border="1px solid greenyellow";
+}
+if(x>30 && x<40){
+b.style.border="1px solid red";
+}
+if(x>40 && x<50){
+b.style.border="1px solid red";
+}
+} 
+
+function ansc(){
+if(x<20){
+c.style.border="1px solid red";
+}
+if(x>20 && x<30){
+c.style.border="1px solid red";
+}
+if(x>30 && x<40){
+c.style.border="1px solid red";
+}
+if(x>40 && x<50){
+c.style.border="1px solid greenyellow";
+}
+} 
+
+function ansd(){
+if(x<20){
+d.style.border="1px solid red";
+}
+if(x>20 && x<30){
+d.style.border="1px solid red";
+}
+if(x>30 && x<40){
+d.style.border="1px solid greenyellow";
+}
+if(x>40 && x<50){
+d.style.border="1px solid red";
+}
+} 
+
+
+
+</script>
+</body>
+</html>

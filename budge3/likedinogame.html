@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Drawing Pad</title>
+<style>
+
+.stage{
+border:1px solid black;
+width:600px;
+height:300px;
+margin:0px auto;
+margin-top:17%;
+}
+.main{
+width:50px;
+height:50px;
+background:red;
+position:relative;
+top:250px;
+}
+
+.block{
+width:20px;
+height:20px;
+background:blue;
+position:relative;
+top:230px;
+left:580px;
+animation:2s block linear infinite;
+}
+@keyframes block{
+from{
+left:580px;
+}
+to{
+left:0px;
+}
+}
+
+.anime{
+animation:1s linear infinite box;
+}
+
+
+@keyframes box{
+0%{
+top:250px;
+}
+50%{
+top:220px;
+}
+100%{
+top:250px;
+}
+}
+
+</style>
+</head>
+<body>
+<div class="stage" onclick="jump()">
+<div class="main" id="cont">
+
+</div>
+<div class="block" id="block">
+
+</div>
+</div>
+
+<script>
+var image=document.querySelector("#image");
+var cont=document.getElementById("cont");
+var block=document.getElementById("block");
+function jump(){
+if(cont.classList !="anime"){
+cont.classList.add("anime");
+}
+setTimeout(function(){
+cont.classList.remove("anime");
+},1000);
+}
+
+
+function mm(){
+var blockleft=parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+var conttop=parseInt(window.getComputedStyle(cont).getPropertyValue("top"));
+if(blockleft<50 && blockleft>0 && conttop>=230){
+alert("Game Over");
+}
+}
+
+setInterval(mm,10);
+
+</script>
+</body>

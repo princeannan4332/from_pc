@@ -1,0 +1,164 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modulo</title>
+<style>
+*{
+margin:0px 0px auto;
+}
+.header{
+width:100%;
+height:80px;
+text-align:center;
+color:blue;
+font-size:23px;
+overflow:hidden;
+}
+.header h2{
+text-shadow:2px 2px rgba(0,0,0,0.3);
+}
+body{
+background:aliceblue;
+font-family:Trebuchet MS;
+}
+.content{
+width:100%;
+height:250px;
+margin-top:10%;	
+}
+.inp1{
+width:33.3%;
+height:100%;
+float:left;
+}
+.button{
+width:33%;
+height:100%;
+float:left;
+}
+.inp2{
+width:33%;
+height:100%;
+float:left;	
+}
+.inp1 input{
+width:90%;
+height:85%;
+margin:12px 12px auto;
+border:2px solid blue;
+border-radius:5px 5px;
+box-shadow:8px 3px 8px 3px rgba(0,0,0,0.5);
+font-size:55px;
+outline:none;
+text-align:center;
+}
+.inp2 input{
+width:90%;
+height:85%;
+margin:12px 12px auto;
+border:2px solid blue;
+border-radius:5px 5px;
+box-shadow:8px 3px 8px 3px rgba(0,0,0,0.5);
+font-size:55px;
+outline:none;
+text-align:center;
+}
+.button button{
+width:90%;
+color:white;
+height:85%;
+background:blue;
+cursor:pointer;
+font-size:55px;
+margin:12px 12px auto;
+border:2px solid blue;
+border-radius:5px 5px;
+box-shadow:8px 3px 8px 3px rgba(0,0,0,0.5);
+}
+.result{
+width:100%;
+height:150px;
+margin-top:2%;
+}
+.text{
+width:100%;
+height:50%;
+text-align:center;
+color:blue;
+text-shadow:2px 2px rgba(0,0,0,0.3);
+overflow:hidden;
+font-size:32px;
+}
+.ans{
+width:100%;
+height:50%;
+text-align:center;
+color:blue;
+text-shadow:2px 2px rgba(0,0,0,0.3);
+overflow:hidden;
+font-size:32px;
+}
+@media screen and (max-width:900px){
+.content{
+height:150px;
+}
+}
+</style>
+</head>
+<body>
+<div class="header">
+<h2>Modulo Calculator</h2>
+</div>
+<div class="content">
+<div class="inp1">
+<input type="text" placeholder="Big" id="inp1">
+
+</div>
+<div class="button">
+<button onclick="start()">%</button>
+</div>
+<div class="inp2">
+<input type="text" id="inp2" placeholder="Small">
+
+</div>
+</div>
+<div class="result">
+<div class="text">
+<h2>Result:</h2>
+</div>
+<div class="ans">
+<h2 id="txt">0.00</h2>
+</div>
+</div>
+<script>
+var inp1=document.getElementById("inp1");
+var inp2=document.getElementById("inp2");
+var txt=document.getElementById("txt");
+
+function start(){
+inp1=inp1.value;
+inp2=inp2.value;
+if(inp1>inp2){
+var ans=inp1%inp2;
+txt.innerHTML=ans;
+}
+else if(inp2>inp1){
+var ansx=inp2%inp1;
+txt.innerHTML=ansx;
+}
+else if(inp1%inp2==0){
+txt.innerHTML=0;
+}
+else if(inp2%inp1==0){
+txt.innerHTML=0;
+}
+else{
+txt.innerHTML="Can't Solve";
+}
+}
+
+</script>
+</body>
+</html>
