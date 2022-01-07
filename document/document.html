@@ -1,0 +1,754 @@
+<!Doctype html>
+<html>
+<head>
+<title>Dexel</title>
+<meta charset="UTF-8">
+<meta name="viewport"content="width=device-width,initial-scale=1">
+<style>
+.head{
+width:100%;
+height:10%;
+border-radius:0px 0px 5px 5px;
+}
+.header{
+width:50%;
+height:100%;
+overflow:hidden;
+float:left;
+}
+.navbar{
+width:50%;
+height:100%;
+float:left;
+}
+.navbar a{
+text-decoration:none;
+color:white;
+font-family:trebuchet ms;
+float:right;
+margin:15px 15px;
+}
+.about{
+width:100%;
+height:600px;
+background:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url("wall.jpg")fixed center;
+background-size:cover;
+}
+.logo{
+height:100%;
+width:15%;
+float:left;
+}
+.headtxt{
+width:85%;
+height:100%;
+color:gold;
+font-family:trebuchet ms;
+overflow:hidden;
+float:left;
+}
+.headtxt h2{
+margin:15px 0px auto;
+-webkit-text-stroke:1.5px gold;
+-webkit-text-fill-color:gold;
+font-size:25px;
+}
+.logoz{
+width:50%;
+height:45%;
+text-align:center;
+margin:0px auto;
+background:gold;
+font-weight:bold;
+font-family:trebuchet ms;
+border-radius:5px 5px 5px 5px;
+color:white;
+box-shadow:0.2px 0.2px 2px 2px rgba(0,0,0,0.3); 
+position:relative;
+left:12px;
+}
+.openingtext{
+width:100%;
+height:30%;
+color:white;
+font-weight:bold;
+font-size:20px;
+float:none;
+font-family:trebuchet ms;
+}
+.wrap1{
+width:50%;
+height:50%;
+margin:0px auto;
+
+position:relative;
+top:100px;
+}
+.searcharea{
+width:100%;
+height:70%;
+float:none;
+}
+.input{
+width:70%;
+height:40%;
+float:left;
+}
+.button{
+width:30%;
+height:40%;
+float:left;
+}
+.input input{
+width:98%;
+height:60%;
+margin-top:5%;
+outline:none;
+text-align:center;
+font-family:trebuchet ms;
+border:none;
+border-radius:15px 15px;
+box-shadow:1px 1px 2px 2px rgba(0,0,0,0.2);
+font-size:15px;
+}
+.button button{
+width:90%;
+float:right;
+height:60%;
+margin-top:11%;
+cursor:pointer;
+border:1px solid white;
+background:gold;
+color:white;
+border-radius:15px 15px;
+box-shadow:1px 1px 2px 2px rgba(0,0,0,0.2);
+}
+.resulttxt{
+width:100%;
+height:70px;
+color:black;
+font-family:trebuchet ms;
+text-align:center;
+overflow:hidden;
+}
+.content{
+width:100%;
+max-height:2000px;
+min-height:250px;
+display:table;
+}
+.sub1{
+width:20%;
+height:250px;
+background:gold;
+border-radius:5px 5px;
+float:left;
+box-shadow:1px 1px 2px 2px rgba(0,0,0,0.2);
+}
+.sub1t{
+width:100%;
+height:50%;
+float:none;
+}
+.sub1b{
+width:100%;
+height:50%;
+background:gold;
+float:none;
+}
+.imgwrap1{
+width:65%;
+height:95%;
+margin:0px auto;
+position:relative;
+top:3px;
+border-radius:50%;
+overflow:hidden;
+}
+.sub1img{
+width:100%;
+height:100%;
+border-radius:50%;
+background:url("salah.jpg")center;
+background-size:cover;
+transition:0.2s;
+}
+
+.sub1img:hover{
+transform:scale(1.5);
+}
+.name{
+width:100%;
+height:50%;
+color:white;
+font-family:trebuchet ms;
+overflow:hidden;
+}
+.date{
+width:100%;
+height:50%;
+color:white;
+font-family:trebuchet ms;
+overflow:hidden;
+}
+.name p{
+position:relative;
+top:-12px;
+}
+.date p{
+position:relative;
+top:-12px;
+}
+.details{
+width:100%;
+height:40%;
+position:relative;
+top:10px;
+float:none;
+}
+.dbtn{
+width:100%;
+height:30%;
+float:none;
+position:relative;
+top:20px;
+}
+#del{
+width:30%;
+height:70%;
+border-radius:2px 2px;
+background:tomato;
+border:1px solid white;
+font-family:trebuchet ms;
+color:white;
+float:left;
+cursor:pointer;
+box-shadow:1px 1px 2px 2px rgba(0,0,0,0.2);
+}
+#view{
+width:30%;
+cursor:pointer;
+height:70%;
+border-radius:2px 2px;
+background:rgba(0,22,65,8);
+border:1px solid white;
+font-family:trebuchet ms;
+color:white;
+float:right;
+box-shadow:1px 1px 2px 2px rgba(0,0,0,0.2);
+}
+#div{
+width:20%;
+height:250px;
+background:gold;
+border-radius:5px 5px;
+float:left;
+box-shadow:1px 1px 2px 2px rgba(0,0,0,0.2);
+}
+#divt{
+width:100%;
+height:50%;
+float:none;
+}
+#divwrap{
+width:65%;
+height:95%;
+margin:0px auto;
+background:blue;
+position:relative;
+top:3px;
+border-radius:50%;
+overflow:hidden;
+}
+#divtimg{
+width:100%;
+height:100%;
+border-radius:50%;
+background:url("salah.jpg")center;
+background-size:cover;
+transition:0.2s;
+}
+#divtimg:hover{
+transform:scale(1.5);
+}
+#divdetails{
+width:100%;
+height:40%;
+position:relative;
+top:10px;
+float:none;
+}
+#divname{
+width:100%;
+height:50%;
+color:white;
+font-family:trebuchet ms;
+overflow:hidden;
+}
+#divdate{
+width:100%;
+height:50%;
+color:white;
+font-family:trebuchet ms;
+overflow:hidden;
+}
+#divbtn{
+width:100%;
+height:30%;
+float:none;
+position:relative;
+top:20px;
+}
+#divb{
+width:100%;
+height:50%;
+background:gold;
+float:none;
+}
+#divviewbtn{
+width:30%;
+cursor:pointer;
+height:70%;
+border-radius:2px 2px;
+background:rgba(0,22,65,8);
+border:1px solid white;
+font-family:trebuchet ms;
+color:white;
+float:right;
+box-shadow:1px 1px 2px 2px rgba(0,0,0,0.2);
+}
+#divbdelbtn{
+width:30%;
+height:70%;
+border-radius:2px 2px;
+background:tomato;
+border:1px solid white;
+font-family:trebuchet ms;
+color:white;
+float:left;
+cursor:pointer;
+box-shadow:1px 1px 2px 2px rgba(0,0,0,0.2);
+}
+.subwrapper{
+width:100%;
+height:100%;
+}
+#divsubwrap{
+width:100%;
+height:100%;
+}
+
+
+
+
+
+
+
+
+#regbtn{
+width:15%;
+height:45px;
+display:block;
+margin-left:auto;
+margin-right:auto;
+background:aliceblue;
+font-family:trebuchet ms;
+border:none;
+border-radius:22px 22px;
+cursor:pointer;
+}
+
+
+.btn{
+width:40%;
+height:10%;
+margin:0px auto;
+margin-top:12px;
+border-radius:5px 5px;
+}
+.btn button{
+width:100%;
+height:100%;
+color:white;
+border:1px solid white;
+background:black;
+border-radius:5px 5px;
+cursor:pointer;
+transition:0.2s;
+font-family:trebuchet ms;
+}
+
+.btn button:hover{
+border:1px solid black;
+background:white;
+color:black;
+}
+
+.register{
+display:none;
+width:80%;
+height:500px;
+margin:0px 100px auto;
+background:aliceblue;
+position:fixed;
+top:80px;
+border-radius:12px 12px;
+animation:4s form;
+}
+@keyframes form{
+from{
+top:-500px;
+}
+to{
+top:80px;
+}
+}
+.form{
+width:50%;
+background:white;
+height:100%;
+margin:0px auto;
+}
+.inp{
+width:100%;
+height:50%;
+}
+.inp input{
+width:85%;
+margin:10px 20px auto;
+border-left:none;
+border-right:none;
+border-top:none;
+border-bottom:5px solid black;
+height:18%;
+outline:none;
+}
+.txtx{
+width:100%;
+color:black;
+font-family:trebuchet ms;
+height:10%;
+overflow:hidden;
+}
+.gender{
+width:100%;
+height:15%;
+font-family:trebuchet ms;
+}
+
+.page2{
+width:100%;
+height:500px;
+background:black;
+}
+#cancel{
+width:50%;
+height:50%;
+background:white;
+border:1px solid black;
+color:black;
+margin-left:auto;
+margin-right:auto;
+display:block;
+position:relative;
+top:5px;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:900px){
+.headtxt{
+width:70%;
+}
+.logo{
+width:30%;	
+}
+.logoz{
+position:relative;
+left:5px;
+width:60%;
+}
+.wrap1{
+width:90%;
+}
+.openingtext{
+text-align:center;
+height:50%;
+}
+.sub1{
+width:70%;
+float:none;
+margin:0px auto;
+}
+.imgwrap1{
+width:50%;
+height:95%;
+}
+#div{
+width:70%;
+float:none;
+margin:0px auto;
+margin-top:20px;
+}
+#regbtn{
+width:30%;
+}
+.register{
+margin:0px 40px auto;	
+}
+.form{
+width:95%;
+}
+}
+</style>
+</head>
+<body>
+<div class="about">
+<div class="head">
+<div class="header">
+<div class="logo">
+<div class="logoz">
+<p>D<sup>X</sup></p>
+</div>
+</div>
+<div class="headtxt">
+<h2>Dexel</h2>
+</div>
+</div>
+<div class="navbar">
+<a href="#" onclick="signup()">Sign Up</a>
+<a href="#">Login</a>
+</div>
+</div>
+<div class="wrap1">
+<div class="openingtext">
+<h2>We Are The Most Trusted Detailed Brand Across The Globe.</h2>
+</div>
+<div class="searcharea">
+<div class="input">
+<input type="text" placeholder="Search Details Here" id="search">
+</div>
+<div class="button">
+<button onclick="finder()">Find</button>
+</div>
+</div>
+</div>
+</div>
+<div class="resulttxt">
+<h2>Most Popular People</h2>
+</div>
+<div class="content" id="cont">
+
+<div class="sub1">
+<div class="subwrapper">
+<div class="sub1t">
+<div class="imgwrap1">
+<img class="sub1img">
+</div>
+</div>
+<div class="sub1b">
+<div class="details">
+<div class="name">
+<p id="name"><b>Name:Mohammed Salah<b></p>
+</div>
+<div class="date">
+<p id="date"><b>Date:18,May 2012</b><p>
+</div>
+</div>
+<div class="dbtn">
+<button id="del">Delete</button>
+<button id="view" onclick="start()">View</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="register" id="reg">
+<div class="form">
+<div class="txtx">
+<h2>Sign Up</h2>
+</div>
+<div class="inp">
+<input type="text" placeholder="Type in your Username" id="uname">
+<br>
+<input type="text" placeholder="Type in your email" id="mail">
+<br>
+<input type="text" placeholder="What is on your mind?" id="onmind">
+<br>
+<input type="text" placeholder="Describe about your self" id="describe">
+</div>
+<div class="gender">
+<p style="font-family:trebuchet ms;">Gender</p>
+<input type="radio">Male</input>
+<input type="radio">Female</input>
+</div>
+<div class="btn">
+<button onclick="rep()">Register</button>
+<button id="cancel" onclick="cancel()">Cancel</button>
+</div>
+</div>
+</div>
+
+
+
+<script>
+
+
+var reg=document.getElementById("reg");
+var uname=document.getElementById("uname");
+var mail=document.getElementById("mail");
+var onmind=document.getElementById("onmind");
+var describez=document.getElementById("describe");
+var search=document.getElementById("search");
+
+
+function cancel(){
+reg.style.display="none";
+}
+window.onclick=function(event){
+if(event.target==reg){
+reg.style.display="none";
+}
+}
+
+
+
+
+
+
+
+function signup(){
+reg.style.display="block";
+
+}
+
+
+var cont=document.getElementById("cont");
+function rep(){
+alert("Account Created successfully");
+reg.style.display="none";
+
+
+var div=document.createElement("div");
+div.setAttribute("id","div");
+var divt=document.createElement("div");
+divt.setAttribute("id","divt");
+var divtimg=document.createElement("div");
+divtimg.setAttribute("id","divtimg");
+var divwrap=document.createElement("div");
+divwrap.setAttribute("id","divwrap");
+var divdetails=document.createElement("div");
+divdetails.setAttribute("id","divdetails");
+var divname=document.createElement("div");
+divname.setAttribute("id","divname");
+var divdate=document.createElement("div");
+divdate.setAttribute("id","divdate");
+var divb=document.createElement("div");
+divb.setAttribute("id","divb");
+var divbtn=document.createElement("div");
+divbtn.setAttribute("id","divbtn");
+var divbdelbtn=document.createElement("button");
+divbdelbtn.setAttribute("id","divbdelbtn");
+var divsubwrap=document.createElement("div");
+divsubwrap.setAttribute("id","divsubwrap");
+
+var divviewbtn=document.createElement("button");
+divviewbtn.setAttribute("id","divviewbtn");
+var del=document.createTextNode("Delete");
+var view=document.createTextNode("View");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//div view details
+divviewbtn.onclick=function(){
+alert("Name:"+d.value +"\n"+
+z.value +"\n"+
+"Email:"+mail.value+"\n"
++"Onmind:"+onmind.value+"\n"+
+"About:"+describez.value
+);
+}
+
+
+
+//delete div
+divbdelbtn.addEventListener("click",function(){
+var deldiv=divsubwrap.parentElement;
+deldiv.style.display="none";
+
+
+})
+
+
+
+
+
+
+
+//days,months and Years
+var time=new Date();
+var day=time.getDay();
+var month=time.getMonth();
+var yrs=time.getFullYear();
+var monthx=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var mon=monthx[month];
+
+
+
+
+
+
+var d=document.createTextNode("Name:"+uname.value);
+var z=document.createTextNode("Date:"+day+","+mon+" "+yrs);
+d.value=uname.value;
+z.value="Date Created:"+day+","+mon+" "+yrs;
+
+divwrap.appendChild(divtimg);
+divt.appendChild(divwrap);
+
+divsubwrap.appendChild(divt);
+divname.appendChild(z);
+divdate.appendChild(d);
+divdetails.appendChild(divdate);
+divdetails.appendChild(divname);
+divbdelbtn.appendChild(del);
+divviewbtn.appendChild(view);
+divbtn.appendChild(divviewbtn);
+divbtn.appendChild(divbdelbtn);
+divb.appendChild(divdetails);
+divb.appendChild(divbtn);
+divsubwrap.appendChild(divb);
+div.appendChild(divsubwrap);
+cont.appendChild(div);
+}
+
+</script>
+</body>
+</html>
