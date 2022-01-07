@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Typing Master</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+.workspace{
+width:98.5%;
+height:98%;
+position:fixed;
+background:black;
+}
+.output{
+width:70%;
+height:100%;
+background:black;
+float:left;
+}
+.options{
+width:30%;
+height:100%;
+background:grey;
+float:left;
+font-family:trebuchet ms;
+}
+.screen{
+width:100%;
+height:80%;
+float:none;
+cursor:pointer;
+}
+.send{
+width:100%;
+height:20%;
+float:none;
+}
+.send input{
+width:70%;
+height:70%;
+display:block;
+margin:0px auto;
+position:relative;
+top:12%;
+text-align:center;
+border:none;
+font-size:20px;
+outline:none;
+border-radius:5px 5px;
+font-family:trebuchet ms;
+}
+.screen input{
+width:30%;
+height:20%;
+display:block;
+margin:0px auto;
+position:relative;
+top:47%;
+font-size:32px;
+text-align:center;
+border:none;
+outline:none;
+border-radius:5px 5px;
+cursor:pointer;
+font-family:trebuchet ms;
+}
+.progress{
+width:100%;
+height:50%;
+overflow:hidden;
+}
+.wl{
+width:100%;
+height:25%;
+overflow:hidden;
+}
+.btns{
+width:100%;
+height:25%;
+overflow:hidden;
+}
+.prog{
+width:30%;
+height:0px;
+background:tomato;
+margin:0px auto;
+}
+.progress{
+color:white;
+text-align:center;
+}
+.wl h2{
+color:white;
+text-align:center;
+}
+.btns button{
+width:40%;
+height:30%;
+border:none;
+color:blue;
+background:white;
+margin:25px 13px auto;
+border-radius:12px 12px;
+cursor:pointer;
+transition:0.5s;
+}
+.btns button:hover{
+color:white;
+background:gold;
+}
+#inpz{
+display:none;
+}
+#inp{
+display:none;
+}
+</style>
+</head>
+<body>
+<div class="workspace">
+<div class="output">
+<div class="screen">
+<input type="text" value="ad" id="inpz" readonly>
+</div>
+<div class="send">
+<input type="text" placeholder="Type in The word on the screen" id="inp" onkeypress='start(event)'>
+
+</div>
+</div>
+<div class="options">
+
+<div class="progress">
+<h2>Progress</h2>
+<div class="prog" id="prog">
+
+</div>
+
+</div>
+<div class="wl">
+<h2 id="hit">Words Left:30</h2>
+<h2 id="miss">Missed:00</h2>
+<h2>Total Words:30</h2>
+</div>
+<div class="btns">
+<button onclick="startcont()" id="startz">Start</button>
+<button onclick="pauscont()">Pause</button>
+<h2 style="position:relative; bottom:10px; text-align:center; color:white">Timer</h2>
+<h2 style="position:relative; bottom:20px; text-align:center; color:white" id="count">4:60</h2>
+</div>
+</div>
+</div>
+<script>
+var inp=document.getElementById('inp');
+var inpz=document.getElementById('inpz');
+var prog=document.getElementById('prog');
+var hit=document.getElementById('hit');
+var miss=document.getElementById('miss');
+var x=0;
+var h=0;
+var missz=0;
+var hitz=30;
+
+
+
+
+function start(){
+if(event.keyCode==32){
+
+//if the words in both input are the same
+if(inp.value.trim()==inpz.value){
+inp.value="";
+var homer=['asdf','sdf','adf','fsda','sfa','fdsa','afds','adfsd','ddssaaff','ffsdda','aadsff','jkl;','jlk;',';lkj','jklj',';lkj','kll;','jkl;','lk;jjl','klj','akl','sad','ghaka','hjka','ghals;','sjd;f','ajas','dafakj','lafgkh','hgla;d'];
+inpz.style.color="black";
+
+//getting the words from the array
+if(x<homer.length){
+x++;
+var ans=homer[x];
+inpz.value=ans;
+}
+
+
+//increasing progression
+h+=10;
+prog.style.height=h+'px';
+if(h<20){
+prog.style.background="tomato";
+}
+else if(h==40){
+prog.style.background="orange";
+}
+else if(h==60){
+prog.style.background="#ff3670";
+}
+else if(h==80){
+prog.style.background="purple";
+}
+else if(h==100){
+prog.style.background="yellow";
+}
+else if(h==120){
+prog.style.background="greenyellow";
+}
+else if(h==140){
+prog.style.background="cyan";
+}
+else if(h==160){
+prog.style.background="aquamarine";
+}
+else if(h==180){
+prog.style.background="aliceblue";
+}
+else if(h==200){
+prog.style.background="pink";
+}
+else if(h==210){
+prog.style.background="violet";
+}
+else if(h==220){
+prog.style.background="orangered";
+}
+else if(h==240){
+prog.style.background="blue";
+}
+else if(h==300){
+alert('Well done');
+}
+
+//count down words left.
+hitz--;
+hit.innerHTML='Words Left:'+hitz;
+
+
+
+}
+else{
+inpz.style.color="red";
+inp.value="";
+//loose point
+missz++;
+if(missz<10){
+missz="0"+missz;
+}
+miss.innerHTML='Missed:'+missz;
+
+}
+
+
+}
+
+
+
+}
+
+
+var count=document.getElementById('count');
+var countst=document.getElementById('startz');
+var cont=60;
+var hrs=4;
+
+function startcont(){
+
+inp.style.display="block";
+inpz.style.display="block";
+
+if(contpass==true){
+
+
+cont--;
+count.innerHTML=hrs+":"+cont;
+setTimeout(startcont,1000);
+countst.disabled=true;
+
+
+
+
+if(cont==0){
+hrs--;
+cont=10;
+if(hrs==0){
+count.style.display="none";
+alert("Task Completed");
+
+}
+}
+else if(cont<10){
+cont='0'+cont;
+}
+
+
+
+
+
+}
+else{
+contpass=true;
+countst.disabled=false;
+}
+}
+var contpass=true;
+
+function pauscont(){
+inp.style.display="none";
+inpz.style.display="none";
+contpass=false;
+
+}
+
+
+</script>
+</body>
+</html>

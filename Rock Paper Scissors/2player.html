@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock,Paper,Scissors</title>
+<style>
+body{
+font-family:trebuchet MS;
+}
+.content{
+    width:100%;
+   height:200px; 
+overflow: hidden;
+margin-top:20%;
+}
+
+.sub1{
+    width:32%;
+   height:100%; 
+   float:left;
+  
+   
+}
+.sub2{
+    width:36%;
+   height:100%;
+   float:left;
+}
+.sub3{
+    width:32%;
+   height:100%; 
+   float:left;
+   background-repeat: no-repeat;
+}
+
+.sub2 h2{
+font-size:100px;
+text-align:center;
+color:black;
+}
+
+
+.sub1 h2{
+font-size:60px;
+font-family:trebuchet MS;
+background:linear-gradient(purple,#ff3670);
+-webkit-background-clip:text;
+-webkit-text-stroke:white;
+-webkit-text-fill-color:transparent;
+text-align:center;
+}
+.sub3 h2{
+font-size:60px;
+font-family:trebuchet MS;
+background:linear-gradient(purple,#ff3670);
+-webkit-background-clip:text;
+-webkit-text-stroke:white;
+-webkit-text-fill-color:transparent;
+text-align:center;
+}
+.img1{
+    width:30%;
+   height:50%;
+   margin: 0px auto;
+   position:relative;
+   top:60px;
+}
+
+.button{
+    width:100%;
+   height:70px;
+margin-top:20px;
+   }
+   .sub1a{
+    width:50%;
+   height:78%; 
+   float: left;
+   }
+   .sub2a{
+    width:50%;
+   height:78%; 
+   float: left;
+   }
+   .sub1a button{
+    float:right;
+height:100%;
+margin:0px 12px auto;
+font-size:16px;
+ box-shadow:3px 1px 3px 1px rgba(0,0,0,0.3);
+border:none;
+width:30%;
+background:#ff3670;
+color:white;
+border-radius: 5px 5px;
+cursor: pointer;
+border:1px solid orange;
+transition: 0.5s;
+   }
+   .sub1a button:hover{
+background:white;
+color:#ff3670;
+border:1px solid #ff3670;
+   }
+
+   .sub2a button{
+    float:left;
+    font-size:16px;
+    box-shadow:3px 1px 3px 1px rgba(0,0,0,0.3);
+height:100%;
+margin:0px 12px auto;
+border:none;
+width:30%;
+background:rebeccapurple;
+color:white;
+border-radius: 5px 5px;
+cursor: pointer;
+border:1px solid orange;
+   transition: 0.5s;
+   }
+   .sub2a button:hover{
+background:white;
+color:rebeccapurple;
+border:1px solid rebeccapurple;
+   }
+@media screen and (max-width:900px){
+.sub2 h2{
+font-size:40px;
+}
+.sub1{
+width:41%;
+}
+.sub1 h2{
+font-size:25px;
+}
+.sub3 h2{
+font-size:25px;
+}
+.sub3{
+width:41%;
+}
+.sub2{
+width:18%;
+}
+.content{
+height:80px;
+margin-top:60%;
+}
+.sub1a button{
+width:60%;
+font-family:tahoma;
+font-size:18px;
+}
+.sub2a button{
+font-family:tahoma;
+width:60%;
+font-size:18px;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="content">
+    <div class="sub1">
+        <h2 id="txt1"></h2>
+</div>
+    <div class="sub2">
+<h2>VS</h2>
+    </div>
+    <div class="sub3">
+        <h2 id="txt2"></h2>
+</div>
+</div>
+<div class="button">
+    <div class="sub1a">
+<button onclick="player1()">Player 1</button>
+</div>
+<div class="sub2a">
+<button onclick="player2()">Player 2</button>
+</div>
+</div>
+
+
+
+<script>
+  function player1(){
+    var txt=["Rock","Paper","Scissors"];
+var rantxt=Math.round(Math.random()*2);
+var txt1=document.getElementById("txt1");
+var txt2=document.getElementById("txt2");
+
+var animeds=setInterval(animed,30)
+var pos=0;
+function animed(){
+if(pos<80){
+pos++;
+if(pos==10)
+txt1.innerHTML="Rock";
+
+}
+if(pos==20){
+txt1.innerHTML=txt[rantxt];
+}
+if(pos==30){
+txt1.innerHTML="Paper";
+}
+if(pos==40){
+txt1.innerHTML=txt[rantxt];
+
+}
+if(pos==50){
+txt1.innerHTML="Scissors";
+
+}
+if(pos==60){
+txt1.innerHTML="P1:"+txt[rantxt];
+}
+if(pos==80){
+clearInterval(animeds);
+}
+}
+}
+
+
+ 
+ function player2(){
+    var txt=["Rock","Paper","Scissors"];
+var rantxt=Math.round(Math.random()*2);
+var txt1=document.getElementById("txt1");
+var txt2=document.getElementById("txt2");
+
+var animeds=setInterval(animed,30)
+var pos=0;
+function animed(){
+if(pos<80){
+pos++;
+if(pos==10)
+txt2.innerHTML="Rock";
+
+}
+if(pos==20){
+txt2.innerHTML=txt[rantxt];
+}
+if(pos==30){
+txt2.innerHTML="Paper";
+}
+if(pos==40){
+txt2.innerHTML=txt[rantxt];
+
+}
+if(pos==50){
+txt2.innerHTML="Scissors";
+
+}
+if(pos==60){
+txt2.innerHTML="P2:"+txt[rantxt];
+}
+if(pos==80){
+clearInterval(animeds);
+}
+}
+}
+
+</script>
+
+</body>
+</html>

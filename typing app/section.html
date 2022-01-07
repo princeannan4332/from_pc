@@ -1,0 +1,229 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<title>TypingBeast|Typing Section</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{
+background:black;
+font-family:Trebuchet MS;	
+}
+.content{
+width:100%;
+height:500px;
+overflow:hidden;
+}
+.keyarea{
+width100%;
+height:141px;
+
+}
+.keyarea input{
+width:100%;
+height:100%;
+border-radius:10px 10px;
+font-size:29px;
+font-family:Trebuchet MS;
+outline:none;
+border:2px solid red;
+background:black;
+color:red;
+}
+.input{
+width:60%;
+height:60%;
+margin:0px auto;
+position:relative;
+top:15px;	
+}
+
+.bubble{
+max-width:500px;
+min-width:230px;
+background:red;
+max-height:200px;
+min-height:50px;
+display:table;
+border-radius:25px 25px;
+color:black;
+text-align:center;
+margin:0px auto;
+position:relative;
+top:500px;
+}
+.option{
+width:100%;
+height:9%;
+}
+.button{
+width:10%;
+height:100%;
+float:left;
+}
+.button button{
+width:100%;
+height:100%;
+cursor:pointer;
+border-radius:10px 10px;
+font-size:15px;
+font-family:Trebuchet MS;
+outline:none;
+border:2px solid red;
+background:black;
+color:red;
+transition:0.5s;
+}
+.scores{
+width:10%;
+height:100%;
+float:right;
+cursor:pointer;
+border-radius:10px 10px;
+font-size:15px;
+font-family:Trebuchet MS;
+outline:none;
+border:2px solid red;
+background:black;
+color:red;
+text-align:center;
+}
+.button button:hover{
+color:greenyellow;
+border:2px solid greenyellow;
+}
+
+#gameover{
+color:red;
+text-align:center;
+font-size:52px;
+margin-top:15%;
+display:none;
+animation:2s danger infinite;
+}
+@keyframes danger{
+50%{
+transform:scale(1.5);
+}
+}
+@media screen and (max-width:900px){
+.input{
+width:95%;
+}
+.button{
+width:20%;
+}
+.scores{
+width:20%;
+}
+#gameover{
+animation:2s danger infinite;
+}
+@keyframes danger{
+50%{
+transform:scale(1.2);
+}
+}
+
+
+}
+
+</style>
+</head>
+<body>
+<div class="content">
+<div class="option">
+<div class="button">
+<button onclick="starter()" id="gear">Start</button>
+</div>
+
+<div class="scores">
+<p id="score">Scores:0</p>
+</div>
+</div>
+
+<h2 id="gameover">Game Over</h2>
+
+<div class="bubble" id="buble">
+<h2 id="txt"></h2>
+</div>
+
+</div>
+<div class="keyarea">
+<div class="input" onkeypress="start(event)">
+<input type="text" id="inp" placeholder="Insert Matching Words">
+</div>
+</div>
+
+
+<script>
+var inp=document.getElementById("inp");
+var buble=document.getElementById("buble");
+var txt=document.getElementById("txt");
+var score=document.getElementById("score");
+var gameover=document.getElementById("gameover");
+
+var gear=document.getElementById("gear");
+var pos=0;
+var scorecount=0;
+
+
+function start(event){
+if(event.keyCode==13){
+if(inp.value==txt.innerHTML){
+txt.style.color="white";
+var background=["blue","green","orange","red","purple"]
+var randbg=Math.round(Math.random()*6);
+buble.style.background=background[randbg];
+scorecount+=3;
+score.innerHTML="Scores:"+scorecount;
+}
+else{
+scorecount-=3;
+score.innerHTML="Scores:"+scorecount;
+if(scorecount<0){
+gameover.style.display="block";
+gear.style.display="none";
+}
+}
+}
+}
+
+function starter(){
+buble.style.display="table";
+inp.value="";
+var words=["Mouse","Rat","Pig","Cat","Blade","Machine","Cobalt","TypingBeast","Spectrometer","Jungle","Tree","Fog","Hat","Vanilla","Chocolate","Sauce","Boom","Pawpaw","Plaster","Water"];
+var randwords=Math.round(Math.random()*19);
+txt.innerHTML=words[randwords];
+var tim=setInterval(word,20)
+function word(){
+if(pos<300){
+pos++;
+buble.style.top=pos+"px";
+
+if(inp.value==txt.innerHTML){
+buble.style.display="none";
+}
+
+}
+else{
+pos=0;
+buble.style.top=pos+"px";
+buble.style.display="none";
+clearInterval(tim);
+txt.innerHTML="";
+if(inp.value==""){
+gameover.style.display="block";
+gear.style.display="none";
+}
+
+
+}
+}
+
+
+}
+
+</script>
+</body>
+</html>

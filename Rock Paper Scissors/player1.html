@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock,Paper,Scissors</title>
+<style>
+body{
+font-family:trebuchet MS;
+}
+.content{
+    width:100%;
+   height:200px; 
+overflow: hidden;
+margin-top:15%;
+}
+
+.sub1{
+    width:40%;
+   height:100%; 
+   float:left;
+  
+   
+}
+.sub2{
+    width:20%;
+   height:100%;
+   float:left;
+}
+.sub3{
+    width:40%;
+   height:100%; 
+   float:left;
+   background-repeat: no-repeat;
+}
+
+.sub2 h2{
+font-size:100px;
+text-align:center;
+color:black;
+}
+
+
+
+.sub1 h2{
+font-size:80px;
+font-family:trebuchet MS;
+background:linear-gradient(purple,#ff3670);
+-webkit-background-clip:text;
+-webkit-text-stroke:white;
+-webkit-text-fill-color:transparent;
+text-align:center;
+}
+.sub3 h2{
+font-size:80px;
+font-family:trebuchet MS;
+background:linear-gradient(purple,#ff3670);
+-webkit-background-clip:text;
+-webkit-text-stroke:white;
+-webkit-text-fill-color:transparent;
+text-align:center;
+}
+
+.img1{
+    width:30%;
+   height:50%;
+   margin: 0px auto;
+   position:relative;
+   top:60px;
+}
+
+.button{
+    width:100%;
+   height:80px;
+margin-top:20px;
+   }
+   .sub1a{
+    width:15%;
+   height:75%; 
+   margin:0px auto;   
+}
+  
+   .sub1a button{
+height:100%;
+margin:0px 12px auto;
+font-size:20px;
+font-family:tahoma; 
+box-shadow:3px 1px 3px 1px rgba(0,0,0,0.3);
+border:none;
+width:100%;
+background:#ff3670;
+color:white;
+border-radius: 5px 5px;
+cursor: pointer;
+border:1px solid orange;
+transition: 0.5s;
+   }
+   .sub1a button:hover{
+background:white;
+color:#ff3670;
+border:1px solid #ff3670;
+   }
+@media screen and (max-width:900px){
+.sub1a{
+width:50%;
+}
+.content{
+height:80px;
+margin-top:60%;
+}
+.sub2{
+width:18%;
+}
+.sub1{
+width:41%;
+text-align:center;
+}
+.sub3{
+width:41%;
+}
+.sub2 h2{
+font-size:36px;
+}
+.sub1 h2{
+font-size:30px;
+}
+.sub3 h2{
+font-size:30px;
+}
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="content">
+    <div class="sub1">
+        <h2 id="txt1"></h2>
+</div>
+    <div class="sub2">
+<h2>VS</h2>
+    </div>
+    <div class="sub3">
+        <h2 id="txt2"></h2>
+</div>
+</div>
+<div class="button">
+    <div class="sub1a">
+<button onclick="player1()">Play</button>
+</div>
+</div>
+
+
+
+<script>
+  
+
+
+  function player1(){
+    var txt=["Rock","Paper","Scissors"];
+var rantxt=Math.round(Math.random()*2);
+var txt1=document.getElementById("txt1");
+var txt2=document.getElementById("txt2");
+
+var animeds=setInterval(animed,30)
+var pos=0;
+function animed(){
+if(pos<80){
+pos++;
+if(pos==10)
+txt1.innerHTML="Rock";
+
+}
+if(pos==20){
+txt1.innerHTML=txt[rantxt];
+}
+if(pos==30){
+txt1.innerHTML="Paper";
+}
+if(pos==40){
+txt1.innerHTML=txt[rantxt];
+
+}
+if(pos==50){
+txt1.innerHTML="Scissors";
+
+}
+if(pos==60){
+txt1.innerHTML="P:"+txt[rantxt];
+}
+if(pos==80){
+clearInterval(animeds);
+}
+}
+
+
+
+var txtz=["Rock","Paper","Scissors"];
+var rantxtz=Math.round(Math.random()*2);
+
+var animedz=setInterval(animedz,30)
+var posz=0;
+function animedz(){
+if(posz<80){
+posz++;
+if(posz==10)
+txt2.innerHTML="Rock";
+
+}
+if(posz==20){
+txt2.innerHTML=txtz[rantxtz];
+}
+if(posz==30){
+txt2.innerHTML="Paper";
+}
+if(posz==40){
+txt2.innerHTML=txtz[rantxtz];
+
+}
+if(posz==50){
+txt2.innerHTML="Scissors";
+
+}
+if(posz==60){
+txt2.innerHTML="M:"+txtz[rantxtz];
+}
+if(posz==80){
+clearInterval(animedz);
+}
+}
+}
+
+
+
+
+ 
+
+</script>
+
+</body>
+</html>

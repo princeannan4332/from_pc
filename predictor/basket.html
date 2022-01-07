@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Predict</title>
+</head>
+<style>
+.container{
+width:100%;
+height:150px;
+text-align:center;
+margin-top:10%;
+}
+.container1{
+width:20%;
+height:100%;
+float:left;
+background:blue;
+font-family:tahoma;
+color:white;
+overflow:hiddemn;
+}
+.container2{
+width:20%;
+height:100%;
+float:left;
+background:red;
+font-family:tahoma;
+color:white;
+overflow:hidden;
+}
+.text{
+width:60%;
+float:left;
+height:100%;
+font-family:Tahoma;
+font-size:32px;
+}
+.header{
+width:100%;
+height:100px;
+font-family:script mt;
+text-align:center;
+}
+</style>
+<body>
+<div class="header">
+<h1>Virtual<span style="color:#ff3766;">Predictor</span></h1>
+<div>
+<div class="container">
+<div class="container1">
+<h2>Teams</h2>
+<h2 id="txt1" style="font-size:59px;position:relative;bottom:28px;"></h2>
+</div>
+
+<div class="text">
+<h2>Match Predictor</h2>
+</div>
+<div class="container2">
+<h2>Prediction</h2>
+<h2 id="txt2" style="font-size:29px;position:relative;bottom:10px;"></h2>
+</div>
+</div>
+<script>
+function start(){
+
+var teamz=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+var t=Math.round(Math.random()*teamz.length);
+document.getElementById("txt1").innerHTML=teamz[t];
+
+var teams=["over","under"];
+var ran=Math.round(Math.random()*teams.length);
+document.getElementById("txt2").innerHTML=teams[ran];
+}
+start();
+</script>
+</body>
+</html>
