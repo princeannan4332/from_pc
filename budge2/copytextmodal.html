@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Test</title>
+<style>
+#canvas{
+border:1px solid red;
+}
+.modals{
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+position:fixed;
+left:0;
+top:0;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.modalContent{
+width:40%;
+height:20%;
+background:rgba(34,134,522,144);
+border-radius:12px 12px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.modalContent input{
+width:65%;
+height:30%;
+border:none;
+border-radius:7px 7px;
+outline:none;
+}
+.modalContent button{
+width:30%;
+height:30%;
+background:#ff3670;
+border:none;
+border-radius:5px 5px;
+color:white;
+font-family:trebuchet ms;
+margin-left:10px;
+cursor:pointer;
+transition:0.5s;
+}
+
+.modalContent button:hover{
+background:cyan;	
+}
+@media screen and (max-width:900px){
+.modalContent{
+width:80%;
+height:25%;
+}
+}
+</style>
+</head>
+<body  id='body'>
+<div class='modals'>
+<div class='modalContent'>
+<input type="text"  id="myInput" readonly>
+<button onclick="myFunction()">Copy text</button>
+</div>
+</div>
+
+<script>
+var modal=document.querySelector('.modals');
+window.addEventListener('click',function(){
+if(event.target==modal){
+modal.style.display='none';
+}
+});
+
+var inp=document.getElementById('myInput');
+function myFunction() {
+document.getElementById('myInput').value=document.URL;
+inp.select();
+document.execCommand("Copy");
+}
+
+
+document.write('Copy This Link And Share With Friends:'+'<br>'+'<b>'+document.URL+'<b>');
+
+
+
+</script>
+</body>
+</html>

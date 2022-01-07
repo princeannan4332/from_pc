@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Drawing Pad</title>
+<style>
+.mainz{
+width:46%;
+height:99%;
+border:1px solid black;
+float:left;
+cursor:pointer;
+}
+.main{
+width:46%;
+height:99%;
+border:1px solid black;
+float:left;
+cursor:pointer;
+}
+.maina{
+width:46%;
+height:99%;
+border:1px solid black;
+float:left;
+cursor:pointer;
+}
+.mainb{
+width:46%;
+height:99%;
+border:1px solid black;
+float:left;
+cursor:pointer;
+}
+.cont{
+width:20%;
+height:200px;
+margin:0px auto;
+margin-top:10%;
+}
+.r1{
+margin:0px auto;
+width:100%;
+height:50%;
+}
+.txt{
+text-align:center;
+color:grey;
+font-family:trebuchet ms;
+position:relative;
+top:25px;
+}
+.header{
+width:100%;
+height:100px;
+text-align:center;
+color:black;
+font-family:trebuchet ms;
+}
+</style>
+</head>
+<body>
+<div class="header">
+<h2>Box Says Find Colour:<span id="findcl"></span></h2>
+</div>
+<div class="cont">
+<div class="r1">
+<div class="main"  id="main" onclick="mains()">
+<p id="txta" class="txt">Open</p>
+</div>
+<div class="mainz" onclick="mainzs()" id="mainz">
+<p id="txtb" class="txt">Open</p>
+</div>
+</div>
+
+<div class="r1">
+<div class="maina"  id="maina" onclick="mainas()">
+<p id="txtc" class="txt">Open</p>
+</div>
+<div class="mainb" onclick="mainbs()" id="mainb">
+<p id="txtd" class="txt">Opens</p>
+</div>
+</div>
+
+</div>
+<h2 class="txt">Comment:<span id="ans"></span></h2>
+<script>
+var mainz=document.getElementById("mainz");
+var maina=document.getElementById("maina");
+var mainb=document.getElementById("mainb");
+var main=document.getElementById("main");
+var txta=document.getElementById("txta");
+var txtb=document.getElementById("txtb");
+var txtc=document.getElementById("txtc");
+var txtd=document.getElementById("txtd");
+var findcl=document.getElementById("findcl");
+var ans=document.getElementById("ans");
+var cl;
+var x;
+
+
+findcl.innerHTML="Green";
+
+function mains(){
+cl=["red","yellow","green","blue"];
+x=Math.round(Math.random()*4);
+main.style.background=cl[x];
+maina.style.background="white";
+mainz.style.background="white";
+mainb.style.background="white";
+txta.style.display="none";
+txtb.style.display="block";
+txtd.style.display="block";
+txtc.style.display="block";
+
+return colours();
+}
+
+function mainzs(){
+cl=["red","yellow","green","blue"];
+x=Math.round(Math.random()*4);
+mainz.style.background=cl[x];
+maina.style.background="white";
+main.style.background="white";
+mainb.style.background="white";
+txtb.style.display="none";
+txta.style.display="block";
+txtd.style.display="block";
+txtc.style.display="block";
+
+
+return colours();
+}
+ 
+function mainas(){
+cl=["red","yellow","green","blue"];
+x=Math.round(Math.random()*4);
+maina.style.background=cl[x];
+main.style.background="white";
+mainz.style.background="white";
+mainb.style.background="white";
+
+txtc.style.display="none";
+txta.style.display="block";
+txtd.style.display="block";
+txtb.style.display="block";
+
+return colours();
+}
+
+function mainbs(){
+cl=["red","yellow","green","blue"];
+x=Math.round(Math.random()*4);
+mainb.style.background=cl[x];
+maina.style.background="white";
+mainz.style.background="white";
+main.style.background="white";
+txtd.style.display="none";
+txta.style.display="block";
+txtb.style.display="block";
+txtc.style.display="block";
+return colours();
+}
+
+//condition 
+function colours(){
+
+
+
+
+if(cl[x]=="green"){
+ans.innerHTML="Yes You Found It";
+}
+else{
+ans.innerHTML="No Keep Searching";
+}
+
+
+
+
+
+
+
+
+
+
+}
+	
+
+
+</script>
+</body>

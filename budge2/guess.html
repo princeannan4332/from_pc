@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guess Game</title>
+<style>
+body{
+background:#ff3266;
+font-family:Tahoma;
+}
+.main-content{
+width:100%;
+height:300px;
+margin-top:10%;
+}
+.header{
+text-align:center;
+color:white;
+font-family:Tahoma;
+width:100%;
+height:55px;
+}
+.shelf1{
+width:100%;
+height:35%;
+float:left;
+}
+.shelf2{
+width:46.5%;
+height:65%;
+float:left;
+}
+.shelf3{
+width:53.5%;
+height:65%;
+float:left;
+}
+.space1{
+width:30%;
+height:100%;
+float:left;
+}
+.space2{
+width:70%;
+height:100%;
+float:left;
+}
+#inp{
+margin-top:5%;
+width:50%;
+height:50%;
+border:none;
+font-size:15px;
+outline:none;
+text-align:center;
+color:red;
+border-radius:12px 12px;
+box-shadow:3px 1px 3px 1px rgba(0,0,0,0.3);
+}
+button{
+color:white;
+background:#540c98;
+width:20%;
+height:50%;
+border-radius:5px 5px;
+border:none;
+cursor:pointer;
+outline:none;
+box-shadow:3px 0px 3px 0px rgba(0,0,0,0.5);
+}
+.sub-shelf2{
+width:32%;
+height:70%;
+background:#540d98;
+border-radius:12px 12px;
+float:right;
+margin-top:5%;
+box-shadow:3px 1px 3px 1px rgba(0,0,0,0.5);
+}
+.sub-shelf3{
+width:28%;
+height:70%;
+background:blue;
+border-radius:12px 12px;
+margin-left:5%;
+position:relative;
+bottom:75px;
+box-shadow:3px 1px 3px 1px rgba(0,0,0,0.5);
+}
+.lives{
+float:left;
+width:10%;
+height:100%;
+background:blue;
+border-radius:12px 12px;
+box-shadow:3px 1px 3px 1px rgba(0,0,0,0.5);
+font-size:10px;
+}
+.sub-header{
+float:left;
+width:90%;
+height:100%;
+overflow:hidden;
+font-size:23px;
+}
+.lives h2{
+float:left;
+
+}
+.livecount{
+width:40%;
+height:60%;
+background:white;
+float:left;
+border-radius:360px;
+position:relative;
+top:10px;
+font-family:cambria;
+}
+.livecount h2{
+text-align:center;
+font-size:28px;
+position:relative;
+left:6px;
+color:blue;	
+bottom:26px;
+font-family:Tahoma;
+}
+.sub-shelf2 h2{
+text-align:center;
+font-size:120px;
+position:relative;
+bottom:50px;
+color:white;
+position:relative;
+bottom:100px;
+}
+.sub-shelf3 h2{
+text-align:center;
+font-size:120px;
+font-family:tahoma;
+color:white;
+}
+.reply{
+width:100%;
+height:60px;
+font-size:32px;
+color:white;
+text-align:center;
+}
+.reply h2{
+position:relative;
+right:50px;
+}
+</style>
+</head>
+<body>
+<div class="header" id="header">
+<div class="sub-header">
+<h2 style="position:relative; bottom:20px;">Let's See If You Are Good At Guesses</h2>
+</div>
+<div class="lives">
+<h2 style="font-size:20px; position:relative;bottom:5px;">Lives:</h2>
+<div class="livecount">
+<h2 id="countlives">3</h2>
+</div>
+</div>
+</div>
+<div class="main-content" id="content">
+<div class="shelf1">
+<div class="space1">
+
+</div>
+<div class="space2">
+<input type="number" placeholder="Please Guess A Number From 0-3" id="inp">
+<button onclick="start()">Guess</button>
+</div>
+</div>
+<div class="shelf2">
+<div class="sub-shelf2">
+<h2 id="txt">0</h2>
+</div>
+</div>
+
+<div class="shelf3">
+<div class="sub-shelf3">
+<h2 id="txt2">0</h2>
+</div>
+</div>
+</div>
+<div class="reply">
+<h2 id="reply"></h2>
+</div>
+<script>
+var lives=3;
+function start(){
+var inp=document.getElementById("inp").value;
+var guess=document.getElementById("txt").innerHTML=inp;
+var random=Math.round(Math.random()*10);
+document.getElementById("txt2").innerHTML=random;
+if(guess==random){
+document.getElementById("reply").innerHTML="Good You Won An Extra Life";
+return addlive();
+}
+else{
+document.getElementById("reply").innerHTML="Bad You Lost A life";
+return sublive();
+}
+}
+
+function addlive(){
+lives++;
+document.getElementById("countlives").innerHTML=lives;
+}
+function sublive(){
+lives--;
+document.getElementById("countlives").innerHTML=lives;
+if(lives==0){
+document.getElementById("reply").innerHTML="Game Over";
+document.getElementById("header").style.display="none";
+document.getElementById("content").style.display="none";
+}
+
+}
+</script>
+</body>
+</html>
