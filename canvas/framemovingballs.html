@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Test</title>
+<style>
+#canvas{
+border:1px solid red;
+}
+</style>
+</head>
+<body>
+<canvas id='canvas'></canvas>
+
+
+
+
+<script>
+var x=10;
+var y=10;
+var timer;
+function start(){
+var canvas=document.querySelector('#canvas');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+canvas.style.background="black";
+
+
+
+for(var i=2;i<18;i++){
+var ctx=canvas.getContext('2d');
+ctx.beginPath();
+ctx.fillStyle="white";
+ctx.arc(Math.round(Math.random()*50)*i,Math.round(Math.random()*53)*i,Math.round(Math.random()*3)*i,Math.round(Math.random()*5)*i,0,2*Math.PI);
+ctx.fillRect(Math.round(Math.random()*50)*i,Math.round(Math.random()*53)*i,Math.round(Math.random()*3)*i,Math.round(Math.random()*5)*i);
+ctx.fill();
+ctx.strokeStyle='red';
+ctx.stroke();
+}
+
+
+}
+setInterval(start,800);
+
+
+</script>
+</body>
+</html>

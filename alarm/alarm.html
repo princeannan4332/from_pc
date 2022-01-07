@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alarm|Value Time</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{
+background:url("bg.jpg") fixed center;
+background-size:cover;
+}
+.header{
+max-height:20%;
+min-width:10%;
+max-height:80px;
+min-height:70px;
+font-family:Tahoma;
+text-align:center;
+color:white;
+margin:0px auto;
+border-radius:12px 12px;
+box-shadow:1px 1px 3px 3px rgba(0,0,0,0.3);
+overflow:hidden;
+display:table;
+}
+.content{
+width:100%;
+max-height:300px;
+min-height:220px;
+margin-top:12%;
+display:table;
+}
+
+.side1{
+width:50%;
+height:220px;
+float:left;
+}
+.side2{
+width:50%;
+height:220px;
+float:left;
+}
+.time{
+width:100%;
+height:33.2%;
+float:none;
+overflow:hidden;
+}
+.setTime{
+width:100%;
+height:33.2%;
+overflow:hidden;
+}
+.setTimeOption{
+width:100%;
+height:33.2%;
+overflow:hidden;
+}
+.time h2{
+color:white;
+font-family:script mt;
+text-shadow:2px 2px;
+font-size:38px;
+text-align:center;
+}
+.wrap1{
+margin-left:auto;
+width:50%;
+height:45%;
+margin-right:auto;
+display:block;
+overflow:hidden;
+margin-top:3%;
+}
+.setTime input{
+width:16%;
+height:82%;
+border:1px solid black;
+font-famly:tahoma;
+border-radius:3px 3px;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.3);
+text-align:center;
+}
+.setTime button{
+width:11%;
+height:85%;
+border-radius:5px 5px;
+background:#ff3765;
+color:white;
+cursor:pointer;
+border:none;
+border:1px solid gold;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.3);
+transition:1s;
+}
+.setTime button:hover{
+animation:2s add linear infinite;
+}
+
+@keyframes add{
+0%{
+background:aliceblue;
+}
+20%{
+background:orange;
+}
+40%{
+background:yellow;
+}
+60%{
+background:greenyellow;
+}
+100%{
+background:cyan;
+}
+}
+.wrap2{
+width:60%;
+margin:0 auto;
+height:60%;
+overflow:hidden;
+}
+.wrap2 button{
+width:40%;
+height:94%;
+margin:0px 12px;
+cursor:pointer;
+font-family:script mt;
+font-size:23px;
+float:left;
+}
+#start{
+background:blue;
+border-radius:5px 5px;
+border:2px solid gold;
+color:white;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.3);
+}
+
+#reset{
+color:white;
+background:tomato;
+border-radius:5px 5px;
+border:2px solid gold;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.3);
+transition:1s;
+}
+#reset:hover{
+background:red;
+}
+.counter{
+width:100%;
+height:33.2%;
+overflow:hidden;
+}
+.counter h2{
+font-size:35px;
+color:white;
+text-align:center;
+font-family:tahoma;
+text-shadow:2px 2px;
+}
+
+.setCounter{
+width:100%;
+height:26.2%;
+overflow:hidden;
+}
+.wrap3{
+width:26%;
+height:50%;
+margin:0px auto;
+overflow:hidden;
+position:relative;
+top:10px;
+}
+.wrap3 input{
+width:51%;
+height:75%;
+float:left;
+margin:0px 2px;
+border-radius:5px 5px;
+border:1px solid black;
+text-align:center;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.3) 
+}
+.wrap3 button{
+width:38%;
+height:96%;
+float:left;
+background:#ff3765;
+border-radius:5px 5px;
+border:1px solid gold;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.3) 
+}
+.setCounterOption{
+width:100%;
+height:33.2%;
+overflow:hidden;
+}
+.changeContent{
+width:30%;
+height:120px;
+position:relative;
+top:30px;	
+margin:0 auto;
+}
+.bg-area{
+width:100%;
+height:100%;
+}
+.wrap4{
+width:100%;
+height:40%;
+overflow:hidden;
+}
+.wrap4-sub{
+width:60%;
+height:80%;
+margin:0 auto;
+} 
+.wrap4-sub button{
+width:48%;
+height:96%;
+}
+.head h2{
+text-align:center;
+display:block;
+color:white;
+font-family:script mt;
+position:relative;
+bottom:19px;
+}
+.head{
+width:100%;
+height:30%;
+overflow:hidden;
+}
+.wrap5{
+width:100%;
+height:40%;
+overflow:hidden
+}
+.wrap5-sub{
+font-size:12px;
+width:60%;
+height:80%;
+margin:0 auto;
+position:relative;
+bottom:20px;
+}
+.wrap5-sub h2{
+position:relative;
+font-size:22px;
+color:#ff3670;
+top:8px;
+font-family:script mt;
+}
+.stroke{
+float:left;
+width:5%;
+background:black;
+height:100%;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.5);
+}
+#next{
+border:2px solid gold;
+background:blue;
+color:white;
+font-family:tahoma;
+border-radius:5px 5px;
+box-shadow:3px 1px 3px 1px rgba(0,0,0,0.3);
+cursor:pointer;
+}
+#prev{
+border:2px solid gold;
+background:tomato;
+color:white;
+font-family:tahoma;
+border-radius:5px 5px;
+box-shadow:3px 1px 3px 1px rgba(0,0,0,0.3);
+cursor:pointer;
+}
+.player{
+width:35%;
+height:40px;
+margin:0 auto;
+position:relative;
+top:42px;
+}
+
+.player audio{
+width:70%;
+height:100%;
+float:left;
+}
+.player button{
+color:white;
+background:orange;
+border:2px solid gold;
+float:left;
+width:27%;
+height:100%;
+border-radius:5px 5px;
+box-shadow:3px 1px 3px 1px rgba(0,0,0,0.3); 
+}
+#alert{
+animation:2s alert linear infinite;
+}
+@keyframes alert{
+0%{
+box-shadow:0px 0px 6px 6px tomato;
+}
+}
+
+@media screen and (max-width:900px){
+.header h2{
+padding:5px;
+}
+.side1{
+float:none;
+width:100%;
+}
+.side2{
+float:none;
+width:100%;
+}
+.wrap1{
+width:80%;
+}
+.wrap2 button{
+margin:0px 7px;
+}
+.wrap3{
+width:30%;
+}
+.bg-area{
+float:none;
+width:100%;
+}
+.sound-area{
+float:none;
+width:100%;
+}
+.changeContent{
+width:75%;
+}
+.player{
+width:60%;
+}
+
+}
+</style>
+</head>
+<body>
+<div class="header" id="header">
+<h2>Alarm</h2>
+</div>
+<div class="content">
+<div class="side1">
+<div class="time">
+<h2 id="time">10:12:34</h2>
+</div>
+<div class="setTime">
+<div class="wrap1">
+<input type="text" id="hrs" placeholder="Hrs">
+<label><button onclick="hrscont()">+</button></label>
+<input type="text" id="min" placeholder="Min">
+<label><button onclick="mincont()">+</button></label>
+<input type="text" id="sec" placeholder="sec">
+<label><button onclick="seccont()">+</button></label>
+</div>
+</div>
+<div class="setTimeOption">
+<div class="wrap2">
+<button id="start" onclick="start();">Start</button>
+<button id="reset" onclick="reset();">Reset</button>
+</div>
+</div>
+</div>
+<div class="side2">
+<div class="counter">
+<h2 id="count">0</h2>
+</div>
+<div class="setCounter">
+<div class="wrap3">
+<input type="text" placeholder="Count" id="counter">
+<button onclick="countx()">+</button>
+</div>
+</div>
+<div class="setCounterOption">
+<div class="wrap2">
+<button id="start" onclick="startcount()">Start</button>
+<button id="reset" onclick="restcount()">Reset</button>
+</div>
+</div>
+</div>
+</div>
+<div class="changeContent">
+<div class="bg-area">
+<div class="head">
+<h2>Sounds</h2>
+</div>
+<div class="wrap4">
+<div class="wrap4-sub">
+<button id="prev" onclick="prevsong()">Prev</button>
+<button id="next" onclick="nextsong()">Next</button>
+</div>
+</div>
+<div class="wrap5">
+<div class="wrap5-sub">
+<div class="stroke">
+
+</div>
+<h2 id="cont">TimeValue<h2>
+</div>
+</div>
+
+</div>
+</div>
+<div class="player">
+<audio autoplay  loop controls  id="player">
+<source src="a.wav" type="audio/wav">
+</audio>
+<button onclick="set()">Set</button>
+</div>
+
+<script>
+setInterval(clock,1000);
+var time;
+var hrs;
+var min;
+var sec;
+
+
+var sethrs=document.getElementById("hrs");
+var setmin=document.getElementById("min");
+var setsec=document.getElementById("sec");
+
+
+var player=document.querySelector("#player");
+var music=["a.wav","b.wav","c.wav"];
+var musicSelector=0;
+
+function clock(){
+time=new Date();
+hrs=time.getHours();
+min=time.getMinutes();
+sec=time.getSeconds();
+
+
+if(setmin.value==Number(min) && sethrs.value==Number(hrs) && setsec.value==Number(sec)){
+var div=document.getElementById("header");
+div.setAttribute('id','alert');
+return musicz();
+}
+
+
+
+if(sec<10){
+sec="0"+sec;
+}
+if(min<10){
+min="0"+min;
+}
+if(hrs<10){
+hrs="0"+hrs;
+}
+document.getElementById("time").innerHTML=hrs+":"+min+":"+sec;
+}
+
+
+
+//Reset
+function reset(){
+sethrs.value=0;
+setmin.value=0;
+setsec.value=0;
+}
+
+//nextsong
+var cont=document.getElementById("cont");
+
+function nextsong(){
+if(musicSelector<=music.length){
+musicSelector++;
+return musicz();
+}
+}
+
+function setz(){
+switch(musicSelector){
+case 0:
+cont.innerHTML="Homes Tone";
+break; 
+case 1:
+cont.innerHTML="Phone Tone"; 
+break;
+case 2:
+cont.innerHTML="Signal Tone";
+break;
+default:
+cont.innerHTML="Outdoor Tone"; 
+}
+}
+setz();
+
+function prevsong(){
+if(musicSelector<=music.length){
+musicSelector--;
+return musicz();
+}
+}
+
+//music catcher
+function musicz(){
+player.setAttribute("src",music[musicSelector]);
+}
+
+//counter
+var count=0;
+var countadd=0;
+var counter=document.getElementById("counter"); 
+
+function starter(){
+document.getElementById("count").innerHTML=count;
+count++;
+if(count==counter.value){
+var div=document.getElementById("header");
+div.setAttribute('id','alert');
+return musicz();
+}
+}
+
+
+//count in input
+function countx(){
+countadd++;
+counter.value=countadd;
+}
+
+var hrsadd=0;
+var minadd=0;
+var secadd=0;
+
+function hrscont(){
+hrsadd++;
+sethrs.value=hrsadd;
+}
+function mincont(){
+minadd++;
+setmin.value=minadd;
+}
+function seccont(){
+secadd++;
+setsec.value=secadd;
+}
+
+
+function startcount(){
+return startx();
+}
+
+
+function startx(){
+setInterval(starter,1000);
+}
+
+function restcount(){
+clearInterval(startx);
+}
+
+
+</script>
+</body>
+</html>

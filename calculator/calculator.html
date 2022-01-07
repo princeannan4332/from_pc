@@ -1,0 +1,185 @@
+<!doctype html>
+<head>
+<title>Calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{
+background:url("wall.jpg") fixed center;
+background-size:cover;
+}
+.cal-container{
+width:31%;
+height:400px;
+background:black;
+margin:0px auto;
+position:relative;
+top:100px;
+border-radius:7px 7px;
+box-shadow:0.5px 0.5px 4px 4px rgba(0,0,0,0.3);
+border:1px solid gold;	
+overflow:hidden;
+}
+.txt{
+width:100%;
+height:10%;
+overflow:hidden;
+}
+.txt h2{
+color:gold;
+font-family:script mt;
+text-align:center;
+position:relative;
+bottom:12px;
+}
+.screen{
+width:94%;
+height:25%;
+border-radius:5px 5px;
+background:green;	
+margin:0px auto;
+overflow:hidden;
+}
+#inp{
+width:100%;
+height:100%;
+outline:none;
+border-radius:5px 5px;
+background:aliceblue;
+font-size:40px;
+cursor:pointer;
+}
+.number{
+width:70%;
+height:60%;
+float:left;
+}
+.operator{
+width:25%;
+height:60%;
+float:left
+}
+.insert{
+width:97%;
+height:100%;
+float:left;
+margin:10px 13px auto;
+}
+.number table{
+width:99%;
+height:100%;
+}
+.number table td{
+width:25%;
+height:20%;
+border-radius:4px 4px;
+}
+.number table td button{
+width:100%;
+height:100%;
+border:none;
+outline:none;
+cursor:pointer;
+border-radius:4px 4px;
+background:gold;
+color:white;
+font-family:Tahoma;
+font-size:18px;
+}
+.operator table{
+width:90%;
+height:100%;
+margin:0px auto;
+}
+
+.operator table td{
+border-radius:50%;
+}
+.operator table td button{
+width:100%;
+border-radius:50%;
+outline:none;
+cursor:pointer;
+height:100%;
+font-family:tahoma;
+font-size:19px;
+color:white;
+background:red;
+border:none;
+text-align:center;
+}
+@media screen and (max-width:900px){
+.cal-container{
+width:60%;
+}
+}
+</style>
+</head>
+<body>
+<div class="cal-container">
+<div class="txt">
+<h2>NiiCal</h2>
+</div>
+<div class="screen">
+<input type="text" placeholder="0.00" readonly id="inp">
+</div>
+<div class="insert">
+<div class="number">
+<table>
+<tr>
+<td><button onclick="display('1')" value="1">1</button></td>
+<td><button onclick="display('2')" value="2">2</button></td>
+<td><button onclick="display('3')" value="3">3</button></td>
+</tr>
+<tr>
+<td><button onclick="display('4')" value="4">4</button></td>
+<td><button onclick="display('5')" value="5">5</button></td>
+<td><button onclick="display('6')" value="6">6</button></td>
+</tr>
+<tr>
+<td><button onclick="display('7')" value="7">7</button></td>
+<td><button onclick="display('8')" value="8">8</button></td>
+<td><button onclick="display('9')" value="9">9</button></td>
+</tr>
+<tr>
+<td><button onclick="display('0')" value="0">0</button></td>
+<td><button style="background:#ff3260;" onclick="eql()" value="=">=</button></td>
+<td><button style="background:#ff3600;" onclick="del()">Del</button></td>
+</tr>
+</table>
+</div>
+<div class="operator">
+<table>
+<tr>
+<td><button onclick="display('+')" value="+">+</button></td>
+</tr>
+<tr>
+<td><button onclick="display('-')" value="-">-</button></td>
+</tr>
+<tr>
+<td><button onclick="display('*')" value="*">*</button></td>
+</tr>
+<tr>
+<td><button onclick="display('/')" value="/">/</button></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script>
+var inp=document.getElementById("inp");
+function display(val){
+inp.value+=val;
+}
+function eql(){
+var x=inp.value;
+var y=eval(x);
+inp.value=y;
+}
+function del(){
+inp.value="";
+}
+
+</script>
+</body>
+</html>
