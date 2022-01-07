@@ -1,0 +1,60 @@
+<html>
+<head>
+<style>
+.main{
+width:40%;
+height:200px;
+background:red;
+}
+.main button{
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+</style>
+</head>
+<body>
+<input type="text" id="inp">
+<button onclick="start()">search</button>
+<h2><u>Games</u></h2>
+<ul>
+<li  id="list1" value="god of war">god of war</li>
+<li  id="list2" value="need for speed">need for speed</li>
+<li  id="list3"value="angry birds">angry birds</li>
+<li  id="list4"value="delta force">delta force</li>
+<li  id="list5"value="fifa 19">fifa 19</li>
+<ul>
+<script>
+var inp=document.getElementById("inp");
+var list1=document.getElementById("list1").innerHTML;
+var list2=document.getElementById("list2").innerHTML;
+var list3=document.getElementById("list3").innerHTML;
+var list4=document.getElementById("list4").innerHTML;
+var list5=document.getElementById("list5").innerHTML;
+
+function start(){
+var ans=inp.value;
+var c=ans.split(" ");
+for(let letter of c){
+if(list1.includes(letter)){
+document.getElementById("list1").style.color="red";
+}
+if(list2.includes(letter)){
+document.getElementById("list2").style.color="red";
+}
+if(list3.includes(letter)){
+document.getElementById("list3").style.color="red";
+}
+if(list4.includes(letter)){
+document.getElementById("list4").style.color="red";
+}
+if(list5.includes(letter)){
+document.getElementById("list5").style.color="red";
+}
+}
+}
+
+
+</script>
+</body>
+</html>

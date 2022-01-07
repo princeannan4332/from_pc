@@ -1,0 +1,57 @@
+<html>
+<head>
+<style>
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.container{
+width:100px;
+height:50px;
+
+}
+.btn{
+width:100px;
+height:50px;
+border:none;
+color:white;
+background:orange;
+border-radius:12px 12px;
+transition:0.5s linear;
+}
+.shine{
+width:10px;
+height:50px;
+background:rgba(255, 255, 255, 0.4);
+position:relative;
+top:-50px;
+left:-20px;
+transition:0.5s linear;
+transform:skewX(20deg) translateX(0);
+}
+.container{
+overflow:hidden;
+}
+.container:hover .shine{
+transform:skewX(20deg) translateX(150px);
+}
+</style>
+</head>
+<body>
+<div class='container'>
+<button class='btn'>Shine</button>
+<div class='shine'></div>
+</div>
+
+
+<script>
+function add(A,B){
+var T=A+B;
+return T;
+}
+console.log(add(2,8));
+
+</script>
+</body>
+</html>

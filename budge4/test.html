@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Javascript</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+#img{
+filter:grayscale(100%);
+}
+</style>
+</head>
+<body>
+
+<img src="g.jpg"style="width:30%;height:40%;" id="img">
+
+<script>
+
+function wave(str){
+
+var arr=[];
+for(var x=0;x<str.length;x++){
+
+var ans=str.charAt(x).toUpperCase();
+var a=str.slice(0,x);
+var b=str.slice(x+1);
+var z=a.concat(ans,b);
+
+arr.push(z);
+if(arr[x]==str){
+arr.splice(x);
+}
+
+
+}
+return arr;
+}
+console.log(wave("two Words"))
+</script>
+</body>
+</html>
