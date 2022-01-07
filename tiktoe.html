@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tic Tak Toe</title>
+<style>
+.header{
+width:100%;
+height:50px;
+overflow:hidden;
+}
+.header h2{
+text-align:center;
+font-size:32px;
+position:relative;
+bottom:20px;
+color:black;
+font-family:script mt;
+text-shadow:0.5px 0.5px rgba(0,0,0,0.5);
+}
+.content{
+width:30%;
+height:230px;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.5);
+margin:0px auto;
+position:relative;
+top:150px;
+border-radius:12px 12px;
+background:black;
+}
+#table{
+width:100%;
+height:100%;
+border-radius:12px 12px;
+}
+#table td{
+cursor:pointer;
+border-radius:12px 12px;
+border:2px solid white;
+}
+.colour-container{
+margin:0px auto;
+position:relative;
+top:190px;
+width:30%;
+border-radius:3px 3px;
+height:130px;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.5);
+}
+.red{
+width:50%;
+float:left;
+height:80%;
+background:red;
+}
+.blue{
+width:50%;
+float:left;
+height:80%;
+background:blue;
+}
+#inp{
+width:99%;
+height:18%;
+text-align:center;
+}
+#inp1{
+width:100%;
+height:100%;
+font-size:45px;
+text-align:center;
+font-family:Tahoma;
+background:red;
+border:none;
+color:white;
+outline:none;
+}
+
+#inp2{
+width:100%;
+height:100%;
+font-size:45px;
+text-align:center;
+font-family:Tahoma;
+background:blue;
+border:none;
+color:white;
+outline:none;
+}
+</style>
+<head>
+<body>
+<div class="header">
+<h2><span style="color:gold;">Tik</span><span style="color:#ff3766;">-Tak</span> Toe</h2>
+</div>
+<div class="content">
+<table style="border:1px solid grey" id="table">
+<tr >
+<td  onclick="cell1a()" id="cell1"></td>
+<td  onclick="cell2a()" id="cell2"></td>
+<td  onclick="cell3a()" id="cell3"></td>
+</tr>
+<tr >
+<td  onclick="cell4a()" id="cell4"></td>
+<td  onclick="cell5a()" id="cell5"></td>
+<td  onclick="cell6a()" id="cell6"></td>
+</tr>
+<tr >
+<td  onclick="cell7a()" id="cell7"></td>
+<td  onclick="cell8a()" id="cell8"></td>
+<td  onclick="cell9a()" id="cell9"></td>
+</tr>
+</table>
+</div>
+
+<div class="colour-container">
+<input type="text" id="inp" placeholder="Please Insert A Your Prefered Colour">
+<div class="red" onclick="red()">
+<input type="text" placeholder="Scores" id="inp1">
+</div>
+<div class="blue" onclick="blue()">
+<input type="text" placeholder="Scores" id="inp2">
+</div>
+</div>
+
+<script>
+var cell1=document.getElementById("cell1")
+var cell2=document.getElementById("cell2")
+var cell3=document.getElementById("cell3")
+var cell4=document.getElementById("cell4")
+var cell5=document.getElementById("cell5")
+var cell6=document.getElementById("cell6")
+var cell7=document.getElementById("cell7")
+var cell8=document.getElementById("cell8")
+var cell9=document.getElementById("cell9")
+
+function cell1a(){
+var inp=document.getElementById("inp").value;
+if(inp.charAt(0)=="r"){
+cell1.style.background="red";
+}
+if(inp.charAt(0)=="b"){
+cell1.style.background="blue"
+}
+if(inp.charAt(0)=="c"){
+cell1.style.background="black";
+}
+}
+
+function cell2a(){
+var inp=document.getElementById("inp").value;
+if(inp.charAt(0)=="r"){
+cell2.style.background="red";
+}
+if(inp.charAt(0)=="b"){
+cell2.style.background="blue"
+}
+if(inp.charAt(0)=="c"){
+cell2.style.background="black";
+}
+}
+
+
+function cell3a(){
+var inp=document.getElementById("inp").value;
+if(inp.charAt(0)=="r"){
+cell3.style.background="red";
+}
+if(inp.charAt(0)=="b"){
+cell3.style.background="blue"
+}
+if(inp.charAt(0)=="c"){
+cell3.style.background="black";
+}
+}
+
+
+function cell4a(){
+var inp=document.getElementById("inp").value;
+if(inp.charAt(0)=="r"){
+cell4.style.background="red";
+}
+if(inp.charAt(0)=="b"){
+cell4.style.background="blue"
+}
+if(inp.charAt(0)=="c"){
+cell4.style.background="black";
+}
+}
+
+
+function cell5a(){
+var inp=document.getElementById("inp").value;
+if(inp.charAt(0)=="r"){
+cell5.style.background="red";
+}
+if(inp.charAt(0)=="b"){
+cell5.style.background="blue"
+}
+if(inp.charAt(0)=="c"){
+cell5.style.background="black";
+}
+}
+
+function cell6a(){
+var inp=document.getElementById("inp").value;
+if(inp.charAt(0)=="r"){
+cell6.style.background="red";
+}
+if(inp.charAt(0)=="b"){
+cell6.style.background="blue"
+}
+if(inp.charAt(0)=="c"){
+cell6.style.background="black";
+}
+}
+
+
+function cell7a(){
+var inp=document.getElementById("inp").value;
+if(inp.charAt(0)=="r"){
+cell7.style.background="red";
+}
+if(inp.charAt(0)=="b"){
+cell7.style.background="blue"
+}
+if(inp.charAt(0)=="c"){
+cell7.style.background="black";
+}
+}
+
+function cell8a(){
+var inp=document.getElementById("inp").value;
+if(inp.charAt(0)=="r"){
+cell8.style.background="red";
+}
+if(inp.charAt(0)=="b"){
+cell8.style.background="blue"
+}
+if(inp.charAt(0)=="c"){
+cell8.style.background="black";
+}
+}
+
+
+function cell9a(){
+var inp=document.getElementById("inp").value;
+if(inp.charAt(0)=="r"){
+cell9.style.background="red";
+}
+if(inp.charAt(0)=="b"){
+cell9.style.background="blue"
+}
+if(inp.charAt(0)=="c"){
+cell9.style.background="black";
+}
+}
+
+</script>
+</body>
+</html>

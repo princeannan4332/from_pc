@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Vowel Counter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{
+background:#540c98;
+}
+.text{
+width:100%;
+height:100px;
+display:block;
+overflow:hidden;
+}
+.txt-space1{
+width:15%;
+height:100%;
+float:left;
+display:block;
+overflow:hidden;
+}
+.txt-space2{
+width:15%;
+height:100%;
+float:left;
+display:block;
+overflow:hidden;
+}
+.txt-area{
+width:70%;
+height:100%;
+float:left;
+display:block;
+overflow:hidden;
+}
+#txt1{
+color:gold;
+font-family:Script MT;
+font-size:38px;
+text-align:center;
+-webkit-text-stroke:1px gold;
+-webkit-text-fill-color:transparent;
+transition:0.5s;
+animation:5s  text linear infinite;
+}
+//@keyframes text{
+60%{
+-webkit-text-stroke:1px blue;
+}
+80%{
+-webkit-text-stroke:1px greenyellow;
+}
+100%{
+-webkit-text-stroke:1px orange;
+}
+}
+.container{
+width:100%;
+height:300px;
+margin-top:15%;
+display:block;
+overflow:hidden;
+}
+.container1{
+width:20%;
+height:100%;
+float:left;
+display:block;
+overflow:hidden;
+}
+.container2{
+width:80%;
+height:100%;
+float:left;
+display:block;
+overflow:hidden;
+}
+#inp1{
+width:60%;
+height:90%;
+border-radius:12px 12px;
+text-align:center;
+font-family:Tahoma;
+color:orangered;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.3);
+outline:none;
+border:none;
+font-size:20px;
+}
+
+#btn{
+background:#f50a79;
+width:15%;
+height:90%;
+border:none;
+border-radius:12px 12px;
+cursor:pointer;
+color:white;
+outline:none;
+transition:0.5s;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.3);
+}
+.content1{
+width:100%;
+height:20%;
+}
+.content2{
+width:100%;
+height:80%;
+}
+#btn:hover{
+background:#f50a99;
+}
+.c1{
+width:100%;
+height:18%;
+background:gold;
+box-shadow:4px 2.5px 4px 2.5px rgba(0,0,0,0.3);
+border-radius:12px 12px;
+}
+.c2{
+width:100%;
+height:18%;
+background:gold;
+margin-top:12%;
+box-shadow:4px 2.5px 4px 2.5px rgba(0,0,0,0.3);
+border-radius:12px 12px;
+}
+.c3{
+width:100%;
+height:18%;
+background:gold;
+box-shadow:4px 2.5px 4px 2.5px rgba(0,0,0,0.3);
+border-radius:12px 12px;
+}
+.c4{
+width:100%;
+height:18%;
+background:gold;
+margin-top:12%;
+box-shadow:4px 2.5px 4px 2.5px rgba(0,0,0,0.3);
+border-radius:12px 12px;
+}
+.c1z{
+width:20%;
+height:100%;
+float:left;
+}
+.c2z{
+width:20%;
+height:100%;
+float:left;
+}
+.c3z{
+width:20%;
+height:100%;
+float:left;
+}
+.c1 p{
+color:blue;
+font-size:18px;
+font-family:Kristen ITC;
+position:relative;
+top:10px;
+text-align:center;
+}
+.c2 p{
+color:blue;
+font-size:18px;
+font-family:Kristen ITC;
+position:relative;
+top:10px;
+text-align:center;
+}
+.c3 p{
+color:blue;
+font-size:18px;
+font-family:Kristen ITC;
+position:relative;
+top:10px;
+text-align:center;
+}
+.c4 p{
+color:blue;
+font-size:18px;
+font-family:Kristen ITC;
+position:relative;
+top:10px;
+text-align:center;
+}
+@media screen and (max-width:750px){
+#btn{
+width:20%;
+}
+.container1{
+width:0%;
+}
+.container2{
+width:100%;
+}
+#inp1{
+width:75%;
+}
+#btn{
+width:23%;
+}
+.c1z{
+width:43%;
+
+}
+.c2z{
+width:10%;
+
+}
+.c3z{
+width:43%;
+
+}
+.txt-space1{
+width:0%;
+}
+.txt-area{
+width:100%;
+}
+.txt-space2{
+width:0%;
+}
+}
+</style>
+</head>
+<body>
+<div class="text">
+<div class="txt-space1">
+</div>
+<div class="txt-area">
+<h2 id="txt1">Hello There</h2>
+</div>
+<div class="txt-space2">
+</div>
+</div>
+<div class="container">
+<div class="container1">
+
+</div>
+<div class="container2">
+<div class="content1">
+<input type="text" placeholder="Type in a sentence" id="inp1">
+<button id="btn" onclick="count()">Count</button>
+</div>
+<div class="content2">
+<div class="c1z">
+<div class="c1">
+<p id="p1">Vowel:0</p>
+</div>
+<div class="c2">
+<p id="p2">Conconant:0</p>
+</div>
+</div>
+<div class="c2z">
+
+</div>
+
+<div class="c3z">
+<div class="c3">
+<p id="p3">Punctuation:0</p>
+</div>
+<div class="c4">
+<p id="p4">Space:0</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+
+function count(){
+var inp=document.getElementById("inp1").value;
+var vowels=["a","e","i","o","u"];
+var count=1;
+for(let letters of inp.toLowerCase()){
+if(vowels.includes(letters)){
+var counter=count++;
+document.getElementById("p1").innerHTML="Vowel:"+counter;
+}
+
+}
+
+
+function punctuation(){
+var punc=[",",".","/",";",":","}","{","[","]","!","@","#","$","%","^","&","*","(",")","-","_","+","=","|","|","?"];
+var puncount=0;
+for(let puncs of inp){
+if(punc.includes(puncs)){
+puncount++;
+document.getElementById("p3").innerHTML="Punctuation:"+puncount;
+}
+}
+}
+
+punctuation();
+
+function conconant(){
+var conc=["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
+var concount=0;
+for(let concs of inp.toLowerCase()){
+if(conc.includes(concs)){
+concount++;
+document.getElementById("p2").innerHTML="Conconant:"+concount;
+}
+}
+}
+conconant();
+
+
+function space(){
+var space=[" "];
+var spacecount=0;
+for(let spaces of inp.toLowerCase()){
+if(space.includes(spaces)){
+spacecount++;
+document.getElementById("p4").innerHTML="Spaces:"+spacecount;
+}
+}
+} 
+space();
+}
+
+
+function start(){
+var inp=prompt("Type in your Full name");
+if(inp !==null){
+var str=inp.charAt(0).toUpperCase()+inp.slice(1).toLowerCase();
+document.getElementById("txt1").innerHTML="Hello "+str;
+}
+else{
+document.getElementById("txt1").innerHTML="Hello Client";
+}
+}
+start();
+
+
+</script>
+</body>
+</html>

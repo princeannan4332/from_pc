@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Animated Navbar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{
+font-family:trebuchet MS;
+}
+.header{
+width:100%;
+height:70px;
+overflow:hidden;
+background:blue;
+}
+.header h2{
+font-family:trebuchet MS;
+color:white;
+}
+.h1{
+width:50%;
+height:100%;
+float:left;
+}
+.h2{
+width:50%;
+height:100%;
+float:left;
+}
+.h2 button{
+float:right;
+margin:18px 10px auto;
+background:white;
+color:blue;
+cursor:pointer;
+width:20%;
+height:50%;
+border:none;
+border-radius:5px 5px;
+}
+.navbar{
+width:100%;
+height:200px;
+background:red;
+overflow:hidden;
+display:none;
+}
+.navbar a{
+display:block;
+float:none;
+margin:4px;
+padding:8px;
+text-decoration:none;
+color:white;
+text-align:center;
+}
+.navbar a:hover{
+background:blue;
+color:white;
+}
+@media screen and (max-width:900px){
+.h2 button{
+width:40%;
+}
+}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="h1">
+<h2>Animated Navbar</h2>
+</div>
+<div class="h2">
+<button onclick="nav()">Navbar</button>
+</div>
+</div>
+<div class="navbar" id="navbar">
+<a href="#">Home</a>
+<a href="#">Games</a>
+<a href="#">Video</a>
+<a href="#">Music</a>
+<a href="#">Help</a>
+</div>
+<script>
+var navbar=document.getElementById("navbar");
+var count=0;
+function nav(){
+count++;
+if(count==1){
+setInterval(anime,0.3)
+var pos=0;
+function anime(){
+if(pos<200){
+pos++;
+navbar.style.height=pos+"px";
+navbar.style.display="block";
+}
+}
+}
+else{
+count=0;
+navbar.style.display="none";
+}
+}
+
+
+
+
+</script>
+</body>
+</html>

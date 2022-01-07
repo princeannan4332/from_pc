@@ -1,0 +1,31 @@
+<html>
+<head>
+<style>
+.main{
+width:40%;
+height:200px;
+background:red;
+}
+.main button{
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+</style>
+</head>
+<body>
+<select id="slt">
+<option>New</option>
+<option>Red</option>
+<option>Green</option>
+</select>
+<button onclick="start()">click</button>
+<script>
+function start(){
+var slt=document.getElementById("slt");
+var ans=slt.options[slt.selectedIndex].value;
+alert(ans);
+}
+</script>
+</body>
+</html>

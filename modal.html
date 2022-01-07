@@ -1,0 +1,68 @@
+<html>
+<head>
+<style>
+.main{
+width:40%;
+height:50%;
+background:red;
+position:relative;
+top:30%;
+margin:0px auto;
+}
+.main span{
+color:white;
+float:right;
+font-weight:bold;
+font-size:23px;
+cursor:pointer;
+}
+.main h2{
+color:white;
+font-family:tahoma;
+}
+.content{
+width:100%;
+height:100%;
+position:fixed;
+top:0px;
+background:rgba(0,0,0,0.3);
+animation:2s wood;
+display:none;
+}
+@keyframes wood{
+from{
+position:relative;
+top:-300px;
+}
+to{
+position:relative;
+top:0px;
+}
+}
+</style>
+</head>
+<body id="body">
+<div class="content" id="main">
+<div class="main">
+<span onclick="closebtn()">&times;</span>
+<h2>Hey I am a model</h2>
+</div>
+</div>
+<button onclick="start()">Click to show modal</button>
+<script>
+var main=document.getElementById("main");
+var body=document.getElementById("body");
+function start(){
+main.style.display="block";
+} 
+function closebtn(){
+main.style.display="none";
+}
+window.onclick=function(event){
+if(event.target==main){
+main.style.display="none";
+}
+}
+</script>
+</body>
+</html>

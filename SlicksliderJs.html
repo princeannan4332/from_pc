@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<style>
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+main{
+width:80%;
+height:300px;
+border-radius:12px 12px;
+margin-top:15%;
+position:relative;
+background:blue;
+}
+span:nth-child(1){
+color:white;
+font-size:20px;
+cursor:pointer;
+position:absolute;
+top:50%;
+left:12px;
+}
+span:nth-child(2){
+color:white;
+font-size:20px;
+cursor:pointer;
+position:absolute;
+top:50%;
+right:12px;
+}
+section::-webkit-scrollbar{
+visibility:hidden;
+}
+section{
+width:90%;
+height:270px;
+background:red;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+top:20px;
+left:35px;
+overflow-x:auto;
+}
+
+
+
+div{
+min-width:200px;
+height:100px;
+background:white;
+text-align:center;
+color:blue;
+margin:2px;
+position:relative;
+left:650px;
+}
+</style>
+</head>
+<body>
+<main>
+<span onclick='backward()'><</span>
+<span onclick='forward()'>></span>
+<section>
+<div id='div'>1</div>
+<div id='div'>2</div>
+<div id='div'>3</div>
+<div id='div'>4</div>
+<div id='div'>5</div>
+<div id='div'>6</div>
+<div id='div'>7</div>
+<div id='div'>8</div>
+<div id='div'>9</div>
+<div id='div'>10</div>
+</section>
+</main>
+<script>
+var div=document.getElementsByTagName('div');
+var l=0;
+function forward(){
+l++;
+for(var i of div){
+if(l==0){i.style.left="650px";}
+if(l==1){i.style.left="0px";}
+if(l==2){i.style.left="-700px";}
+if(l>2){l=2}
+}
+
+}
+function backward(){
+l--;
+for(var i of div){
+if(l==0){i.style.left="650px";}
+if(l==1){i.style.left="0px";}
+if(l==2){i.style.left="-700px";}
+if(l<0){l=0}
+}
+
+}
+</script>
+
+</body>
+</html>

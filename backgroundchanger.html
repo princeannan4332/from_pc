@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Background Changer</title>
+<style>
+.button{
+width:15%;
+height:70px;
+margin-top:30%;
+}
+*{
+margin:0px auto;
+}
+button{
+width:150px;
+height:50px;
+border:1px solid red;
+background:blue;
+color:white;
+font-family:script mt;
+font-size:23px;
+outline:none;
+cursor:pointer;
+border-radius:5px 5px;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.5);
+}
+</style>
+</head>
+<body id="body">
+<div class="button">
+<button onclick="change()">Change Bg</button>
+</div>
+
+<script>
+function change(){
+var bg=["yellow","green","blue","red","black","cyan","wheat","grey","pink"];
+var selector=Math.round(Math.random()*bg.length);
+document.getElementById("body").style.background=bg[selector];
+}
+
+</script>
+</body>
+</html>

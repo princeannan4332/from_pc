@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta charset="viewport" content="width=device-width,initial-scale=1">
+<title>DailyTips</title>
+<style>
+.header-area{
+width:100%;
+height:65px;
+}
+.button{
+width:18%;
+height:100%;
+float:left;	
+}
+#light{
+cursor:pointer;
+width:40%;
+height:55%;
+border:1px solid black;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.5);
+color:black;
+border-radius:5px 5px;
+outline:none;
+background:white;
+font-family:script mt;
+position:relative;
+left:12px;
+}
+#dark{
+width:40%;
+height:55%;
+border:1px solid white;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.5);
+color:white;
+border-radius:5px 5px;
+cursor:pointer;
+outline:none;
+background:black;
+margin:13px 15px auto;
+font-family:script mt;
+}
+.header-area h2{
+font-family:script mt;
+font-size:32px;
+text-align:center;
+position:relative;
+bottom:10px;
+left:60px;
+}
+.text{
+float:left;
+width:82%;
+height:100%;
+}
+.work-area{
+display:table;
+max-width:80%;
+min-width:70%;
+max-height:500px;
+min-height:100px;
+margin:0px auto;
+margin-top:16.5%;
+}
+.input{
+width:100%;
+height:60px;
+overflow:hidden;
+}
+.output{
+width:70%;
+max-height:1000px;
+min-height:40px;
+background:white;
+border:1px solid black;
+float:left;
+overflow:hidden;
+border-radius:5px 5px;
+text-align:center;
+box-shadow:3px 1px 3px 1px rgba(0,0,0,0.5);
+}
+#inp{
+width:70%;
+height:68%;
+border:1px solid black;
+border-radius:7px 7px;
+text-align:center;
+margin:12px 17px auto;
+position:relative;
+left:10px;
+outline:none;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.5);
+}
+#btn{
+width:20%;
+height:72%;
+border:1px solid white;
+box-shadow:2px 1px 2px 1px rgba(0,0,0,0.5);
+color:white;
+border-radius:5px 5px;
+cursor:pointer;
+outline:none;
+background:black;
+font-family:script mt;
+font-size:23px;
+position:relative;
+top:2.7px;
+}
+.space{
+width:25%;
+height:40px;
+float:left;
+}
+.space1{
+width:4%;
+height:45px;
+float:left;	
+}
+.res{
+width:100%;
+height:40px;
+background:white;
+text-align:center;
+font-family:tahoma;
+border-bottom:1px solid black;
+overflow:hidden;
+border-bottom:1px slolid black;
+}
+#und{
+color:#ff3766;
+}
+#item{
+background:wite;
+width:100%;
+min-height:40px;
+max-height:200px;
+overflow:hidden;
+border-bottom:1px solid black;
+}
+#txt{
+color:black;
+font-family:script mt;
+font-size:17px;
+text-align:left;
+}
+
+
+
+@media screen and (max-width:900px){
+.text h2{
+float:left;
+}
+.text{
+width:60%;
+}
+.button{
+width:40%;
+}
+
+.work-area{
+width:85%;
+}
+.space1{
+width:6.5%;
+}
+.space{
+width:22.5%;
+}
+}
+
+
+
+
+
+
+</style>
+</head>
+<body id="body">
+
+<div class="header-area">
+<div class="text">
+<h2 id="header">Daily<span id="und">Tips</span></h2>
+</div>
+<div class="button">
+<button id="light" onclick="light()">Light</button>
+<button id="dark" onclick="dark()">Dark</button>
+</div>
+</div>
+<div class="work-area">
+<div class="input">
+<input type="text" placeholder="What is on your mind?" id="inp">
+<button id="btn" onclick="post()">Post</button>
+</div>
+<div class="space1">
+
+</div>
+<div class="output" id="output">
+<div class="res" id="res">
+<p style="color:grey;" id="empty">Your Tips Are Empty</p>
+</div>
+</div>
+<div class="space">
+
+</div>
+</div>
+<script>
+var content=document.getElementById("body");
+var tip=document.getElementById("und");
+var header=document.getElementById("header");
+var btn=document.getElementById("btn");
+
+
+function light(){
+content.style.background="white";
+tip.style.color="#ff3766";
+header.style.color="black";
+btn.style.background="black";
+btn.style.color="white";
+btn.style.border="1px solid white";
+}
+
+function dark(){
+content.style.background="#353238";
+tip.style.color="gold";
+header.style.color="white";
+btn.style.background="white";
+btn.style.color="black";
+btn.style.border="1px solid black";
+}
+
+
+
+function post(){
+var inp=document.getElementById("inp").value;
+document.getElementById("empty").innerHTML="Thanks For Generating Some Tips";
+
+var ans=inp.charAt(0).toUpperCase() + inp.slice(1);
+
+var time=new Date();
+var hrs=time.getHours();
+var min=time.getMinutes();
+var sec=time.getSeconds();
+
+if(min<10){
+min="0"+min;
+}
+
+if(sec<10){
+sec="0"+sec;
+}
+
+var timeOfpost=hrs+":"+min+":"+sec;
+
+
+var divs=document.createElement("div");
+
+divs.setAttribute('id','item');
+
+document.getElementById("output").appendChild(divs);
+
+
+var txt=document.createElement("h2");
+txt.setAttribute('id','txt');
+
+var inside=document.createTextNode( timeOfpost+"::-"+ans);
+txt.appendChild(inside);
+
+divs.appendChild(txt);
+
+
+
+
+}
+</script>
+</body>
+</html>

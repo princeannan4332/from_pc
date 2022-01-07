@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Drawing Pad</title>
+<style>
+
+*{
+margin:0px auto;
+}
+.canvasz{
+border:1px solid black;
+width:28%;
+height:280px;
+margin-top:17%;
+}
+.main{
+width:100%;
+height:100%;
+
+}
+.main img{
+width:100%;
+height:100%;
+background:url("a.jpg")center;
+background-size:cover;
+background-repeat:no-repeat;
+}
+.anime{
+animation:2s linear box;
+}
+
+
+@keyframes box{
+from{
+width:0%;
+}
+to{
+width:100%;
+}
+}
+
+</style>
+</head>
+<body>
+<div class="canvasz">
+<div class="main" id="cont">
+<img id="image">
+</div>
+</div>
+<h2 id="txt">Nii</h2>
+<script>
+var image=document.querySelector("#image");
+var cont=document.getElementById("cont");
+var count=0;
+function framer(){
+count++;
+if(count==1){
+image.setAttribute('src','a.jpg');
+cont.classList.add("anime");
+setTimeout(function(){
+cont.classList.remove("anime");
+},2000);
+}
+if(count==6){
+image.setAttribute('src','b.jpg');
+cont.classList.add("anime");
+setTimeout(function(){
+cont.classList.remove("anime");
+},2000);
+}
+if(count==12){
+image.setAttribute('src','c.jpg');
+cont.classList.add("anime");
+setTimeout(function(){
+cont.classList.remove("anime");
+},2000);
+}
+if(count==18){
+image.setAttribute('src','d.jpg');
+cont.classList.add("anime");
+setTimeout(function(){
+cont.classList.remove("anime");
+},2000);
+}
+if(count==24){
+image.setAttribute('src','e.jpg');	
+cont.classList.add("anime");
+setTimeout(function(){
+cont.classList.remove("anime");
+},2000);
+}
+if(count==30){
+count=0;
+}
+
+
+}
+
+setInterval(framer,1000);
+
+
+
+
+</script>
+</body>

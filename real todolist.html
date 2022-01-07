@@ -1,0 +1,49 @@
+<html>
+<head>
+<style>
+.main{
+width:40%;
+height:200px;
+background:red;
+}
+.main button{
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+.btn{
+width:50px;
+height:100px;
+border-top:20px solid Gold;
+background:black;
+}
+</style>
+</head>
+<body id="body">
+<input type="text" placeholder="Input Value" id="inp" >
+<button onclick="start()">Click</button>
+
+</div>
+<script>
+var inp=document.getElementById("inp");
+var body=document.getElementById("body");
+function start(){
+var ul=document.createElement("ul");
+var li=document.createElement("li"); 
+var btn=document.createElement("button");
+btn.onclick=function(){
+var el=this.parentElement;
+el.style.display="none";
+}
+var btntxt=document.createTextNode("X");
+btn.appendChild(btntxt);
+ul.appendChild(li);
+var txt=document.createTextNode(inp.value);
+li.appendChild(txt);
+li.appendChild(btn);
+body.appendChild(ul);
+} 
+
+</script>
+</body>
+</html>

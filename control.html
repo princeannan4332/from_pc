@@ -1,0 +1,65 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<title>Control</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+.container{
+width:100px;
+height:100px;
+background:red;	
+position:relative;
+}
+</style>
+</head>
+<body id="body"onkeypress="startz(event)">
+
+<div class="container" id="container" >
+
+</div>
+<script>
+var move=0;
+var resize=0;
+function startz(event){
+var container=document.getElementById("container");
+if(event.keyCode==100){
+if(move<910){
+move+=2;
+container.style.left=move+"px";
+if(move==908){
+container.style.background="purple";
+}
+}
+}
+if(event.keyCode==97){
+if(move<910){
+move-=2;
+container.style.left=move+"px";
+}
+}
+if(event.keyCode==115){
+if(move<910){
+move+=2;
+container.style.top=move+"px";
+}
+}
+if(event.keyCode==119){
+if(move<910){
+move-=2;
+container.style.top=move+"px";
+}
+}
+}
+
+
+
+
+
+//a-97
+//s-115
+//d-100
+//w-119
+</script>
+</body>
+</html>

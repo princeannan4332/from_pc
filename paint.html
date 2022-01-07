@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Drawing Pad</title>
+<style>
+body{
+background:black;
+}
+#canvas{
+border:1px solid white;
+
+}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+
+<script>
+window.addEventListener('load',()=>{
+var canvas=document.querySelector("#canvas");
+var ctx=canvas.getContext('2d');
+canvas.height=window.innerHeight;
+canvas.width=window.innerWidth;
+
+var painting=false;
+
+function startPainting(e){
+painting=true;
+nat(e);
+}
+function stopPainting(){
+painting=false;
+ctx.beginPath();
+}
+
+
+function nat(e){
+if(!painting) return;
+
+ctx.lineWidth="4";
+ctx.lineCap="round";
+	
+
+ctx.lineTo(e.clientX,e.clientY);
+ctx.strokeStyle="white";
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(e.clientX,e.clientY);
+
+
+}
+canvas.addEventListener('mousedown',startPainting);
+canvas.addEventListener('mouseup',stopPainting);
+canvas.addEventListener('mousemove',nat);
+
+
+
+});
+</script>
+</body>

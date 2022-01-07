@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Drawing Pad</title>
+<style>
+
+#canvas{
+border:1px solid black;
+width:100px;
+height:100px;
+background:red;
+}
+</style>
+</head>
+<body onkeypress="start(event)">
+<div id="canvas" ></div>
+
+<script>
+window.addEventListener('load',()=>{
+var canvas=document.getElementById("canvas");
+
+
+var moveme=false;
+
+function startmove(e){
+moveme=true;
+work(e);
+}
+
+
+function stopmove(){
+moveme=false;
+canvas.style.left=e.clientX+'px';
+}
+
+function work(e){
+if(!moveme) return;
+
+
+var l=e.clientX;
+var t=e.clientY;
+
+
+canvas.style.position="absolute";
+
+
+if(l<900){
+canvas.style.left=l+'px';
+canvas.style.top=l+'px';
+if(l>10){
+l-=20;
+canvas.style.left=l+'px';
+}
+}
+
+
+
+
+if(l<900){
+canvas.style.top=t+'px';
+if(l>10){
+t-=20;
+canvas.style.top=t+'px';
+}
+}
+
+
+
+
+}
+
+
+
+canvas.addEventListener('mousedown',startmove);
+canvas.addEventListener('mouseup',stopmove);
+canvas.addEventListener('mousemove',work);
+});
+
+</script>
+</body>

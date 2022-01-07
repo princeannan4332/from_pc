@@ -1,0 +1,26 @@
+<!Doctype html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>marque</title>
+</head>
+<body>
+<canvas id='canvas' style='border:2px solid black;'></canvas>
+<script>
+var canvas=document.querySelector('#canvas');
+var ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+ctx.beginPath();
+for(var i=0;i<20;i*=2){
+ctx.arc((Math.random()*5)*i,(Math.random()*5)*i,(Math.random()*5)*i,0,2*Math.PI);
+ctx.stroke();
+}
+ctx.strokeStyle='red';
+ctx.stroke();
+
+
+</script>
+</body>
+</html>

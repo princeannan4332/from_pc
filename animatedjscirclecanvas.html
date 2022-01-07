@@ -1,0 +1,35 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<canvas id='canvas' style='border:2px solid red'></canvas>
+<script>
+var currentPercent = 0;     
+var percent = 60;     
+     
+var testCanvas = document.querySelector( "#canvas" ).getContext("2d");     
+testCanvas.fillStyle = "red";     
+drawArc();     
+     
+function drawArc(){     
+    var x = 75;     
+    var y = 75;     
+    var radius=75;     
+    if( currentPercent<percent ){     
+        currentPercent += percent/20;     
+        testCanvas.clearRect( 0, 0, 150, 150 );     
+        testCanvas.beginPath();     
+        testCanvas.moveTo(x, y);     
+        testCanvas.arc( x, y, radius, 270 * ( Math.PI/180 ), ( 360 * currentPercent /100 - 90 ) * ( Math.PI/180 ) );     
+        testCanvas.fill();     
+        requestAnimationFrame( drawArc );     
+    }     
+}
+</script>
+</body>
+</html>
+</script>
+</bidy>
+</html>
