@@ -1,0 +1,63 @@
+<html>
+<body>
+<canvas id='canvas'></canvas>
+<script>
+var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+var width=window.innerWidth;
+var height=window.innerHeight;
+canvas.width=width;
+canvas.height=height;
+
+class Ball{
+constructor(x,y,velx,vely,size,color){
+this.x=x;
+this.y=y;
+this.velx=velx;
+this.vely=vely;
+this.size=size;
+this.color=color;
+}
+drawBall(){
+ctx.beginPath();
+ctx.fillStyle=this.color;
+
+
+ctx.arc(this.x,this.y,this.size,0,2*Math.PI);
+ctx.fill();
+
+}
+
+updateBall(){
+if(this.x +this.size >=width || this.x - this.size <=0){
+this.velx=-this.velx;
+}
+if(this.y +this.size >=height || this.y - this.size <=0){
+this.vely=-this.vely;
+}
+
+this.x+=this.velx;
+this.y+=this.vely;
+}
+}
+
+var arr=[];
+while(arr.length<20){
+var ball=new Ball(50,100,5,5,30,'green');
+arr.push(ball);
+}
+
+function loop(){
+ctx.fillStyle='cyan';
+ctx.fillRect(0,0,width,height);
+for(var i=0;i<arr.length;i++){
+arr[i].drawBall();
+arr[i].updateBall();
+}
+
+requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>

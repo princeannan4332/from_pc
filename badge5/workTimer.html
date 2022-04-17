@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Test</title>
+<style>
+body{
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+background:rgba(12,34,26,3);
+}
+#header{
+color:gold;
+font-family:trebuchet ms;
+font-size:26px;
+margin-top:25%;
+}
+#txt{
+color:#FF3670;
+font-family:script mt;
+font-size:36px;
+}
+button{
+width:100px;
+height:50px;
+font-family:trebuchet ms;
+border:none;
+border-radius:12px 12px;
+color:white;
+background:rgba(12,334,126,3);
+cursor:pointer;
+}
+
+
+</style>
+</head>
+<body  id='body'>
+
+
+<h1 id='header'>countdown</h1>
+<h1 id='txt'>00:00<h1>
+<button onclick='start()'>start</button>
+<script>
+var txt=document.getElementById('txt');
+var x=60;
+
+
+
+var ques;
+
+function caller(){
+ques--;
+}
+
+function counter(){
+
+document.getElementById('txt').innerHTML=ques+':'+x--;
+if(x<=0){
+x=60;
+return caller();
+}
+if(x<10){
+var tens='0'+x--;
+document.getElementById('txt').innerHTML=ques+':'+tens;
+}
+
+}
+var stop;
+function start(){
+ques=prompt('How Many Minutes Do Your Need To Complete The Task');
+console.log(ques);
+stop=setInterval(counter,1000);
+
+}
+function stopIt(){
+if(ques==0 && x==0){
+document.getElementById('header').innerHTML='TimeOut';
+clearInterval(stop);
+}
+}
+setInterval(stopIt,10);
+
+</script>
+</body>
+</html>

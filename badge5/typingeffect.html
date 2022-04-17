@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Type Effect JS</title>
+<style>
+main{
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+background:rgba(123,32,355,234);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+h2{
+color:gold;
+font-family:trebuchet ms;
+font-size:32px;
+border-right:5px solid #ff3670;
+animation:1s cursorroll linear infinite;
+transition:1s;
+}
+@keyframes cursorroll{
+from{
+border-right:block;
+}
+to{
+border-right:none;
+}
+}
+</style>
+</head>
+<body>
+<main>
+<h2 id='txt'></h2>
+</main>
+
+<script>
+/*
+var arr=['a','b','c','d'];
+var ans=arr.splice(0,1,'man');
+console.log(arr);
+*/
+
+var txt=document.getElementById('txt');
+var sentence=prompt('Type in a sentence');
+var splitsentence=sentence.split('');
+var m=splitsentence;
+
+var x=-1;
+var timer=setInterval(function(){
+if(x<=splitsentence.length-2){
+x++;
+document.getElementById('txt').innerHTML+=splitsentence[x];
+}
+else{
+clearInterval(timer);
+}
+},800);
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

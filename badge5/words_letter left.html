@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Words/Letters Left</title>
+<style>
+body{
+background:linear-gradient(60deg,#ff3670 50%,rgba(155,40,211,20) 50%);
+}
+.main{
+width:100%;
+height:100%;
+position:fixed;
+top:0px;
+left:0px;
+}
+.container1{
+width:50%;
+height:100%;
+float:left;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+.cont2{
+width:50%;
+height:100%;
+float:left;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+.txt{
+color:white;
+font-family:script mt;
+}
+.textarea{
+width:70%;
+height:40%;
+outline:none;
+border-radius:5px 5px;
+box-shadow:0px 0px 3px 3px rgba(0,0,0,0.3);
+font-family:trebuchet ms;
+}
+.button{
+width:70%;
+height:8%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-around;
+}
+.button p{
+color:black;
+font-family:trebuchet ms;
+}
+
+.btn{
+width:25%;
+height:55%;
+overflow:hidden;
+}
+.btn button{
+width:100%;
+height:100%;
+border:none;
+border-radius:5px 5px;
+cursor:pointer;
+background:#ff3670;
+font-family:trebuchet ms;
+color:white;
+}
+.ball{
+width:5px;
+height:5px;
+background:rgba(255,255,255,0.5);
+display:none;
+position:relative;
+top:-16px;
+left:47%;
+border-radius:50%;
+}
+
+.btn1{
+width:25%;
+height:55%;
+overflow:hidden;
+}
+.btn1 button{
+width:100%;
+height:100%;
+border:none;
+border-radius:5px 5px;
+cursor:pointer;
+background:rgba(155,40,211,20);
+font-family:trebuchet ms;
+color:white;
+}
+.ball1{
+width:5px;
+height:5px;
+background:rgba(255,255,255,0.5);
+display:none;
+position:relative;
+top:-16px;
+left:47%;
+border-radius:50%;
+}
+
+
+@media screen and (max-width:900px){
+.container1{
+float:none;
+width:100%;
+}
+.cont2{
+float:none;
+width:100%;
+}
+.main{
+overflow-x:scroll;
+}
+}
+</style>
+</head>
+<body>
+<div class='main'>
+<div class='container1'>
+<h2 class='txt'>Words Left</h2>
+<textarea class='textarea' id='wordinp'></textarea>
+<div class='button'>
+<p id='wordtxt'>Left:100</p>
+
+
+<div class='btn1'>
+<button onclick='startword()'>Search</button>
+<div class='ball1' id='balla'>
+
+</div>
+</div>
+
+
+</div>
+</div>
+<div class='cont2'>
+<h2 class='txt'>Letters Left</h2>
+<textarea class='textarea' id='letterinp'></textarea>
+<div class='button'>
+<p id='lettertxt'></p>
+
+<div class='btn'>
+<button onclick='startletter()'>Search</button>
+<div class='ball' id='ball'>
+
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+<script>
+var ball=document.getElementById('ball');
+var balla=document.getElementById('balla');
+var wordinp=document.getElementById('wordinp');
+var letterinp=document.getElementById('letterinp');
+var wordtxt=document.getElementById('wordtxt');
+var lettertxt=document.getElementById('lettertxt');
+var x=0;
+
+var wordcount=0;
+var quesword;
+var quesletters;
+function deftxt(){
+quesword=prompt('How many Word do you want to type');
+quesletters=prompt('How many letters do you want to type');
+if(quesletters!=null){
+lettertxt.innerHTML='0 of '+quesletters;
+}
+
+if(quesword!=null){
+wordtxt.innerHTML='0 of '+quesword;
+}
+
+}
+deftxt();
+
+
+function startletter(){
+var lettercount=0;
+var letterarr=[];
+var newletterarr=[];
+var space=[' '];
+
+for(let letter of letterinp.value){
+letterarr.push(letter);
+}
+for(let letterz of letterarr){
+if(!space.includes(letterz)){
+newletterarr.push(letterz);
+}
+}
+if(newletterarr.length==quesletters){
+letterinp.setAttribute('readonly',true);
+alert('Letters Has Been Reached');
+}
+if(newletterarr.length>quesletters){
+var exceed=newletterarr.length-quesletters;
+alert('Letters have been exceeded by '+exceed);
+}
+lettertxt.innerHTML=newletterarr.length+' of '+quesletters;
+return mm();
+}
+
+
+
+
+function startword(){
+
+var wordcount=0;
+var wordarr=[];
+var newwordarr=[];
+var space=[' '];
+
+for(let word of wordinp.value.split(' ')){
+wordarr.push(word);
+}
+for(let wordz of wordarr){
+if(!space.includes(wordz)){
+newwordarr.push(wordz);
+}
+}
+
+
+if(newwordarr.length==quesword){
+wordinp.setAttribute('readonly',true);
+alert('Words Has Been Reached');
+}
+if(newwordarr.length>quesword){
+var exceed=newwordarr.length-quesword;
+alert('Words have been exceeded by '+exceed);
+}
+
+wordtxt.innerHTML=newwordarr.length+' of '+quesword;
+
+return mmm();
+}
+
+
+
+function mm(){
+function tm(){
+if(x<22){
+x++;
+ball.style.display='block';
+ball.style.transform='scale('+x+')';
+}
+
+}
+var t=setInterval(tm,10);
+setTimeout(function(){
+clearInterval(t);
+x=0;
+ball.style.display='none';
+},300)
+
+}
+
+function mmm(){
+function tm(){
+if(x<22){
+x++;
+balla.style.display='block';
+balla.style.transform='scale('+x+')';
+}
+
+}
+var t=setInterval(tm,10);
+setTimeout(function(){
+clearInterval(t);
+x=0;
+balla.style.display='none';
+},300)
+
+}
+</script>
+</body>
+</html>

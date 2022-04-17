@@ -1,0 +1,79 @@
+<html>
+<head>
+<style>
+.grid{
+width:100px;
+height:100px;
+display:flex;
+flex-wrap:wrap;
+align-items:left;
+justify-content:left;
+}
+
+.box{
+width:50px;
+height:50px;
+border:1px solid grey;
+float:left;
+}
+.mole{
+background:red;
+}
+
+</style>
+</head>
+<body>
+<div class='grid'>
+<div class='box' id='1'></div>
+<div class='box' id='2'></div>
+<div class='box' id='3'></div>
+<div class='box' id='4'></div>
+</div>
+
+<script>
+var div=document.querySelectorAll('.box');
+var randomMole;
+var x=1;
+var arr=[];
+var ans=[];
+var i=0;
+div.forEach(function(val){
+
+var a=val.setAttribute('data-id',i++);
+val.addEventListener('click',function(){
+var xxx=this.getAttribute('data-id');
+if(xxx==randomMole){
+alert('yes');
+}
+
+
+});
+
+
+})
+
+
+
+
+
+function moleMove(){
+randomMole=Math.round(Math.random()*4);
+x++;
+var xx=arr[arr.length-1];
+if(x%2==0){
+div[xx].classList.remove('mole');
+}
+else{
+div[randomMole].classList.add('mole');	
+arr.push(randomMole);
+}
+}
+setInterval(moleMove,1000);
+
+
+
+//https://www.codewars.com/kata/5420fc9bb5b2c7fd57000004/train/javascript
+</script>
+
+</body>
+</html>
