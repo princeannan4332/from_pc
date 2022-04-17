@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>Customer Service</title>
+<style>
+body{
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:trebuchet ms;
+}
+main{
+width:45%;
+height:250px;
+margin-top:15%;
+
+}
+#txt span{
+color:orange;	
+}
+#txt{
+text-align:center;
+}
+.divsection{
+width:90%;
+height:80%;
+overflow:hidden;
+display:flex;
+align-item:end;
+flex-direction:column;
+border-radius:12px 0px 0px 12px;
+box-shadow:0px 0px 2px 2px rgba(0,0,0,0.3);
+float:left;
+}
+.btnsection{
+width:10%;
+height:80.1%;
+background:-webkit-linear-gradient(20deg,orange,#ff3670);
+border-radius:0px 12px 12px 0px;
+box-shadow:0px 0px 2px 2px rgba(0,0,0,0.3);
+display:flex;
+align-items:center;
+flex-direction:column;
+justify-content:space-between;
+float:left;
+
+}
+u{
+background:-webkit-linear-gradient(12deg,orange,#ff3670);
+-webkit-text-fill-color:transparent;
+-webkit-background-clip:text;
+text-decoration:underline;
+font-family:script mt;
+font-size:32px;
+}
+
+div:nth-child(1){
+width:100%;
+min-height:200px;
+background:url('mason.jpg') fixed center;
+background-size:cover;
+}
+div:nth-child(2){
+width:100%;
+min-height:200px;
+background:url('alexa.jpg') fixed center;
+background-size:cover;
+}
+div:nth-child(3){
+width:100%;
+min-height:200px;
+background:url('janel.jpg') fixed center;
+background-size:cover;
+}
+.roundtop{
+width:70px;
+height:55px;
+background:orange;
+border-radius:0px 32px 32px 0px;
+}
+.picwrap{
+width:200px;
+height:60px;
+float:right;
+display:flex;
+align-items:left;
+align-items:left;
+position:relative;
+left:165px;
+top:17px;
+}
+.pic{
+width:60px;
+height:60px;
+border-radius:100%;
+border:1px solid #ff3670;
+float:right;
+}
+
+
+
+#name{
+background:-webkit-linear-gradient(left,#ff3670,blue);
+-webkit-text-fill-color:transparent;
+-webkit-background-clip:text;
+position:relative;
+top:-10px;
+}
+.textwrap{
+width:130px;
+height:60px;
+}
+label{
+position:relative;
+top:-25px;
+color:grey;
+}
+.details{
+width:100%;
+height:100px;
+position:relative;
+top:29px;
+display:flex;
+align-items:center;
+justify-content:space-around;
+}
+button:nth-child(1){
+width:77%;
+height:35px;
+border-radius:100%;
+background:whilte;
+color:orange;
+cursor:pointer;
+border:none;
+position:relative;
+top:4px;
+}
+button:nth-child(2){
+width:77%;
+height:35px;
+border-radius:100%;
+background:white;
+cursor:pointer;
+color:orange;
+border:none;
+position:relative;
+top:-4px;
+}
+
+
+</style>
+</head>
+<body>
+
+<main>
+<h2 id='txt'><u><span>Customer</span> Review</u></h2>
+<section class='divsection'>
+<div>
+<section class='roundtop'>
+<section class='picwrap'>
+<section class='pic' style="background:url('mason.jpg') center;background-size:cover;">
+
+</section>
+<section class='textwrap'>
+<h3 id='name'>Mason Wood	</h3>
+<label>Chef</label>
+</section>
+</section>
+</section>
+<section class='details'>
+<p>A profession chef in New York and currently 
+<br>
+works for Mc Donalds.He is know for cooking
+<br>
+delicious cakes</p>
+</div>
+</div>
+
+
+<div>
+<section class='roundtop'>
+<section class='picwrap'>
+<section class='pic' style="background:url('alexa.jpg') center;background-size:cover;">
+
+</section>
+<section class='textwrap'>
+<h3 id='name'>Alexa Anold</h3>
+<label>Musician</label>
+</section>
+</section>
+</section>
+<section class='details'>
+<p>The Talented and well known musicain
+<br>
+Alexa Anold has released a new album
+<br>
+with the name Dark Cops</p>
+</div>
+</div>
+
+
+<div>
+<section class='roundtop'>
+<section class='picwrap'>
+<section class='pic' style="background:url('janel.jpg') center;background-size:cover;">
+
+</section>
+<section class='textwrap'>
+<h3 id='name'>Janel Smith</h3>
+<label>Programmer</label>
+</section>
+</section>
+</section>
+<section class='details'>
+<p>An expert in Machine Learning who studied
+<br>
+at Prestin University and holds a PH degree
+<br>
+in computer science</p>
+</div>
+</div>
+
+
+
+
+
+</section>
+<section class='btnsection'>
+<button onclick='up()'>u</button>
+<button onclick='down()'>d</button>
+</section>
+</main>
+
+<script>
+var div=document.getElementsByTagName('div');
+var td=0;
+function down(){
+td++;
+for(let n of div){
+if(td==0){
+n.style.position='relative';
+n.style.top='0px';
+}
+if(td==1){
+n.style.position='relative';
+n.style.top='-200px';
+}
+if(td==2){
+n.style.position='relative';
+n.style.top='-400px';
+}
+if(td>2){
+td=2;
+}
+
+
+}
+}
+
+function up(){
+td--;
+for(let n of div){
+
+if(td==0){
+n.style.position='relative';
+n.style.top='0px';
+}
+if(td==1){
+n.style.position='relative';
+n.style.top='-200px';
+}
+if(td==2){
+n.style.position='relative';
+n.style.top='-400px';
+}
+if(td<0){
+td=0;
+}
+
+
+}
+}
+
+</script>
+
+</body>
+</html>
