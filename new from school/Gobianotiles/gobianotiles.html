@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Gobianotiles</title>
+<style>
+body{
+
+}
+.main{
+width:100%;
+height:100%;
+position:fixed;
+background:#ff3670;
+top:0;
+left:0;
+}
+.board{
+width:30%;
+height:75%;
+background:white;
+border-radius:12px 12px;
+box-shadow:5px 0px 5px 0.5px rgba(0,00,0,0.4);
+position:relative;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+opacity:0.3;
+overflow:hidden;
+}
+.card{
+width:30%;
+height:74.5%;
+
+border-radius:12px 12px;
+position:relative;
+left:50%;
+top:-165px;
+transform:translate(-50%,-50%);
+overflow:hidden;
+																																								
+}
+.tile{
+width:50px;
+height:100px;
+background:black;
+display:block;
+border-radius:12px 12px;
+box-shadow:5px 0px 5px 0.5px rgba(0,00,0,0.4);
+cursor:pointer;
+margin-top:20px;
+position:relative;
+}
+.tray{
+width:100%;
+height:1500px;
+display:flex;
+justify-content:center;
+align-items:center;	
+flex-direction:column;
+position:relative;
+top:20px;
+}
+@media screen and (max-width:900px){
+.card{
+width:100%;
+position:relative;
+top:-185px;
+}
+.board{
+width:100%;
+
+}
+}
+</style>
+</head>
+<body>
+<div class='main'>
+
+<div class='board'>
+
+</div>
+<div class='card'>
+<div class='tray'>
+
+<div class='tile' id='0'>
+
+</div>
+<div class='tile' id='1'>
+
+</div>
+<div class='tile' id='2'>
+
+</div>
+<div class='tile' id='3'>
+
+</div>
+<div class='tile' id='4'>
+
+</div>
+<div class='tile'id='5'>
+
+</div>
+<div class='tile'id='6'>
+
+</div>
+<div class='tile'id='7'>
+
+</div>
+<div class='tile'id='8'>
+
+</div>
+<div class='tile'id='9'>
+
+</div>
+<div class='tile'id='10'>
+
+</div>
+<div class='tile'id='11'>
+
+</div>
+<div class='tile'id='12'>
+
+</div>
+<div class='tile'id='13'>
+
+</div>
+<div class='tile'id='14'>
+
+</div>
+</div>
+</div>
+</div>
+
+<p style='color:white;font-family:trebuchet ms;'>Created By:Prince Annan</p>
+</div>
+<script>
+var tile=document.querySelectorAll('.tile');
+var board=document.querySelector('.board');
+
+
+
+	
+
+
+
+function setPosOfTile(){
+for(let tiles of tile){
+var x=Math.round(Math.random()*1);
+tiles.addEventListener('click',clickIn);
+if(x==1){
+tiles.style.left=Math.floor(Math.random()*110)+'px';
+}else{
+tiles.style.left=Math.floor(Math.random()*-110)+'px';
+}
+
+}
+}
+setPosOfTile();
+
+var scoreBox=[];
+var idBox=[];
+function clickIn(){
+this.style.opacity=0.5;
+this.style.boxShadow='none';	
+idBox.push(this.id);
+scoreBox.push(Math.round(Math.random()*10));
+}
+
+
+
+
+
+var tray=document.querySelector('.tray');
+
+var posOftray=600;
+var times=setInterval(function(){
+posOftray--;
+
+if(posOftray>-40){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[0].id)){
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-140){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[1].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+
+if(posOftray>-240){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[2].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-340){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[3].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-440){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[4].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-540){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[5].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-640){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[6].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-740){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[7].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-840){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[8].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-940){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[9].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-1040){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[10].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-1140){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[11].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-1240){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[12].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-1340){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+if(!idBox.includes(tile[13].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+if(posOftray>-1440){
+tray.style.transform='translateY('+posOftray+'px)';
+}
+else{
+clearInterval(times);
+return finish();
+if(!idBox.includes(tile[14].id)){
+
+clearInterval(times);
+return m();
+}
+}
+
+
+},1);
+console.log(tile);
+
+
+function m(){
+alert('Game Over');
+tray.style.display='none';
+board.style.display='none';
+var newScore=0;
+for(var xx=0;xx<scoreBox.length;xx++){
+newScore+=scoreBox[xx];
+}
+alert('Your Score was '+newScore);
+
+
+}
+
+function finish(){
+alert('Well done you have completed the game');
+tray.style.display='none';
+board.style.display='none';
+var newScore=0;
+for(var xx=0;xx<scoreBox.length;xx++){
+newScore+=scoreBox[xx];
+}
+alert('Your Score was '+newScore);
+}
+
+window.onclick=function(event){
+if(event.target==tray){
+alert('Game Over');
+tray.style.display='none';
+board.style.display='none';
+var newScore=0;
+for(var xx=0;xx<scoreBox.length;xx++){
+newScore+=scoreBox[xx];
+}
+alert('Your Score was '+newScore);
+clearInterval(times);
+}
+}
+
+
+</script>
+
+
+</body>
+</html>

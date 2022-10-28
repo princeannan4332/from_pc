@@ -1,0 +1,276 @@
+ <html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Test</title>
+<style>
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.card{
+width:500px;
+height:500px;
+border:1px solid green;
+display:flex;
+flex-flow:row wrap;
+}
+.squares{
+width:48px;
+height:48px;
+border:1px solid green;
+}
+.snake{
+background:gold;
+}
+.apple{
+background:red;
+}
+</style>
+</head>
+<body onkeypress='moves(event)'>
+
+<div class='card'>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+<div class='squares'></div>
+</div>
+
+<script>
+var squares=document.querySelectorAll('.squares');
+var direction=2;
+var lifeLength=3;
+var arr=[0,1,2];
+var eaten=[];
+var navigators=''; //to show if the snake should move left,right,top,down in the setinterval
+var x=0;
+squares.forEach((val)=>{
+var p=document.createElement('p');
+var txt=document.createTextNode(x);
+x++;
+p.appendChild(txt);
+val.appendChild(p);
+});
+
+for(var i=0;i<arr.length;i++){
+squares[arr[i]].classList.add('snake');
+}
+
+function moves(event){
+//right key
+if(event.keyCode==100){
+navigators='rightMove';
+
+}
+
+
+//down key
+if(event.keyCode==115){
+navigators='downMove';
+
+console.log(arr);
+
+
+}
+
+
+//left
+if(event.keyCode==97){
+navigators='leftMove';
+
+
+}
+//up
+if(event.keyCode==119){
+navigators='upMove';
+
+
+}
+
+}
+
+
+
+
+setInterval(function(){
+//Automatic downMove
+if(navigators=='downMove'){
+direction+=10
+arr.push(direction);
+arr.shift()
+//removing old snakes position from squares
+squares.forEach((val)=>{
+val.classList.remove('snake');
+});
+//adding new current snake position to squares
+for(var j=0;j<arr.length;j++){
+squares[arr[j]].classList.add('snake');
+}
+}
+
+//Automatic rightMove
+if(navigators=='rightMove'){
+direction++
+arr.push(direction);
+arr.shift()
+//removing old snakes position from squares
+squares.forEach((val)=>{
+val.classList.remove('snake');
+});
+//adding new current snake position to squares
+for(var j=0;j<arr.length;j++){
+squares[arr[j]].classList.add('snake');
+}
+console.log(arr);
+}
+
+//Automatic upMove
+if(navigators=='upMove'){
+direction-=10;
+arr.push(direction);
+arr.shift()
+//removing old snakes position from squares
+squares.forEach((val)=>{
+val.classList.remove('snake');
+});
+//adding new current snake position to squares
+for(var j=0;j<arr.length;j++){
+squares[arr[j]].classList.add('snake');
+}
+console.log(arr);
+}
+
+//Automatic leftMove
+if(navigators=='leftMove'){
+direction--
+arr.push(direction);
+arr.shift()
+//removing old snakes position from squares
+squares.forEach((val)=>{
+val.classList.remove('snake');
+});
+//adding new current snake position to squares
+for(var j=0;j<arr.length;j++){
+squares[arr[j]].classList.add('snake');
+}
+console.log(arr);
+}
+
+
+
+
+},1000);
+
+
+/*
+left-37
+right-39
+down-40
+top-38
+
+*/
+
+</script>
+
+
+</body>
+</html>

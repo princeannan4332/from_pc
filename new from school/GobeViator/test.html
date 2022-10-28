@@ -1,0 +1,61 @@
+<html>
+<head>
+<style>
+div{
+min-width:200px;
+height:100px;
+position:relative;
+background:red;
+margin:0px 12px;
+}
+main{
+width:600px;
+height:400px;
+background:blue;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+section{
+width:70%;
+height:80%;
+overflow:hidden;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+</style>
+</head>
+<body>
+<main>
+<span onclick='b()'><</span>
+<section>
+<div>1</div>
+<div>a</div>
+<div>d</div>
+<div>ds</div>
+<div>1sd</div>
+<div>sd</div>
+<div>1d</div>
+<div>1s</div>
+</section>
+<span onclick='n()'>></span>
+</main>
+<script>
+var c=document.querySelectorAll('div');
+var x=0;
+function n(){
+if(x<2){
+x++;
+for(let i of c){
+if(x==1){i.style.left='-200px';}
+}
+}
+}
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<title>GobeViator</title>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<style>
+.main{
+width:100%;
+height:100%;
+position:fixed;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.card{
+width:30%;
+height:73%;
+background:rgba(27,40,246,126);
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:jokerman;
+font-size:23px;
+text-align:center;
+color:white;
+flex-direction:column;
+}
+.card1{
+width:30%;
+height:73%;
+background:rgba(27,40,246,126);
+font-family:jokerman;
+font-size:23px;
+text-align:center;
+color:white;
+display:none;
+}
+#startbtn{
+	width:34%;
+	height:50px;
+	background:orange;
+	color:white;
+	text-align:center;
+	border-radius:12px 12px;
+	box-shadow:0px 0px 2px 2px rgba(0,0,0,0.3);
+	border:none;
+	outline:none;
+		cursor:pointer;
+}
+.screen{
+width:100%;
+height:50%;
+background:gold;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+.board{
+width:100%;
+height:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+.board button{
+	width:34%;
+	height:50px;
+	background:orange;
+	color:white;
+	text-align:center;
+	border-radius:12px 12px;
+	box-shadow:0px 0px 2px 2px rgba(0,0,0,0.3);
+	border:none;
+	outline:none;
+		cursor:pointer;
+}
+#img1{
+position:relative;left:44px;
+display:none;
+}
+@media screen and (max-width:900px){
+.card{
+width:100%;
+height:100%;
+}
+.card1{
+width:100%;
+height:100%;
+}
+#img1{
+transform:scale(1.2);
+}
+#img2{
+transform:scale(1.2);
+}
+}
+</style>
+</head>
+<body>
+<div class='main'>
+
+<div class='card' id='card' style='display:hidden'>
+<h2>Welcome to GobeViator</h2>
+<button onclick='start()' id='startbtn'>Play</button>
+</div>
+
+
+
+<div class='card1' id='card1'>
+<div class='screen'>
+<div>
+<h3 id='txt'>Play Game</h3>
+</div>
+<div style='display:flex;justify-content:center;align-items:center;'>
+<img src='walk.gif'  id='img1'>
+<img src='s_walk.gif' style='trasform:scale(5.5);position:relative;right:50px;display:none;' id='img2'>
+</div>
+
+</div>
+
+<div class='board'>
+<button onclick='game()' id='btn'>Start</button>
+<h3 style='font-family:trebuchet ms;' id='amount'>$0</h3>
+<h3 style='font-family:trebuchet ms; font-size:20px;' id='balanceTxt'>Current Balance:$100</h3>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+<script>
+var switchCards=0;
+var selector=0;
+var clickdetect=0;
+var txt=document.getElementById('txt');
+var img1=document.getElementById('img1');
+var img2=document.getElementById('img2');
+var btn=document.getElementById('btn');
+var amount=document.getElementById('amount');
+var balanceTxt=document.getElementById('balanceTxt');
+
+
+
+
+
+var timer;
+var a;
+var addCount=0;
+var arr=[];
+var currentB=100;
+var checkCatch=false;
+function game(){
+
+
+
+var balance=0;
+
+
+
+
+var caught=Math.random()*50;
+var fixedCaught=caught.toFixed(2);
+var count=0;
+
+clickdetect++;
+
+if(clickdetect==2){
+clickdetect=0;
+}
+
+if(clickdetect==1){
+img1.style.display='block';
+img2.style.display='block';
+
+var c;
+a=setInterval(function(){
+if(count<fixedCaught){
+checkCatch=true;
+c=count++/2.3;
+addCount=c;
+amount.innerHTML="$"+c.toFixed(2);
+
+}
+else{
+checkCatch=false;
+img1.src='attack.gif';
+
+}
+
+},1000);
+
+
+timer=setInterval(function(){
+selector++;
+
+if(selector>6){
+selector=0;
+}
+switch(selector){
+case 0:
+txt.innerHTML='Hey!!!';
+break;
+case 1:
+txt.innerHTML="Stop!Stop!Stop!";
+break;
+case 2:
+txt.innerHTML="Come Over Here";
+break;
+case 4:
+txt.innerHTML="Sonic Stop";
+break;
+case 5:
+txt.innerHTML="Don't make me..";
+break;
+default:
+txt.innerHTML="Stoooop!!!";
+}
+
+
+},1000);
+
+
+
+btn.innerHTML='Cashout';
+}
+else{
+clearInterval(a);
+img1.src='walk.gif';
+txt.innerHTML="Play Game";
+btn.innerHTML='Start';
+img1.style.display='none';
+img2.style.display='none';
+
+arr.push(addCount.toFixed(2));
+balance=arr.join('+')
+var curb=eval(balance);
+
+if(checkCatch==true){
+var jj=currentB+curb;
+var mn=eval(jj);
+alert("You won:$"+arr[arr.length-1]);
+balanceTxt.innerHTML="Current Balance:$"+mn;
+}else{
+var jjs=currentB-arr[arr.length-1];
+var nm=eval(jjs);
+alert("Run Away");
+balanceTxt.innerHTML="Current Balance:$"+nm;
+}
+
+}
+
+
+
+
+
+}
+
+setInterval(function(){
+if(clickdetect==0){
+clearInterval(timer);
+}
+if(currentB==0){
+card1.style.display='none'
+alert('Game Over');
+}
+
+},10);
+
+
+
+function start(){
+var card1=document.getElementById('card1');
+var card=document.getElementById('card');
+
+switchCards++;
+if(switchCards==1){
+card.style.display='none';
+card1.style.display='block';
+
+}
+
+
+
+
+}
+
+
+
+</script>
+
+</body>
+</html>

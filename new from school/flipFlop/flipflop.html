@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>FlipFlap</title>
+<style>
+body{
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:grey;
+}
+.box{
+width:420px;
+height:220px;
+
+display:flex;
+flex-flow:row wrap;
+}
+.card{
+width:80px;
+height:100px;
+border-radius:12px 12px;
+box-shadow:6px 4px 6px 0px rgba(0,00,0,0.4);
+cursor:pointer;
+display:flex;
+justify-content:space-around;
+align-items:center;
+background:white;
+background-size:cover;
+background-position:center;
+margin:5px auto;
+}
+p{
+color:grey;
+font-family:script mt;
+font-size:23px;
+}
+h2{
+color:grey;
+font-family:trebuchet ms;
+font-size:34px;
+background:linear-gradient(grey,white);
+-webkit-text-stroke:1px white;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+</style>
+</head>
+<body>
+<h2 id='txt'>Score:0</h2>
+<div class='box'>
+<div class='card' id='0'>
+<p>Flip</p>
+</div>
+<div class='card' id='1'>
+<p>Flip</p>
+</div>
+<div class='card' id='2'>
+<p>Flip</p>
+</div>
+<div class='card' id='3'>
+<p>Flip</p>
+</div>
+<div class='card' id='4'>
+<p>Flip</p>
+</div>
+<div class='card' id='5'>
+<p>Flip</p>
+</div>
+<div class='card' id='6'>
+<p>Flip</p>
+</div>
+<div class='card' id='7'>
+<p>Flip</p>
+</div>
+<div class='card' id='8'>
+<p>Flip</p>
+</div>
+<div class='card' id='9'>
+<p>Flip</p>
+</div>
+<div class='card' id='10'>
+<p>Flip</p>
+</div>
+<div class='card' id='11'>
+<p>Flip</p>
+</div>
+<div class='card' id='12'>
+<p>Flip</p>
+</div>
+<div class='card' id='13'>
+<p>Flip</p>
+</div>
+<div class='card' id='14'>
+<p>Flip</p>
+</div><div class='card' id='15'>
+<p>Flip</p>
+</div>
+<div class='card' id='16'>
+<p>Flip</p>
+</div>
+<div class='card' id='17'>
+<p>Flip</p>
+</div>
+<div class='card' id='18'>
+<p>Flip</p>
+</div>
+<div class='card' id='19'>
+<p>Flip</p>
+</div>
+</div>
+
+
+
+<script>
+var cards=document.querySelectorAll('.card');
+
+
+for(let card of cards){
+card.addEventListener('click',flippy);
+}
+
+var outcome=[];
+var clicks=0;
+var cardId=[];
+var score=0;
+function flippy(val){
+var txt=document.querySelector('#txt');
+clicks++;
+var k=Math.round(Math.random()*2);
+this.style.background='url('+pics[k]+')';
+this.style.backgroundSize='cover';
+this.style.backgroundPosition='center';
+outcome.push(k);
+cardId.push(this.id);
+
+txt.innerHTML='Score:'+score;
+var h=0;
+if(clicks==2){
+
+if(outcome[0]==outcome[1]){
+score++;
+txt.innerHTML='Great +1';
+txt.style.display="block";
+var gg=setInterval(function(){
+h++;
+
+if(h==3){
+for(var xs=0;xs<cardId.length;xs++){
+cards[Number(cardId[xs])].style.display="none";
+}
+txt.innerHTML='Score:'+score;
+x=0;
+cardId=[];
+outcome=[];
+clearInterval(gg);
+}
+},1000);
+
+}else{
+txt.innerHTML='Nope';
+txt.style.display="block";
+var gg=setInterval(function(){
+h++;
+
+if(h==3){
+for(var xs=0;xs<cardId.length;xs++){
+cards[Number(cardId[xs])].style.display="none";
+}
+txt.innerHTML='Score:'+score;
+x=0;
+cardId=[];
+outcome=[];
+h++;
+clearInterval(gg);
+}
+
+},1000);
+}
+
+
+clicks=0;
+}
+
+
+}
+
+
+
+
+
+
+
+var pics=['mason.jpg','alexa.jpg','janel.jpg'];
+</script>
+
+
+</body>
+</html>

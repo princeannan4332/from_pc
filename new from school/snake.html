@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Snake Game</title>
+<style>
+body{
+background:black;
+}
+.board{
+width:210px;
+height:260px;
+border:1px solid blue;
+display:flex;
+flex-flow:row wrap;
+}
+.box{
+width:50px;
+height:50px;
+border:1px solid white;
+}
+
+
+.snake{
+background:red;
+}
+</style>
+<body>
+<div class='board'>
+
+<div class='box' id='0'></div>
+<div class='box' id='1'></div>
+<div class='box' id='2'></div>
+<div class='box' id='3'></div>
+<div class='box' id='4'></div>
+<div class='box' id='5'></div>
+<div class='box' id='6'></div>
+<div class='box' id='7'></div>
+<div class='box' id='8'></div>
+<div class='box' id='9'></div>
+<div class='box' id='10'></div>
+<div class='box' id='11'></div>
+<div class='box' id='12'></div>
+<div class='box' id='13'></div>
+<div class='box' id='14'></div>
+<div class='box' id='15'></div>
+<div class='box' id='16'></div>
+<div class='box' id='17'></div>
+<div class='box' id='18'></div>
+<div class='box' id='19'></div>
+
+</div>
+
+<script>
+var box=document.querySelectorAll('.box');
+var currentPos=[0,4,8,12,16];
+var foodEaten=[1,1,1];
+
+for(let snake of box){
+snake.addEventListener('click',moveSnake);
+}
+function moveSnake(){
+this.classList.add('snake');
+}
+var x=-1;
+setInterval(function(){
+x++;
+box[currentPos[x]].classList.add('snake');
+box[currentPos[x-1]].classList.remove('snake');
+if(foodEaten.length>=1){
+for(let k=0;k<foodEaten.length;k++){
+box[currentPos[x+k]].classList.add('snake');
+}
+
+}
+
+
+},1000);
+</script>
+</body>
+</html>

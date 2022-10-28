@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<style>
+body{
+font-family:trebuchet ms;
+}
+.cont{
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+
+}
+.input{
+width:100%;
+height:45%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+.button{
+width:80%;
+height:20%;
+}
+#inp{
+width:80%;
+height:70%;
+box-shadow:2px 0px 2px 0px rgba(0,0,0,0.5);
+outline:none;
+}
+button{
+float:right;
+border:none;
+padding:20px;
+box-shadow:2px 0px 2px 0px rgba(0,0,0,0.5);
+margin-top:10px;
+border-radius:2px 2px;
+outline:none;
+cursor:pointer;
+}
+.output{
+width:80%;
+height:100%;
+background:#d3d3d3d3;
+box-shadow:0px 0px 2px 2px rgba(0,0,0,0.5);
+border-radius:2px 2px;
+text-align:justify;
+overflow-y:scroll;
+}
+.wrap{
+width:100%;
+height:40%;
+display:flex;
+justify-content:center;
+align-items:center;
+margin-top:12px;
+}
+</style>
+</head>
+<body>
+
+<div class='cont'>
+<h2 style='font-family:script mt; text-shadow:2px 2px rgba(0,0,0,0.4);'>FindAndEdit</h2>
+<div class='input'>
+<textarea placeholder='Text here' id='inp'></textarea>
+<div class='button'>
+<button onclick='start()' id='btn'>Insert</button>
+</div>
+</div>
+<div class='wrap'>
+<div class='output'>
+<p id='p'></p>
+</div>
+</div>
+
+
+</div>
+<script>
+var inp=document.getElementById('inp');
+var p=document.getElementById('p');
+var btn=document.getElementById('btn');
+var x=0;
+
+var k=[];
+var zz=-1;
+function start(){
+x++;
+zz++;
+var arr=[];
+
+if(x==1){
+p.innerHTML=inp.value;
+arr.push(inp.value);
+btn.innerHTML='Edit';
+inp.setAttribute('readonly',true);
+}
+
+if(x>=2){
+var ans1=prompt('Word to Change');
+var ans2=prompt('Replacement');
+
+
+
+console.log('Arr in 2nd: '+p);
+var edit=p.innerHTML.split(" ");
+
+
+
+
+var j=[];
+
+for(let l of edit){
+var z=l.replace(ans1,ans2);
+j.push(z);
+
+}
+
+
+p.innerHTML=j.join(' ');
+j=[];
+
+}
+}
+
+
+var ans='Hello there how are you  doing there';
+
+
+
+
+
+</script>
+<body>
+</html>

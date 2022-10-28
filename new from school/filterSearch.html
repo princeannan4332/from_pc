@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>FilterSearch</title>
+<style>
+body{
+font-family:trebuchet ms;
+}
+.container{
+width:100%;
+height:100%;
+position:fixed;
+top:0px;
+left:0px;
+background:rgba(0,0,44,45);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.suggestionsBox{
+width:310px;
+height:20px;
+min-width:310px;
+min-height:40px;
+background:white;
+display:table;
+}
+input{
+width:300px;
+height:40px;
+border:none;
+box-shadow:0px 0px 5px 5px rgba(0,0,0,0.5);
+outline:none;
+font-family:trebuchet ms;
+padding:5px;
+border-radius:5px 5px;
+}
+button{
+border:none;
+box-shadow:0px 0px 5px 5px rgba(0,0,0,0.5);
+outline:none;
+font-family:trebuchet ms;
+padding:20px;
+border-radius:5px 5px;
+color:white;
+background:gold;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div class='container'>
+<div>
+<input type='text' placeholder='Search...' id='search' autocomplete='off'>
+<button>Find</button>
+<div class='suggestionsBox'>
+<p id='m1'>Suggestion:</p>
+</div>
+<div>
+
+</div>
+<script>
+var inp=document.getElementById('search');
+var sb=document.querySelector('.suggestionsBox');
+var m1=document.querySelector('#m1');
+inp.onkeypress=function(){
+var c=['mouse','keyboard','volvo','bmw','flower','camera','touchpad','iphone','laptop','skipping rope','tshirt','t-shirt','balloon','car','cat','dog','addidas','gucci'];
+
+var p=inp.value.toLowerCase();
+
+
+if(inp.value!==''){
+
+
+
+for(var i=0;i<c.length;i++){
+
+if(p.includes(c[i].slice(0,p.length))){
+var ch=c[i].slice(0,p.length);
+if(p===ch){
+
+m1.innerHTML='Suggestion:'+c[i];
+return true;
+}
+
+}else{
+m1.innerHTML='No result found';
+}
+
+}
+}
+
+
+}
+
+
+
+
+</script>
+</body>
+</html>

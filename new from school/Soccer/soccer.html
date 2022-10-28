@@ -1,0 +1,160 @@
+<!Doctype html>
+<html lang='en'>
+<head>
+<title>Downloader</title>
+<style>
+.main{
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+position:fixed;
+background:black;
+top:0px;
+left:0px;
+font-family:trebuchet ms;
+color:white;
+flex-direction:column;
+}
+
+.bg{
+width:60%;
+height:60%;
+border-radius:12px 12px;
+overflow:hidden;
+background:url(df.png);
+background-repeat:no-repeat;
+background-size:cover;
+display:flex;
+justify-content:center;
+align-items:center;
+background-position:center;
+}
+
+
+.ball1{
+width:50px;
+height:50px;
+border-radius:100%;
+background:greenyellow;
+position:relative;
+cursor:pointer;
+}
+
+.goal{
+background:url(goal.gif);
+background-repeat:no-repeat;
+background-size:cover;
+background-position:center;
+}
+.pole{
+background:url(df.png);
+background-repeat:no-repeat;
+background-size:cover;
+background-position:center;
+}
+@media screen and (max-width:900px){
+.bg{
+width:100%;
+height:70%;
+background-position:center;
+border-radius:0px 0px;
+}
+.goal{
+background:url(goal.gif);
+background-repeat:no-repeat;
+background-size:cover;
+background-position:center;
+}
+}
+</style>
+</head>
+<body>
+
+<div class='main'>
+<p id='team'>Arsenal[0]-[0]Liverpool</p>
+<div class='bg'>
+<div class='ball1'>
+</div>
+</div>
+<p id='timer' style='font-size:19px;'>Created By:Prince Annan</p>
+<p id='timer' style='font-size:12px;'>Images where uploaded from tenor.com</p>
+
+</div>
+
+
+
+
+<script>
+var target=document.querySelector('.ball1');
+var team=document.querySelector('#team');
+var timer=document.querySelector('#timer');
+
+var x=170;
+var z=70;
+function targetMove(){
+var lr=Math.round(Math.random()*1);
+var td=Math.round(Math.random()*1);
+if(lr==1){
+target.style.left=Math.floor(Math.random()*-(x))+'px';
+}else{
+target.style.left=Math.floor(Math.random()*x)+'px';
+}
+if(td==1){
+target.style.top=Math.floor(Math.random()*-(z))+'px';
+}else{
+target.style.top=Math.floor(Math.random()*z)+'px';
+}
+
+
+}
+var t=5;
+var ar=0;
+var li=0;
+var checker=true;
+target.addEventListener('click',()=>{
+checker=false;
+if(checker==false){
+var bg=document.querySelector('.bg');
+t=5;
+var xv=0;
+var xx=setInterval(()=>{
+
+xv++;
+
+if(xv<=2){
+target.style.display='none';
+bg.classList.add('goal');
+}else if(xv>=3){
+xv=0;
+li++;
+bg.classList.remove('goal');
+target.style.display='block';
+team.innerHTML='Arsenal['+ar+']-['+li+']Liverpool';
+checker=true;
+clearInterval(xx);
+}
+},900);
+
+
+}
+});
+
+setInterval(function(){
+targetMove();
+},1000)
+window.onclick=function(event){
+if(checker==true){
+var bg=document.querySelector('.bg');
+if(event.target==bg){
+ar++;
+team.innerHTML='Arsenal['+ar+']-['+li+']Liverpool';
+}
+}
+}
+
+
+</script>
+</body>
+</html>

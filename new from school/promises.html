@@ -1,0 +1,74 @@
+<html>
+<head>
+<style>
+h2{
+background:red;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+-webkit-text-stroke:2px green;
+font-size:200px;
+}
+
+
+</style>
+</head>
+<body>
+<div>
+</div>
+<h2>mango</h2>
+<button onclick='openurl()'>Open Url in new Tab</button>
+
+<script>
+
+
+
+
+var m=new Promise((resolve,reject)=>{
+
+var ans=2;
+
+if(ans==2){
+resolve('test passed');
+}
+else{
+reject('test failed');
+}
+
+});
+
+m.then((message)=>{
+
+console.log(message);
+}).catch((error)=>{
+console.log(error);
+});
+
+
+//selecting all promises and rushing
+var proj1=new Promise((accept,decline)=>{
+accept('Project 1 uploaded successfully');
+});
+var proj2=new Promise((accept,decline)=>{
+accept('Project 2 uploaded successfully');
+});
+var proj3=new Promise((accept,decline)=>{
+accept('Project 3 uploaded successfully');
+});
+
+//all method
+Promise.all([proj1,proj2,proj3]).then((message)=>{
+console.log(message);
+})
+
+
+
+function openurl(){
+window.open('https://www.google.com');
+}
+
+
+
+
+</script>
+</body>
+</html>
