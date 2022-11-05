@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>Box Transitions</title>
+<style>
+*{
+margin:0;
+font-family:script mt;
+}
+.homewall{
+width:100%;
+height:110vh;
+background:black;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.sec2{
+width:100%;
+height:400px;
+background:black;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.row1{
+width:100%;
+height:350px;
+background:white;
+color:white;
+display:flex;
+justify-content:space-around;
+align-items:center;
+opacity:0;
+transform:scale(0);
+transition:1.3s;
+animation:all 1s ease-in-out-;
+}
+
+.boundary{
+width:100%;
+height:350px;
+background:white;
+overflow:hidden;
+}
+
+
+.row2{
+width:100%;
+height:100%;
+background:white;
+color:white;
+display:flex;
+justify-content:space-around;
+align-items:center;
+
+}
+
+.transa{
+transform:scale(1);
+opacity:1;
+transition:1.3s;
+}
+.transb{
+transform:translate(0px,0px);
+opacity:1;
+transition:1.5s;
+}
+
+
+.box1{
+width:40%;
+height:210px;
+box-shadow:0px 0px 2px 2px rgba(0,0,0,0.3);
+color:black;
+display:flex;
+flex-wrap:wrap;
+}
+
+
+</style>
+</head>
+<body>
+<div class='homewall'>
+<h1>HomePage</h2>
+</div>
+<div class='row1'>
+<div class='box1'>
+<p>Auntie Mary was affable,exceptionally reliable and very accomodating.She supported all that appeared  to her to be a just cause.
+Her tougthfulness and selflessness always drove her on visit to family members to ascertain thier well being.
+Undoubtedly therefore we as a family will miss Sister Ayikailey No.1 .We will miss her sound advices and counsel to both young and old.
+We willl miss her generosity and kindheartedness.We like to express the fond hope at this time that Auntie Mary's death would help reawaken 
+the spirit of unity in the familyand generate a sense of belonging among us all.
+</p>
+</div>
+<div class='box1'>
+<p>Auntie Mary was affable,exceptionally reliable and very accomodating.She supported all that appeared  to her to be a just cause.
+Her tougthfulness and selflessness always drove her on visit to family members to ascertain thier well being.
+Undoubtedly therefore we as a family will miss Sister Ayikailey No.1 .We will miss her sound advices and counsel to both young and old.
+We willl miss her generosity and kindheartedness.We like to express the fond hope at this time that Auntie Mary's death would help reawaken 
+the spirit of unity in the familyand generate a sense of belonging among us all.
+</p>
+</div>
+</div>
+
+
+<div class='sec2'>
+<h2>Want More</h2>
+</div>
+
+
+<div class='boundary'>
+<div class='row2'>
+<div class='box1'>
+<p>Auntie Mary was affable,exceptionally reliable and very accomodating.She supported all that appeared  to her to be a just cause.
+Her tougthfulness and selflessness always drove her on visit to family members to ascertain thier well being.
+Undoubtedly therefore we as a family will miss Sister Ayikailey No.1 .We will miss her sound advices and counsel to both young and old.
+We willl miss her generosity and kindheartedness.We like to express the fond hope at this time that Auntie Mary's death would help reawaken 
+the spirit of unity in the familyand generate a sense of belonging among us all.
+</p>
+</div>
+<div class='box1'>
+<p>Auntie Mary was affable,exceptionally reliable and very accomodating.She supported all that appeared  to her to be a just cause.
+Her tougthfulness and selflessness always drove her on visit to family members to ascertain thier well being.
+Undoubtedly therefore we as a family will miss Sister Ayikailey No.1 .We will miss her sound advices and counsel to both young and old.
+We willl miss her generosity and kindheartedness.We like to express the fond hope at this time that Auntie Mary's death would help reawaken 
+the spirit of unity in the familyand generate a sense of belonging among us all.
+</p>
+</div>
+</div>
+</div>
+<div class='sec2'>
+<h2>Want More</h2>
+</div>
+
+<script>
+var div=document.querySelector('.row1');
+var boundf=document.querySelector('.boundary');
+var row2=document.querySelector('.row2');
+
+
+
+setInterval(function(){
+var y=window.scrollY;
+var divTop=div.getBoundingClientRect().top;
+var boundfTop=boundf.getBoundingClientRect().top;
+
+if(y>divTop){
+div.classList.add('transa');
+}else{
+div.classList.remove('transa');
+}
+
+
+if(y>boundfTop){
+row2.classList.add('transb');
+}else{
+row2.classList.remove('transb');
+}
+
+},100);
+
+
+</script>
+</body>
+</html>

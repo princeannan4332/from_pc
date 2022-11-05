@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LangTranslate</title>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<style>
+body{
+text-transform:uppercase;
+font-family:trebuchet ms;
+background:rgba(13,121,232,42);
+
+}
+.main{
+width:100%;
+height:100vh;
+}
+.face1{
+width:100%;
+height:80%;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+flex-direction:column;
+}
+.face1 textarea{
+
+width:60%;
+height:60%;
+border-radius:5px 5px;
+outline:none;
+border-radius:5px 5px;
+box-shadow:0px 0px 4px 4px rgba(0,0,0,0.2);
+}
+.face2{
+width:100%;
+height:20%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+.face2 button{
+width:100px;
+border:none;
+padding:12px;
+background:greenyellow;
+color:white;
+border-radius:2px 2px;
+box-shadow:0px 0px 4px 4px rgba(0,0,0,0.2);
+cursor:pointer;
+outline:none;
+}
+#btnt{
+
+background:blue;
+}
+#showtxt{
+width:60%;
+height:10%;
+border:none;
+border-radius:0px 0px 7px 7px;
+outline:none;
+}
+
+#copy{
+width:100px;
+border:none;
+padding:12px;
+background:#ff3670;
+color:white;
+border-radius:2px 2px;
+box-shadow:0px 0px 4px 4px rgba(0,0,0,0.2);
+cursor:pointer;
+outline:none;
+}
+.sub1{
+width:50%;
+height:100%;
+float:left;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+.sub2{
+width:50%;
+height:100%;
+float:left;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+@media screen and (max-width:900px){
+#inp{
+width:90%;
+}
+#showtxt{
+width:90%;
+}
+.face2{
+display:flex;
+flex-direction:column;
+}
+.sub1{
+width:100%;
+}
+.sub2{
+width:100%;
+}
+}
+</style>
+
+</head>
+<body>
+<div class='main'>
+<div class='face1'>
+<h2 id='txt'>Translate from English To Dummy</h2>
+<textarea id='inp'></textarea>
+<input type='text' id='showtxt' readonly>
+<br>
+<button id='copy' onclick='cop()'>Copy</button>
+</div>
+<div class='face2'>
+<div class='sub1'>
+<h2>Switch Lang</h2>
+<button onclick='switchT()' >Switch</button>
+</div>
+<div class='sub2'>
+<h2>Traslate to English</h2>
+<button id='btnt' onclick='start()'>Translate</button>
+<br>
+</div>
+</div>
+
+
+</div>
+
+
+
+<script>
+//when switchTrans=o translate from english to dummy
+//when switchTrans=1 translate from dummy to english
+
+var inp=document.getElementById('inp');
+
+var txt=document.getElementById('txt');
+var showtxt=document.getElementById('showtxt');
+var switchTrans=0;
+function switchT(){
+switchTrans+=1;
+document.getElementById('txt').innerHTML='Translated from Dummy to English';
+if(switchTrans>=2){
+switchTrans=0;
+document.getElementById('txt').innerHTML='translated from english to dummy';
+}
+
+}
+
+
+function cop(){
+showtxt.select();
+document.execCommand('copy');
+}
+
+function start(){
+
+if(switchTrans==0){
+var toDummy='';
+
+
+var ans=new Map([['a','!']]);
+ans.set('b','(');
+ans.set('c','&');
+ans.set('d','*');
+
+ans.set('e','#');
+ans.set('f','@');
+ans.set('g','v');
+ans.set('h','l');
+ans.set('i','q');
+ans.set('j','3');
+ans.set('k','#(');
+ans.set('l','_');
+ans.set('m','+');
+ans.set('n','-');
+ans.set('o','}');
+ans.set('p','u');
+ans.set('q','^&');
+ans.set('r','>');
+ans.set('s','z');
+ans.set('t','.');
+ans.set('u','?');
+ans.set('v','`');
+ans.set('w','=');
+ans.set('x','b');
+ans.set('y','[');
+ans.set('z',']');
+ans.set(',','a');
+ans.set('.','6');
+ans.set('?','1');
+
+ans.set(' ','x');
+
+
+
+for(let letters of inp.value){
+if(ans.has(letters)==true){
+toDummy+=ans.get(letters);
+
+}
+
+}
+showtxt.value=toDummy;
+console.log(toDummy);
+}
+
+
+
+
+
+
+
+if(switchTrans==1){
+var toEnglish='';
+
+
+var ans=new Map([['!','a']]);
+ans.set('(','b');
+ans.set('&','c');
+ans.set('*','d');
+
+ans.set('#','e');
+ans.set('@','f');
+ans.set('v','g');
+ans.set('l','h');
+ans.set('q','i');
+ans.set('3','j');
+ans.set('#(','k');
+ans.set('_','l');
+ans.set('+','m');
+ans.set('-','n');
+ans.set('}','o');
+ans.set('u','p');
+ans.set('^&','q');
+ans.set('>','r');
+ans.set('z','s');
+ans.set('.','t');
+ans.set('?','u');
+ans.set('`','v');
+ans.set('=','w');
+ans.set('b','x');
+ans.set('[','y');
+ans.set(']','z');
+ans.set('a',',');
+ans.set('6','.');
+ans.set('1','?');
+ans.set('x',' ');
+
+
+
+for(let letters of inp.value){
+if(ans.has(letters)==true){
+toEnglish+=ans.get(letters);
+
+}
+
+}
+showtxt.value=toEnglish;
+console.log(toEnglish);
+}
+
+
+}
+</script>
+
+</body>
+</html>
