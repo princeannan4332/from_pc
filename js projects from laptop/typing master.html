@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master</title>
+    <style>
+        h1{
+            color:gold;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+       font-size:60px;
+        }
+.correct{
+    color:green;
+}
+.incorrect{
+color:red;
+}
+input{
+ background:black;
+ color:black;
+ border:none;
+ outline:none;
+}
+body{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction:column;
+    background:black;
+}
+    </style>
+</head>
+<body>
+<h1></h1>
+    <input type="text" id="inp">
+    
+<script>
+var inp=document.getElementById("inp");
+var p=document.querySelector('h1')
+var newarr=[];
+var arr=['a','s','d','f','g','h','j','k','l',';'];
+var x=0;
+var i=0;
+var lettersLength=[];
+function start(){
+
+   
+
+    for(var d=0;d<5;d++){
+        var rand=Math.floor(Math.random()*arr.length);
+    var span='<span>'+arr[rand]+'</span>';
+p.innerHTML+=span;
+lettersLength.push(span)
+}
+  
+}
+
+start()
+
+function checkAvail(){
+    var finp=inp.value.split('');
+    var ffinp=finp[finp.length-1];
+    var spans=p.querySelectorAll('span');
+
+console.log(ffinp+'='+spans[i].innerHTML)
+
+    if(ffinp==spans[i].innerHTML){
+        spans[i].classList.add('correct');
+        i++;
+       
+        if(i==lettersLength.length){
+            
+            for(var z=0;z<lettersLength.length;z++){
+spans[z].innerHTML='';
+    }
+    x++;
+
+            return start();
+        }
+    }else{
+spans[i].classList.add('incorrect');
+
+    }
+   
+}
+
+
+
+
+
+
+document.addEventListener('keydown',()=>inp.focus())
+inp.addEventListener('input',checkAvail)
+
+
+    </script>
+    
+</body>
+</html>

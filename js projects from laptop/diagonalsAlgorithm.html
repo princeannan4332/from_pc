@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+var arr=[ ['-','-','-','-','-','-','-']
+        ,['-','Y','-','-','-','-','-']
+        ,['-','-','Y','-','R','-','Y']
+        ,['-','-','-','Y','R','R','-']
+        ,['-','R','Y','R','Y','R','Y'],
+        ['R','R','R','Y','R','R','R']]
+
+var w=-1;
+var y=['Y'];
+var f=[];
+var q=0;
+var cv=false;
+
+
+//y moving right
+for(var i=arr.length-1;i>=0;i--){
+    arr[i].forEach(function(e){
+        w++;
+      
+if(y.includes(e)){
+    f.push(w)
+for(var j=i-1;j>=0;j--){
+    f[f.length-1]++;
+
+
+if(arr[j][f[f.length-1]]=='Y'){
+    q++;
+if(q==3){
+cv=true;
+}
+}
+
+}
+q=0;
+}
+
+    })
+   
+    f=[]
+    w=-1;
+}
+
+
+
+
+
+
+
+
+//y moving left
+for(var i=arr.length-1;i>=0;i--){
+    arr[i].forEach(function(e){
+        w++;
+      
+if(y.includes(e)){
+    f.push(w)
+for(var j=i-1;j>=0;j--){
+    f[f.length-1]--;
+
+
+if(arr[j][f[f.length-1]]=='Y'){
+    q++;
+if(q==3){
+cv=true;
+}
+}
+
+}
+q=0;
+}
+
+    })
+   
+    f=[]
+    w=-1;
+}
+
+
+
+
+
+
+
+
+
+
+
+if(cv==true){
+        console.log('Y')
+    }else{
+        console.log('No match')
+    }
+
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+class CaesarCipher{
+
+    constructor(shift,text){
+this.shift=shift;
+this.text=text;
+    }
+
+
+    //encode
+    encode(texte){
+        var alphabets=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        var encodedText='';
+
+        var string=texte.toLowerCase().split('');
+
+        for(let letters of string){ 
+            if(alphabets.includes(letters)){
+
+            var letterpos=alphabets.indexOf(letters)+this.shift;
+            if(letterpos>=alphabets.length){
+                var newletterpos=letterpos-alphabets.length;
+                encodedText+=alphabets[newletterpos];
+            }else{
+            encodedText+=alphabets[letterpos];
+            }
+
+            }else{
+                encodedText+=letters;
+
+            }
+
+        }
+        return encodedText.toUpperCase();
+
+    }
+
+//decode
+    decode(textd){
+        var alphabets=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        var encodedText='';
+
+        var string=textd.toLowerCase().split('');
+
+        for(let letters of string){ 
+            if(alphabets.includes(letters)){
+
+            var letterpos=alphabets.indexOf(letters)-this.shift;
+            if(letterpos<0){
+                var newletterpos=letterpos+alphabets.length;
+                encodedText+=alphabets[newletterpos];
+            }else{
+            encodedText+=alphabets[letterpos];
+            }
+
+            }else{
+                encodedText+=letters;
+
+            }
+
+        }
+        return encodedText.toUpperCase()
+
+    }
+
+
+}
+var c=new CaesarCipher(5)
+console.log(c.encode('codewars'))
+console.log(c.decode('BFKKQJX'))
+    
+    </script>
+</body>
+</html>

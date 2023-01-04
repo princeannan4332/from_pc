@@ -1,0 +1,18 @@
+upload get amazon search with curl
+password generator
+python staffs
+upload js staffs
+
+
+
+python project
+quiz game
+number guessing game
+rock,paper,scissors
+choose 
+password manager
+
+
+
+
+upload password generator,findPrimeRange,filtersearch

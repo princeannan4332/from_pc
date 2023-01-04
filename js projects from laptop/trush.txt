@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        function connectFour(arr){
+var x=0;
+
+var yellow=[]
+var red=[]
+var y=['Y'];
+var r=['R'];
+
+var ch=false;
+//Checking for diagonals
+for(var i=arr.length-1;i>=0;i--){
+arr[i].forEach(function(e){
+if(y.includes(e)){
+yellow.push(arr[i].indexOf(e))
+}
+if(r.includes(e)){
+red.push(arr[i].indexOf(e))
+}
+}
+)
+}
+console.log(yellow) 
+
+//Checking if yellow pattern is inplace
+var nn=0;
+var yellowWin=[];
+if(yellow.length==4){
+    var yy=yellow.sort(function(a,b){
+        return b-a;
+    })
+
+    for(var i=0;i<3;i++){
+    
+  nn++;
+var ab=yy[i]-yy[nn];
+yellowWin.push(ab);
+        
+    
+    }
+
+}
+
+
+//Checking if red pattern is inplace
+var vv=0;
+var redWin=[];
+if(red.length==4){
+    var rr=red.sort(function(a,b){
+        return b-a;
+    })
+    consolel.log(rr)
+    for(var i=0;i<3;i++){
+    
+  vv++;
+var ab=rr[i]-rr[vv];
+redWin.push(ab);
+        
+    
+    }
+
+}
+
+
+if(redWin.join('')=='111'){
+    console.log(yellow)
+return 'R';
+
+}
+if(yellowWin.join('')=='111'){
+  return 'Y'
+}
+
+//checking vertically
+var ss=[];
+var jd=[];
+for(var i=arr.length-1;i>=0;i--){
+var k=-1;
+var g=-1;
+arr[i].forEach(function(e){
+    k++;
+    g++;
+if(y.includes(e)){
+  
+    ss.push(k);
+}
+if(r.includes(e)){
+    jd.push(g);
+}
+}
+)
+k=-1;
+g=-1;
+
+}
+var ssj=ss.join('');
+var jdj=jd.join('');
+if(ssj=='0000' || ssj=='1111' || ssj=='2222' || ssj=='3333' || ssj=='4444' || ssj=='5555' || ssj=='6666'){
+    return 'Y'
+    ch=true;
+}
+if(jdj=='0000' || jdj=='1111' || jdj=='2222' || jdj=='3333' || jdj=='4444' || jdj=='5555' || jdj=='6666'){
+    return 'R'
+    ch=true;
+}
+
+//Checking for horizontal
+for(var i=arr.length-1;i>=0;i--){
+var jj=0;
+var dd=0;
+arr[i].forEach(function(e){
+if(y.includes(e)){
+    jj++;
+
+}
+if(r.includes(e)){
+    dd++;
+
+}
+}
+)
+if(dd==4){
+    return 'R'
+ ch=true;
+
+}
+if(jj==4){
+    return 'Y';
+    ch=true;
+  
+}
+dd=0;
+jj=0;
+}
+
+
+
+
+
+
+if(ch==false){
+    return 'Draw';
+}
+        }
+        console.log(connectFour([
+        ['-','-','-','-','-','-','-']
+        ,['-','-','-','-','-','-','-']
+        ,['-','-','-','-','Y','-','-']
+        ,['-','-','-','Y','R','-','-']
+        ,['-','R','Y','R','Y','R','Y'],
+        ['R','Y','R','Y','R','Y','R']
+]))
+
+
+
+
+    </script>
+    
+</body>
+</html>

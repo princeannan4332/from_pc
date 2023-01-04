@@ -1,0 +1,273 @@
+<html>
+<head>
+<title>Alien Shooter</title>
+<style>
+.gameBoard{
+width:540px;
+height:540px;
+border:1px solid black;
+display:flex;
+flex-wrap:wrap;
+}
+.box{
+width:50px;
+height:50px;
+border:2px solid white;
+
+
+}
+.enemy{
+background:url('enemy.png');
+background-size:cover;
+}
+.player{
+background:url('player.png');
+background-size:cover;
+}
+.fireball{
+background:url('fireball.png');
+background-size:cover;
+}
+</style>
+
+</head>
+<body>
+
+
+<div class='gameBoard'>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+<div class='box'></div>
+</div>
+<h2 id='txt'></h2>
+
+
+<script>
+var j=-1;
+var boxs=document.querySelectorAll('.box');
+var txt=document.querySelector('#txt');
+var enemies=[2,12,22,3,13,23,4,14,24,5,15,25,6,16,26,7,17,27];
+var player=95;
+
+
+var deadEnemies=[];
+//Player Configuration
+
+boxs[player].classList.add('player');
+var playerMotion=0;
+/*
+39-right
+37-left
+32--space
+*/
+var fireshot=0;
+window.addEventListener('keyup',function(event){
+
+
+if(event.keyCode==39 && playerMotion<4){
+boxs[player+playerMotion].classList.remove('player');
+playerMotion++;
+boxs[player+playerMotion].classList.add('player');
+}else{
+
+if(event.keyCode==37 && playerMotion>-5){
+boxs[player+playerMotion].classList.remove('player');
+playerMotion--;
+boxs[player+playerMotion].classList.add('player');
+}
+
+
+
+}
+
+
+if(event.keyCode==32){
+
+
+var fireTimer=setInterval(function(){
+fireshot+=10;
+if(fireshot<100){
+
+boxs.forEach(function(v){
+v.classList.remove('fireball');
+})
+
+boxs[(player+playerMotion)-fireshot].classList.add('fireball');
+
+//checking if enemy is at the fireball position
+if(boxs[(player+playerMotion)-fireshot].classList.contains('enemy')==true){
+boxs[(player+playerMotion)-fireshot].classList.remove('enemy');
+boxs[(player+playerMotion)-fireshot].classList.remove('fireball');
+enemies.splice(enemies.indexOf((player+playerMotion)-fireshot),1);
+
+if(enemies.length<=0){
+txt.innerHTML='You Win';
+clearInterval(EnemyMotions);
+}
+
+fireshot=0;
+clearInterval(fireTimer);
+}
+
+
+}else{
+boxs.forEach(function(v){
+v.classList.remove('fireball');
+})
+fireshot=0;
+clearInterval(fireTimer);
+}
+
+
+
+
+},80);
+
+
+}
+
+
+
+
+});
+
+
+
+
+enemies.forEach(function(en){
+
+boxs[en].classList.add('enemy');
+
+});
+
+
+ var enemyMoveDown=-10;
+
+function MovingEnemy(){
+boxs.forEach(function(box){
+j++;
+box.classList.remove('enemy');
+});
+enemyMoveDown+=11;
+
+enemies.forEach(function(en){
+
+
+boxs[en+enemyMoveDown].classList.add('enemy');
+
+
+if(enemyMoveDown>60){
+txt.innerHTML='You Lose';
+clearInterval(EnemyMotions);
+}
+
+
+});
+
+}
+var EnemyMotions=setInterval(MovingEnemy,2000);
+
+
+
+
+</script>
+
+</body>
+</html>

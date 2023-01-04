@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Effect</title>
+    <style>
+        .board{
+            width:100%;
+            height:100%;
+            background:radial-gradient(#11bddb,#0ef1a6);
+            position:fixed;
+            top:0;
+            left:0;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            color:white;
+            font-size:25px;
+            font-family:tahoma;
+        }
+        #h2{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+<h2 id="h1"></h2>
+<h2 id="h2"></h2>
+    </div>
+    <script>
+
+var words=['Hello Fans','Tired Of Performing Tidius Task','You Are At The Right Place','Sign Up And Get Your Startup Running In Seconds']
+var ch=true;
+var read=[]
+var p=0;
+var z=-1;
+var cc=true;
+var a=0;
+var h22='';
+var t=setInterval(function(){
+
+    var h1=document.querySelector('#h1');
+    var h2=document.querySelector('#h2');
+   
+    if(ch==true){
+for(let letters of words[p]){
+read.push(letters)
+}
+  }
+
+  if(z<read.length-1 && cc==true){
+    z++;
+    h1.style.display='block'
+h1.innerHTML+=read[z];
+    ch=false;
+ h2.style.display='none'
+a=read.length;
+
+}else{
+read=[];
+if(h1.innerHTML.length>=read.length-1){
+    h2.style.display='block'
+    h22=h1.innerHTML.slice(0,a--);
+h1.style.display='None';
+h2.textContent=h22
+    cc=false;
+    console.log(a)
+    }
+    
+    if(a==0){
+        z=-1;
+        console.log('reached')
+        h1.innerHTML=''
+        p++;
+        cc=true;
+        ch=true;
+    }
+    
+    if(p==words.length){
+        h2.innerHTML='Go!Go!';
+        clearInterval(t)
+    }
+}
+
+},300)
+        </script>
+</body>
+</html>

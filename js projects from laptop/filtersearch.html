@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Search Item" onkeyup="search()">
+    <div class="beans">
+
+    </div>
+    <script>
+function search(){
+var inp=document.querySelector('input');
+var beans=document.querySelector('.beans')
+var suggestion=['mango','orange','beans','plantain'];
+
+var ps=document.querySelectorAll('p');
+if(inp.value==''){
+
+}else{
+for(let sugg of suggestion){
+
+if(sugg.includes(inp.value.toLowerCase())){
+    var p=document.createElement('p');
+var txt=document.createTextNode(sugg);
+
+p.appendChild(txt);
+beans.appendChild(p)
+}
+    
+
+}
+
+}
+ps.forEach(function(v){
+v.style.display='none';
+})
+
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+linear algebra and its concepts
+calculus
+statistics for machine learning
+probability for machine learning
+data and its types
+matrix
+modulo

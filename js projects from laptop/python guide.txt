@@ -1,0 +1,12 @@
+strings
+numbers
+array
+classes
+ditionary(object in js)
+pathlib
+for loop
+while loop
+random
+turple
+.copy method
+try catch in python

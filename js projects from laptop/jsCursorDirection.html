@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            width:500px;
+            height:300px;
+            background:blue;
+            display:flex;
+            justify-content: center;
+            align-items:center;
+
+        }
+        section{
+            width:450px;
+            height:200px;
+            background:red;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            overflow:hidden;
+        }
+        span{
+            color:white;
+            font-size:24px;
+cursor:pointer;
+        }
+        div{
+            min-width:150px;
+            height:150px;
+            background:orange;
+            margin:5px 5px;
+            position:relative;
+            left: 600px;
+        
+        }
+    </style>
+</head>
+<body>
+
+<h2>Position:NOT YET</h2>
+    <script>
+        var oldx=0;
+       var oldy=0;
+window.addEventListener('mousemove',function(e){
+    var txt=document.querySelector('h2');
+   var curx= e.clientX;
+   var cury= e.clientY;
+   if(oldx<curx){
+    oldx=curx;
+    txt.innerHTML='Position:right';
+   }else if(oldy<cury){
+    oldy=cury;
+    txt.innerHTML='Position:down';
+   }else if(oldy>cury){
+    oldy=cury;
+    txt.innerHTML='Position:top';
+   }
+   else{
+    oldx=curx;
+    txt.innerHTML='Position:left';
+   }
+
+  
+
+})
+  
+
+    </script>
+</body>
+</html>

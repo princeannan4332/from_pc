@@ -1,0 +1,691 @@
+*{
+	margin:0;
+	font-family:trebuchet ms;
+}
+
+body{
+	background:white;
+}
+.displayboard{
+	width:70%;
+	height:50vh;
+	background:red;
+}
+.header{
+width:100%;	
+display:flex;
+background:white;
+align-items:center;
+justify-content:space-between;
+position:fixed;
+z-index:10;
+border-bottom:1px solid orange;
+}
+
+.modal{
+	width:100%;
+	height:100%;
+	position:fixed;
+	display:flex;
+	flex-direaction:row;
+	
+	}
+.signupform{
+width:50%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+.signupforms{
+width:50%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+.signupwall{
+	width:50%;
+height:100%;
+
+}
+#joinbtn{
+width:30%;
+height:15%;
+padding:10px;
+background-color: #330055;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23330055' cx='50' cy='0' r='50'/%3E%3Cg fill='%233a015d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23410165' cx='50' cy='100' r='50'/%3E%3Cg fill='%2348026e' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23500376' cx='50' cy='200' r='50'/%3E%3Cg fill='%2357047e' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%235f0587' cx='50' cy='300' r='50'/%3E%3Cg fill='%2367068f' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%236f0798' cx='50' cy='400' r='50'/%3E%3Cg fill='%237707a0' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%238008a9' cx='50' cy='500' r='50'/%3E%3Cg fill='%238909b1' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%239109ba' cx='50' cy='600' r='50'/%3E%3Cg fill='%239a09c3' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a309cb' cx='50' cy='700' r='50'/%3E%3Cg fill='%23ad09d4' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b608dc' cx='50' cy='800' r='50'/%3E%3Cg fill='%23c007e5' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c905ee' cx='50' cy='900' r='50'/%3E%3Cg fill='%23d303f6' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23D0F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: contain;
+border:none;
+float:right;
+color:white;
+cursor:pointer;
+box-shadow:1px 1px 0px 0px rgba(0,0,0,0.3);
+border-radius:2px 2px;
+outline:none;
+}
+.forms{
+background:-webkit-linear-gradient(#ff3670,purple);
+padding:20px;
+color:white;
+	border-radius:6px 6px;
+	box-shadow:0px 0px 2px 2px rgba(0,0,0,0.3);
+}
+.forms input{
+	width:230px;
+	height:50px;
+	border-left:none;
+	border-right:none;
+	border-bottom:3px solid #ff3670;
+	border-top:none;
+	outline:none;
+	border-radius:6px 6px;
+}
+
+
+
+.formx{
+background:-webkit-linear-gradient(#ff3670,purple);
+width:300px;
+height:600px;
+color:white;
+	border-radius:6px 6px;
+	box-shadow:0px 0px 2px 2px rgba(0,0,0,0.3);
+	padding:20px;
+}
+.formx input{
+	width:100%;
+	height:50px;
+	border-left:none;
+	border-right:none;
+	border-bottom:3px solid #ff3670;
+	border-top:none;
+	outline:none;
+	border-radius:6px 6px;
+}
+
+
+#signup{
+width:120px;
+height:50px;
+padding:20px;
+background:-webkit-linear-gradient(orange,orangered);
+border:none;
+float:right;
+cursor:pointer;
+box-shadow:0px 0px 2px 2px rgba(0,0,0,0.5);
+outline:none;
+}
+#show{
+	cursor:pointer;
+}
+#serror{
+	background:white;
+	color:black;
+	border-radius:2px 2px;
+}
+.signheader{
+	width:100%;
+	height:6%;
+text-align:left;
+color:orange;
+font-family:jokerman;
+padding:12px;
+font-size:32px;
+}
+.signheaderx{
+	width:90%;
+	height:60px;
+text-align:left;
+color:orange;
+font-family:jokerman;
+padding:12px;
+font-size:32px;
+}
+.signpaper{
+	width:100%;
+	height:94%;
+	background:url('signup.png')center;
+background-size:cover;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.optionswrap{
+	width:100%;
+	height:60px;
+	position:fixed;
+	bottom:0px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+.options{
+	width:40%;
+	height:60px;
+	position:fixed;
+	bottom:0px;
+	border:0.5px solid orange;
+	box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:12px 12px 0px 0px;
+	display:flex;
+	align-items:center;
+	justify-content:space-around;
+	background:white;
+}
+
+.profheader{
+	width:100%;
+	
+}
+.profheader h2{
+	padding:12px;
+	color:orange;
+	font-size:42px;
+}
+.profilewrap{
+	width:100%;
+	height:500px;
+	display:flex;
+justify-content:center;
+align-items:center;
+}
+.profile{
+	width:40%;
+	height:500px;
+	border:0.5px solid orange;
+	box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:12px 12px;
+		display:flex;
+justify-content:space-around;
+align-items:center;
+flex-direction:column;
+overflow:hidden;
+}
+.profilePic{
+	width:50%;
+	height:50%;
+	border:0.5px solid orange;
+		box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:6px 6px;
+	background:orange;
+	overflow:hidden;
+}
+.profilePic img{
+	width:100%;
+	height:100%;
+}
+.profileText{
+	width:100%;
+	height:24%;
+	text-shadow:2px 2px rgba(0,0,0,0.4);
+	display:flex;
+	justify-content:center;
+align-items:center;
+flex-direction:column;
+
+}
+.profileText h2{
+		color:black;
+	font-family:jokerman;
+	font-size:22px;
+}
+.profileButton{
+	width:100%;
+	height:10%;
+	display:flex;
+	justify-content:space-around;
+align-items:center;
+flex-direction:row;
+
+}
+.profileButton button{
+	width:70%;
+	height:80%;
+padding:10px;
+cursor:pointer;
+background:rgba(80,200,120);
+border:none;
+box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:6px 6px;
+	color:white;
+	
+	outline:none;
+}
+
+
+
+#applybtn{
+		width:20%;
+	height:80%;
+padding:10px;
+cursor:pointer;
+background:orange;
+border:none;
+box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:6px 6px;
+	color:white;
+	
+	outline:none;
+}
+
+.iconwrap{
+	width:20%;
+	height:90%;
+	border-radius:3px 3px;
+	background:orange;
+	margin-top:2px;
+	overflow:hidden;
+}
+.icon{
+	width:100%;
+	height:70%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-size:20px;
+	background:white;
+}
+.iconalt{
+	width:100%;
+	height:30%;
+	color:white;
+		display:flex;
+	justify-content:center;
+align-items:center;
+background:orange;
+}
+
+.searchInput{
+	width:100%;
+	height:100px;
+		display:flex;
+	justify-content:center;
+align-items:center;
+}
+.searchInput input{
+	width:60%;
+	height:30px;
+	padding:9px;
+	box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:6px 6px;
+	color:orange;
+	border:none;
+	outline:none;
+	margin-right:6px;
+}
+.searchInput button{
+	width:20%;
+	height:50%;
+padding:10px;
+cursor:pointer;
+background:rgba(80,200,120);
+border:none;
+box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:6px 6px;
+	color:white;
+	
+	outline:none;
+	
+}
+.searchResults{
+	width:100%;
+	height:400px;
+	display:flex;
+	justify-content:center;
+align-items:center;
+flex-direction:column;
+	overflow-y:scroll;
+}
+
+.searchbox{
+	width:90%;
+	height:100px;
+	margin-top:10px;
+	box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:6px 6px;
+	border:1px solid #ff3670;
+	overflow:hidden;
+	background:white;
+}
+
+.searchpic{
+	width:30%;
+	height:100%;
+	background:orange;
+	float:left;
+	border-right:1px solid #ff3670;
+	
+}
+.searchpic img{
+	width:100%;
+	height:100%;
+}
+.searchTxt{
+	width:69%;
+	height:100%;
+	float:left;
+	display:flex;
+		justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+.searchTxt p{
+	font-size:20px;
+}
+.searchTxt button{
+		width:80%;
+	height:50%;
+padding:10px;
+cursor:pointer;
+background:#ff3670;
+border:none;
+box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:6px 6px;
+	color:white;
+	
+	outline:none;
+}
+
+.friendsContainer{
+width:100%;
+min-height:10vh;
+
+	display:flex;
+		justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+
+
+
+.friendbox{
+	width:48%;
+	height:100px;
+	margin-top:10px;
+	box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:6px 6px;
+	border:1px solid #ff3670;
+	overflow:hidden;
+	background:white;
+}
+
+.friendpic{
+	width:30%;
+	height:100%;
+	background:orange;
+	float:left;
+	border-right:1px solid orange;
+	
+}
+.friendpic img{
+	width:100%;
+	height:100%;
+}
+.friendTxt{
+	width:69%;
+	height:100%;
+	float:left;
+	display:flex;
+		justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+.friendTxt p{
+	font-size:20px;
+}
+#addFriend{
+width:200px;
+padding:20px;
+cursor:pointer;
+background:radial-gradient(orange,orangered);
+border:none;
+box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:6px 6px;
+	color:white;
+	outline:none;
+	text-decoration:none;
+	text-align:center;
+}
+
+
+.chatwall{
+	width:100%;
+	height:100%;
+	position:fixed;
+	background:url('chatwall.jpg')fixed center;
+	background-size:cover;
+}
+.header{
+	width:100%;
+	height:10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.header h2{
+	color:white;
+	font-family:jokerman;
+	margin:6px 6px;
+	font-size:32px;
+}
+.header a{
+	color:white;
+	text-decoration:none;
+	margin:2px 10px;
+}
+.chatbody{
+	width:100%;
+	height:90%;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.chatbox{
+	width:30%;
+	height:94%;
+	background:rgba(0,0,0,0.8);
+	border-radius:20px 20px;
+	overflow:hidden;
+}
+.chatheader{
+	width:100%;
+	height:10%;
+	background:white;
+}
+.chatheader h2{
+	color:orange;
+	font-family:jokerman;
+	text-align:center;
+	
+}
+.chatcontent{
+	width:100%;
+	height:75%;
+overflow-y:scroll;
+}
+.chatinpbtn{
+	width:100%;
+	height:15%;
+	display:flex;
+	justify-content:space-around;
+	align-items:center;
+}
+.chatinpbtn input{
+	width:75%;
+	height:50%;
+	border:none;
+	border-radius:5px 5px;
+	outline:none;
+}
+.chatinpbtn button{
+	width:15%;
+	height:50%;
+	background:orange;
+	color:white;
+	border:none;
+	font-size:29px;
+	border-radius:4px 4px;
+	outline:none;
+	cursor:pointer;
+}
+.chatmessageReciever{
+	max-width:125px;
+	min-height:20px;
+	display:table;
+	padding:5px;
+	background:blue;
+	margin:10px 10px;
+	border-radius:10px 10px;
+	color:white;
+	float:left;
+}
+.chatmessageSender{
+	max-width:125px;
+	min-height:20px;
+	display:table;
+	padding:5px;
+	background:#ff3670;
+	margin:10px 10px;
+	border-radius:20px 20px;
+	color:white;
+	float:right;
+	margin-top:45px;
+	border-radius:10px 10px;
+}
+
+
+
+
+
+
+#glowmessage{
+	animation:2s  glow infinite;
+}
+
+@keyframes glow{
+	from{
+	box-shadow:0px 0px 6px 6px #ff3670;	
+	}to{
+		
+		box-shadow:0px 0px 6px 6px greenyellow;	
+	}
+	
+}
+
+
+#topglow{
+		animation:2s  tglow infinite;
+}
+
+
+@keyframes tglow{
+	from{
+	box-shadow:0px 0px 6px 6px #ff3670;	
+	}to{
+		
+		box-shadow:0px 0px 6px 6px greenyellow;	
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:900px){
+	.formx{
+		width:77%;
+	}
+	.formx input{
+	width:100%;	
+	}
+	
+	.searchTxt button{
+		height:30%;
+	}
+	.profilebox{
+		width:97%;
+	}
+	.signupwall{
+		display:none;
+	}
+	.signupform{
+		width:100%;
+			background:url('signup.png')left;
+background-size:cover;
+	}
+	.signupforms{
+		width:100%;
+			background:url('log.png')left;
+background-size:cover;
+	}
+	.profilewrap{
+	width:100%;
+	height:450px;
+	display:flex;
+justify-content:center;
+align-items:center;
+}
+	.profile{
+	width:100%;
+	height:500px;
+	border:0px solid white;
+	box-shadow:0px 0px 0px 0px white;
+	border-radius:0px 0px;
+	
+	}
+	.empty{
+		width:100%;
+		height:200px;
+	}
+.options{
+	width:100%;
+	height:70px;
+	position:fixed;
+	bottom:0px;
+	border:0.5px solid orange;
+	box-shadow:0px 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius:12px 12px 0px 0px;
+	
+}
+
+.profilePic{
+	width:80%;
+	height:70%;
+}
+.profileButton button{
+height:50px;
+}
+#applybtn{
+	height:50px;
+}
+.searchbox{
+	height:160px;
+}
+.friendbox{
+	width:90%;
+	height:150px;
+}
+.friendTxt button{
+height:50px;
+}
+.chatbox{
+	width:90%;	
+	}
+}

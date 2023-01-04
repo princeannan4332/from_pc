@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master</title>
+</head>
+<body>
+<h1></h1>
+    <input type="text" placeholder="Keys" id="inp">
+    
+<script>
+var inp=document.getElementById("inp");
+var p=document.querySelector('h1')
+var newarr=[];
+var arr=['Max','Blade','Jack','Man']
+var x=0;
+var i=0;
+p.innerHTML=arr[x];
+inp.addEventListener('keyup',function(e){
+    var p=document.querySelector('h1')
+    p.innerHTML=arr[x].slice(0,i)+arr[x][i]+arr[x].slice(i+1);
+
+    var inps=document.getElementById("inp");
+var val=inps.value.split('')
+    newarr=[]
+    for(let letters of arr[x]){
+        newarr.push(letters)
+    }
+  
+  
+  
+
+
+    if(newarr.length==i){
+    if(e.keyCode==32){
+    x++;
+    i=0;
+    p.innerHTML=arr[x];
+    inp.value=''
+   console.log(arr[x])
+    }else{
+        p.innerHTML=arr[x];
+        i=newarr.length;
+    }
+}
+
+if(val[val.length-1]==newarr[i]){
+i++;
+p.innerHTML=arr[x].slice(0,i-1)+'<span style="color:yellow;">'+arr[x][i-1]+'</span>'+arr[x].slice(i);
+console.log('yes');
+console.log(arr[x][i-1])
+
+}
+else{
+if(i-1<0){
+    p.innerHTML='<span style="color:red;">'+arr[x][i]+'</span>'+arr[x].slice(i+1);
+}else{
+    p.innerHTML=arr[x].slice(0,i-1)+'<span style="color:red;">'+arr[x][i-1]+'</span>'+arr[x].slice(i);
+}
+}
+
+
+if(e.keyCode==32){
+
+    p.innerHTML=arr[x];
+}
+
+})
+
+
+    </script>
+    
+</body>
+</html>
